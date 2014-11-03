@@ -43,6 +43,10 @@
 		D4CFB48F1A07D140002AC497 /* GPSRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CFB4941A07D140002AC497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4CFB4951A07D140002AC497 /* GPSRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPSRecorderTests.m; sourceTree = "<group>"; };
+		D4CFB4B21A07E4DA002AC497 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		D4CFB4B31A07E4DB002AC497 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D4CFB4B51A07E4F0002AC497 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D4CFB4B71A07E4F6002AC497 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +275,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4CFB4841A07D140002AC497 /* Base */,
+				D4CFB4B21A07E4DA002AC497 /* zh-Hans */,
+				D4CFB4B51A07E4F0002AC497 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -279,6 +285,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4CFB4891A07D140002AC497 /* Base */,
+				D4CFB4B31A07E4DB002AC497 /* zh-Hans */,
+				D4CFB4B71A07E4F6002AC497 /* en */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -435,6 +443,7 @@
 				D4CFB49B1A07D140002AC497 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4CFB49C1A07D140002AC497 /* Build configuration list for PBXNativeTarget "GPSRecorderTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +452,7 @@
 				D4CFB49E1A07D140002AC497 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
