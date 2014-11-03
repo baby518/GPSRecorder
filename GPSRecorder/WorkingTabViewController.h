@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  FirstViewController.h
 //  GPSRecorder
 //
 //  Created by zhangchao on 14/11/3.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface WorkingTabViewController : UIViewController
 
 
 @end

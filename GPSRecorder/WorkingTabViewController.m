@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 zhangchao. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "WorkingTabViewController.h"
 
-@interface FirstViewController ()
+@interface WorkingTabViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation WorkingTabViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

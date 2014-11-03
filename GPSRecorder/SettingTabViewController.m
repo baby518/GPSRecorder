@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 zhangchao. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "SettingTabViewController.h"
 
-@interface SecondViewController ()
+@interface SettingTabViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation SettingTabViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
