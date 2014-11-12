@@ -1,18 +1,30 @@
 
-/* Class = "IBUILabel"; text = "Loaded by FirstViewController"; ObjectID = "A5M-7J-77L"; */
-"A5M-7J-77L.text" = "Loaded by FirstViewController";
+/* Class = "IBUINavigationItem"; title = "working"; ObjectID = "vIe-vP-ATR"; */
+"vIe-vP-ATR.title" = "首页";
+
+/* Class = "IBUINavigationItem"; title = "List"; ObjectID = "792-NF-1RA"; */
+"792-NF-1RA.title" = "纪录";
+
+/* Class = "IBUINavigationItem"; title = "Setting"; ObjectID = "15c-73-9n1"; */
+"15c-73-9n1.title" = "设置";
 
 /* Class = "IBUILabel"; text = "First View"; ObjectID = "KQZ-1w-vlD"; */
-"KQZ-1w-vlD.text" = "First View";
+"KQZ-1w-vlD.text" = "第一个视图";
+
+/* Class = "IBUILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "第二个视图";
+
+/* Class = "IBUILabel"; text = "Loaded by FirstViewController"; ObjectID = "A5M-7J-77L"; */
+"A5M-7J-77L.text" = "Loaded by FirstViewController";
 
 /* Class = "IBUILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
 "NDk-cv-Gan.text" = "Loaded by SecondViewController";
 
 /* Class = "IBUITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "First";
+"acW-dT-cKf.title" = "首页";
 
-/* Class = "IBUITabBarItem"; title = "Second"; ObjectID = "cPa-gy-q4n"; */
-"cPa-gy-q4n.title" = "Second";
+/* Class = "IBUITabBarItem"; title = "Item"; ObjectID = "SLT-fO-SHe"; */
+"SLT-fO-SHe.title" = "纪录";
 
-/* Class = "IBUILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
-"zEq-FU-wV5.text" = "Second View";
+/* Class = "IBUITabBarItem"; title = "Second"; ObjectID = "tIV-F8-5Am"; */
+"tIV-F8-5Am.title" = "设置";
