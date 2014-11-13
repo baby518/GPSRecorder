@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--working-->
+        <!--Main-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="WorkingTabViewController" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="Main" customClass="WorkingTabViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -38,7 +38,7 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="working" id="vIe-vP-ATR"/>
+                    <navigationItem key="navigationItem" title="Main" id="vIe-vP-ATR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,10 +104,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--List-->
+        <!--Record List-->
         <scene sceneID="kHY-r5-CN6">
             <objects>
-                <tableViewController id="UMZ-G2-lTx" sceneMemberID="viewController">
+                <tableViewController id="UMZ-G2-lTx" userLabel="Record List" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oFA-sN-Kwo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,7 @@
                             <outlet property="delegate" destination="UMZ-G2-lTx" id="ndm-hT-YgE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List" id="792-NF-1RA"/>
+                    <navigationItem key="navigationItem" title="Record List" id="792-NF-1RA" userLabel="Record List"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lwV-io-BGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -169,11 +169,11 @@
             </objects>
             <point key="canvasLocation" x="1401" y="833"/>
         </scene>
-        <!--Item-->
+        <!--Record List-->
         <scene sceneID="lvZ-qa-9un">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xSN-wj-H4w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="second" id="SLT-fO-SHe"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xSN-wj-H4w" userLabel="Record List" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Record List" image="second" id="SLT-fO-SHe" userLabel="Record List"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SLd-g5-UH4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
