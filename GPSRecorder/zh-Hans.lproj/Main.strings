@@ -15,10 +15,10 @@
 "zEq-FU-wV5.text" = "第二个视图";
 
 /* Class = "IBUILabel"; text = "Loaded by FirstViewController"; ObjectID = "A5M-7J-77L"; */
-"A5M-7J-77L.text" = "Loaded by FirstViewController";
+"A5M-7J-77L.text" = "首页 视图";
 
 /* Class = "IBUILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
-"NDk-cv-Gan.text" = "Loaded by SecondViewController";
+"NDk-cv-Gan.text" = "纪录 视图";
 
 /* Class = "IBUITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
 "acW-dT-cKf.title" = "首页";
