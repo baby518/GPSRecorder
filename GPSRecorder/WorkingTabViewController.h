@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface WorkingTabViewController : UIViewController
+@property (weak, nonatomic) IBOutlet MKMapView *mTrackMapView;
 
 
 @end
