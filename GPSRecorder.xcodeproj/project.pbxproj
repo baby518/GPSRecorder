@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4CB206E1A164A4A00A93E9D /* Localizable.strings */; };
 		D4CFB4791A07D140002AC497 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB4781A07D140002AC497 /* main.m */; };
 		D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB47B1A07D140002AC497 /* AppDelegate.m */; };
 		D4CFB47F1A07D140002AC497 /* WorkingTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB47E1A07D140002AC497 /* WorkingTabViewController.m */; };
@@ -30,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		D47183FD1A093A7B00E5CDED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D4CB206D1A164A4A00A93E9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D4CB206F1A164A4D00A93E9D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D4CB20701A164A4E00A93E9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4CFB4731A07D140002AC497 /* GPSRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CFB4771A07D140002AC497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4CFB4781A07D140002AC497 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,6 +74,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4CB20711A164A6500A93E9D /* Res */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB20731A164A9100A93E9D /* drawable */,
+				D4CB20721A164A8300A93E9D /* value */,
+			);
+			name = Res;
+			sourceTree = "<group>";
+		};
+		D4CB20721A164A8300A93E9D /* value */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB206E1A164A4A00A93E9D /* Localizable.strings */,
+			);
+			name = value;
+			sourceTree = "<group>";
+		};
+		D4CB20731A164A9100A93E9D /* drawable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = drawable;
+			sourceTree = "<group>";
+		};
 		D4CFB46A1A07D140002AC497 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +120,7 @@
 		D4CFB4751A07D140002AC497 /* GPSRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				D4CB20711A164A6500A93E9D /* Res */,
 				D4CFB47A1A07D140002AC497 /* AppDelegate.h */,
 				D4CFB47B1A07D140002AC497 /* AppDelegate.m */,
 				D4CFB47D1A07D140002AC497 /* WorkingTabViewController.h */,
@@ -196,6 +225,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = D4CFB46A1A07D140002AC497;
 			productRefGroup = D4CFB4741A07D140002AC497 /* Products */;
@@ -214,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4CFB4851A07D140002AC497 /* Main.storyboard in Resources */,
+				D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */,
 				D4CFB48A1A07D140002AC497 /* LaunchScreen.xib in Resources */,
 				D4CFB4871A07D140002AC497 /* Images.xcassets in Resources */,
 			);
@@ -275,6 +306,17 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D4CB206E1A164A4A00A93E9D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4CB206D1A164A4A00A93E9D /* en */,
+				D4CB206F1A164A4D00A93E9D /* zh-Hans */,
+				D4CB20701A164A4E00A93E9D /* Base */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D4CFB4831A07D140002AC497 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

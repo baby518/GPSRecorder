@@ -28,3 +28,9 @@
 
 /* Class = "IBUITabBarItem"; title = "Second"; ObjectID = "tIV-F8-5Am"; */
 "tIV-F8-5Am.title" = "设置";
+
+/* Class = "IBUISegmentedControl"; q4G-J3-Ske.segmentTitles[0] = "Simple"; ObjectID = "q4G-J3-Ske"; */
+"q4G-J3-Ske.segmentTitles[0]" = "简洁模式";
+
+/* Class = "IBUISegmentedControl"; q4G-J3-Ske.segmentTitles[1] = "Map"; ObjectID = "q4G-J3-Ske"; */
+"q4G-J3-Ske.segmentTitles[1]" = "地图模式";

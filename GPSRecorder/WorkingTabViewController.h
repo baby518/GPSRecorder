@@ -11,7 +11,7 @@
 
 @interface WorkingTabViewController : UIViewController
 @property (weak, nonatomic) IBOutlet MKMapView *mTrackMapView;
-
+@property (weak, nonatomic) IBOutlet UISegmentedControl *mSegmentedControl;
 
 @end
 
