@@ -138,7 +138,7 @@
         <!--Main-->
         <scene sceneID="GB4-ep-IsB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0wA-7t-DbI" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0wA-7t-DbI" userLabel="Main" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Main" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MH5-q3-kQb">
@@ -157,7 +157,7 @@
         <!--Setting-->
         <scene sceneID="f9P-Nf-nn6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L1I-MN-X7G" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L1I-MN-X7G" userLabel="Setting" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Setting" image="second" id="tIV-F8-5Am"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Md5-jE-fIM">
