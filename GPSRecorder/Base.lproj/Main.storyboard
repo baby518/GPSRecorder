@@ -135,11 +135,11 @@
             </objects>
             <point key="canvasLocation" x="563" y="821"/>
         </scene>
-        <!--First-->
+        <!--Main-->
         <scene sceneID="GB4-ep-IsB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0wA-7t-DbI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MH5-q3-kQb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -154,11 +154,11 @@
             </objects>
             <point key="canvasLocation" x="-841" y="821"/>
         </scene>
-        <!--Second-->
+        <!--Setting-->
         <scene sceneID="f9P-Nf-nn6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L1I-MN-X7G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="tIV-F8-5Am"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="second" id="tIV-F8-5Am"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Md5-jE-fIM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
