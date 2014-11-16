@@ -22,7 +22,7 @@
     _mTrackMapView.showsUserLocation = YES;
     _mTrackMapView.delegate = self;
 
-    self.locationManager = [[CLLocationManager alloc] init];
+//    self.locationManager = [[CLLocationManager alloc] init];
 
     //Trying to start MapKit location updates without prompting for location authorization. Must call -[CLLocationManager requestWhenInUseAuthorization] or -[CLLocationManager requestAlwaysAuthorization] first.
 
