@@ -17,29 +17,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    [_mTrackMapView setMapType:MKMapTypeStandard];
-    _mTrackMapView.showsUserLocation = YES;
-//    _mTrackMapView.delegate = self;
-    
-//    CLLocationCoordinate2D theCoordinate;
-//    theCoordinate.latitude=21.238928;
-//    theCoordinate.longitude=113.313353;
-//    
-//    MKCoordinateSpan theSpan;
-//    theSpan.latitudeDelta=0.1;
-//    theSpan.longitudeDelta=0.1;
-//    
-//    MKCoordinateRegion theRegion;
-//    theRegion.center=theCoordinate;
-//    theRegion.span=theSpan;
-//    
-//    [_mTrackMapView setRegion:theRegion];
+
+    //获取storyboard: 通过bundle根据storyboard的名字来获取我们的storyboard,
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    //由storyboard根据myView的storyBoardID来获取我们要切换的视图
+    mSimpleViewControler = [story instantiateViewControllerWithIdentifier:@"simpleViewControler"];
+    mMapViewControler = [story instantiateViewControllerWithIdentifier:@"mapViewControler"];
+
+    [self.view addSubview:mSimpleViewControler.view];
+    [self.view addSubview:mMapViewControler.view];
+
+    mSimpleViewControler.view.hidden = NO;
+    mMapViewControler.view.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)segmentChangedValue:(UISegmentedControl *)sender {
+    int index = [sender selectedSegmentIndex];
+    NSLog(@"segmentChangedValue %d", index);
+    
+    switch (index) {
+        case 0:
+            mSimpleViewControler.view.hidden = NO;
+            mMapViewControler.view.hidden = YES;
+            break;
+        case 1:
+            mSimpleViewControler.view.hidden = YES;
+            mMapViewControler.view.hidden = NO;
+            break;
+        default:
+            break;
+    }
 }
 
 @end

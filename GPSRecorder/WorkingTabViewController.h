@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
-@interface WorkingTabViewController : UIViewController
-@property (weak, nonatomic) IBOutlet MKMapView *mTrackMapView;
+@interface WorkingTabViewController : UIViewController {
+    UIViewController *mSimpleViewControler;
+    UIViewController *mMapViewControler;
+}
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mSegmentedControl;
+- (IBAction)segmentChangedValue:(UISegmentedControl *)sender;
 
 @end
 
