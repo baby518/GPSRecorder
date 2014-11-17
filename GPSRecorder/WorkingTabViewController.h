@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "MapViewController.h"
 
-@interface WorkingTabViewController : UIViewController {
-    UIViewController *mSimpleViewControler;
-    UIViewController *mMapViewControler;
+@interface WorkingTabViewController : UIViewController <CLLocationManagerDelegate> {
 }
+
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mSegmentedControl;
+@property(nonatomic, retain) CLLocationManager *locationManager;
+@property(nonatomic, retain) UIViewController *mSimpleViewControler;
+@property(nonatomic, retain) MapViewController *mMapViewControler;
+
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender;
 
 @end

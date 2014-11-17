@@ -18,27 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    _mTrackMapView.delegate = self;
     [_mTrackMapView setMapType:MKMapTypeStandard];
     _mTrackMapView.showsUserLocation = YES;
-    _mTrackMapView.delegate = self;
-
-//    self.locationManager = [[CLLocationManager alloc] init];
-
-    //Trying to start MapKit location updates without prompting for location authorization. Must call -[CLLocationManager requestWhenInUseAuthorization] or -[CLLocationManager requestAlwaysAuthorization] first.
-
-//    CLLocationCoordinate2D theCoordinate;
-//    theCoordinate.latitude=21.238928;
-//    theCoordinate.longitude=113.313353;
-//
-//    MKCoordinateSpan theSpan;
-//    theSpan.latitudeDelta=0.1;
-//    theSpan.longitudeDelta=0.1;
-//
-//    MKCoordinateRegion theRegion;
-//    theRegion.center=theCoordinate;
-//    theRegion.span=theSpan;
-//
-//    [_mTrackMapView setRegion:theRegion];
+    _mTrackMapView.userTrackingMode = MKUserTrackingModeFollow;
+    [_mTrackMapView setZoomEnabled:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +41,9 @@
 */
 
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    [theMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
+    [_mTrackMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:YES];
 }
 
 @end
