@@ -34,3 +34,12 @@
 
 /* Class = "IBUISegmentedControl"; q4G-J3-Ske.segmentTitles[1] = "Map"; ObjectID = "q4G-J3-Ske"; */
 "q4G-J3-Ske.segmentTitles[1]" = "地图模式";
+
+/* Class = "IBUILabel"; text = "Altitude"; ObjectID = "agf-dQ-3KS"; */
+"agf-dQ-3KS.text" = "海拔";
+
+/* Class = "IBUILabel"; text = "Latitude"; ObjectID = "gUN-Ye-N2k"; */
+"gUN-Ye-N2k.text" = "纬度";
+
+/* Class = "IBUILabel"; text = "Longitude"; ObjectID = "hVs-sc-seD"; */
+"hVs-sc-seD.text" = "经度";

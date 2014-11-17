@@ -65,5 +65,12 @@
            fromLocation:(CLLocation *)oldLocation {
 //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 800, 800);
 //    [_mMapViewControler.mTrackMapView setRegion:[_mMapViewControler.mTrackMapView regionThatFits:region] animated:YES];
+    //refresh SimpleView
+    [_mSimpleViewControler didUpdateToLocation:newLocation fromLocation:oldLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error{
+    NSLog(@"didFailWithError");
 }
 @end

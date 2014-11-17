@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4CB206E1A164A4A00A93E9D /* Localizable.strings */; };
 		D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB20751A165BD000A93E9D /* MapViewController.m */; };
+		D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */; };
 		D4CFB4791A07D140002AC497 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB4781A07D140002AC497 /* main.m */; };
 		D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB47B1A07D140002AC497 /* AppDelegate.m */; };
 		D4CFB47F1A07D140002AC497 /* WorkingTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB47E1A07D140002AC497 /* WorkingTabViewController.m */; };
@@ -37,6 +38,8 @@
 		D4CB20701A164A4E00A93E9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4CB20741A165BD000A93E9D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		D4CB20751A165BD000A93E9D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleViewController.h; sourceTree = "<group>"; };
+		D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleViewController.m; sourceTree = "<group>"; };
 		D4CFB4731A07D140002AC497 /* GPSRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4CFB4771A07D140002AC497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4CFB4781A07D140002AC497 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				D4CFB4811A07D140002AC497 /* SettingTabViewController.m */,
 				D4CB20741A165BD000A93E9D /* MapViewController.h */,
 				D4CB20751A165BD000A93E9D /* MapViewController.m */,
+				D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */,
+				D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */,
 				D4CFB4831A07D140002AC497 /* Main.storyboard */,
 				D4CFB4861A07D140002AC497 /* Images.xcassets */,
 				D4CFB4881A07D140002AC497 /* LaunchScreen.xib */,
@@ -289,6 +294,7 @@
 				D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */,
 				D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */,
 				D4CFB47F1A07D140002AC497 /* WorkingTabViewController.m in Sources */,
+				D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */,
 				D4CFB4791A07D140002AC497 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
