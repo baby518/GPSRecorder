@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D48266741A1B84DC002BFC2E /* gpx-parser-function in Resources */ = {isa = PBXBuildFile; fileRef = D48266731A1B84DC002BFC2E /* gpx-parser-function */; };
+		D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */; };
 		D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4CB206E1A164A4A00A93E9D /* Localizable.strings */; };
 		D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB20751A165BD000A93E9D /* MapViewController.m */; };
 		D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		D47183FD1A093A7B00E5CDED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D48266731A1B84DC002BFC2E /* gpx-parser-function */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "gpx-parser-function"; sourceTree = "<group>"; };
+		D48266781A1BAAA9002BFC2E /* LocalTrackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTrackTableViewController.h; sourceTree = "<group>"; };
+		D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTrackTableViewController.m; sourceTree = "<group>"; };
 		D4CB206D1A164A4A00A93E9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4CB206F1A164A4D00A93E9D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D4CB20701A164A4E00A93E9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				D4CFB47E1A07D140002AC497 /* WorkingTabViewController.m */,
 				D4CFB4801A07D140002AC497 /* SettingTabViewController.h */,
 				D4CFB4811A07D140002AC497 /* SettingTabViewController.m */,
+				D48266781A1BAAA9002BFC2E /* LocalTrackTableViewController.h */,
+				D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */,
 				D4CB20741A165BD000A93E9D /* MapViewController.h */,
 				D4CB20751A165BD000A93E9D /* MapViewController.m */,
 				D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */,
@@ -296,6 +301,7 @@
 			files = (
 				D4CFB4821A07D140002AC497 /* SettingTabViewController.m in Sources */,
 				D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */,
+				D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */,
 				D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */,
 				D4CFB47F1A07D140002AC497 /* WorkingTabViewController.m in Sources */,
 				D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */,
