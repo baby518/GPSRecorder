@@ -39,8 +39,10 @@
     double lat = newLocation.coordinate.latitude;
     double lon = newLocation.coordinate.longitude;
     double alt = newLocation.altitude;
+    double speed = newLocation.speed;
     [_mLatitudeTextField setText:[NSString stringWithFormat:@"%.3f", lat]];
     [_mLongitudeTextField setText:[NSString stringWithFormat:@"%.3f", lon]];
-    [_mAltitudeTextField setText:[NSString stringWithFormat:@"%.3f", alt]];
+    [_mAltitudeTextField setText:[NSString stringWithFormat:@"%.3f m", alt]];
+    [_mSpeedTextField setText:[NSString stringWithFormat:@"%.3f m/s", speed]];
 }
 @end

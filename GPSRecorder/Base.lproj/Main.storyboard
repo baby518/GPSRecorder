@@ -87,6 +87,20 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Agt-8R-9on">
+                                <rect key="frame" x="25" y="266" width="93" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label=""/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Tpc-Vu-4FT">
+                                <rect key="frame" x="155" y="264" width="139" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -96,6 +110,7 @@
                         <outlet property="mAltitudeTextField" destination="u9a-jJ-Dxq" id="eVq-pu-cQi"/>
                         <outlet property="mLatitudeTextField" destination="0pw-LD-8Uh" id="TdC-GW-Ld0"/>
                         <outlet property="mLongitudeTextField" destination="51U-aN-QWt" id="dhO-AX-Dic"/>
+                        <outlet property="mSpeedTextField" destination="Tpc-Vu-4FT" id="H3e-yL-hfy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9O7-jV-k0a" userLabel="First Responder" sceneMemberID="firstResponder"/>

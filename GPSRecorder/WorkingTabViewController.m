@@ -31,6 +31,8 @@
     _mMapViewControler.view.hidden = YES;
 
     _locationManager = [[CLLocationManager alloc] init];
+    _locationManager.distanceFilter = 5;//the minimum update distance in meters.
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     _locationManager.delegate = self;
     // requestAlwaysAuthorization or requestWhenInUseAuthorization in IOS 8;
     [_locationManager requestAlwaysAuthorization];

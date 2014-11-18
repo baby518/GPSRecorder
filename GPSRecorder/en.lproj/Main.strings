@@ -43,3 +43,6 @@
 
 /* Class = "IBUILabel"; text = "Longitude"; ObjectID = "hVs-sc-seD"; */
 "hVs-sc-seD.text" = "Longitude";
+
+/* Class = "IBUILabel"; text = "Speed"; ObjectID = "Agt-8R-9on"; */
+"Agt-8R-9on.text" = "Speed";
