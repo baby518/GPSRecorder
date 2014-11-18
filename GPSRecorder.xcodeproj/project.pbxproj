@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D48266741A1B84DC002BFC2E /* gpx-parser-function in Resources */ = {isa = PBXBuildFile; fileRef = D48266731A1B84DC002BFC2E /* gpx-parser-function */; };
 		D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4CB206E1A164A4A00A93E9D /* Localizable.strings */; };
 		D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB20751A165BD000A93E9D /* MapViewController.m */; };
 		D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		D47183FD1A093A7B00E5CDED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D48266731A1B84DC002BFC2E /* gpx-parser-function */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "gpx-parser-function"; sourceTree = "<group>"; };
 		D4CB206D1A164A4A00A93E9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4CB206F1A164A4D00A93E9D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D4CB20701A164A4E00A93E9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		D4CFB4751A07D140002AC497 /* GPSRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				D48266731A1B84DC002BFC2E /* gpx-parser-function */,
 				D4CB20711A164A6500A93E9D /* Res */,
 				D4CFB47A1A07D140002AC497 /* AppDelegate.h */,
 				D4CFB47B1A07D140002AC497 /* AppDelegate.m */,
@@ -255,6 +258,7 @@
 			files = (
 				D4CFB4851A07D140002AC497 /* Main.storyboard in Resources */,
 				D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */,
+				D48266741A1B84DC002BFC2E /* gpx-parser-function in Resources */,
 				D4CFB48A1A07D140002AC497 /* LaunchScreen.xib in Resources */,
 				D4CFB4871A07D140002AC497 /* Images.xcassets in Resources */,
 			);
