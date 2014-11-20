@@ -10,6 +10,6 @@
 
 @interface LocalTrackTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *mLocalTrackTableView;
-@property (strong, nonatomic) NSMutableArray *gpxs;
+@property (strong, nonatomic) NSMutableArray *trackFiles;
 
 @end

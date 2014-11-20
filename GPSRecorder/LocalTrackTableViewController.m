@@ -24,23 +24,21 @@
     
     _mLocalTrackTableView.delegate = self;
     _mLocalTrackTableView.dataSource = self;
-    self.gpxs = [@[] mutableCopy];
-    
+    _trackFiles = [NSMutableArray array];
+
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // enumerate all GPX files in Documents directory of application
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *dirPath = paths[0];
-        NSArray *filepaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
-        NSLog(@"zczc filepaths : %@", filepaths);
-        for (NSString *path in filepaths) {
+        // Documents directory
+        NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSArray *filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDir error:nil];
+        for (NSString *path in filePaths) {
             if ([path hasSuffix:@".gpx"]) {
-                NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", dirPath, path]];
-                [self.gpxs addObject:url];
+                NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", documentsDir, path]];
+                [_trackFiles addObject:url];
             }
         }
         
         // sort our paths
-        [self.gpxs sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        [_trackFiles sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
             NSURL *url1 = (NSURL*)obj1;
             NSURL *url2 = (NSURL*)obj2;
             return [[url1 absoluteString] compare:[url2 absoluteString]] == NSOrderedAscending;
@@ -48,7 +46,7 @@
         
         // call back on main thread
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.mLocalTrackTableView reloadData];
+            [_mLocalTrackTableView reloadData];
         });
     });
     
@@ -68,7 +66,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.gpxs.count;
+    return _trackFiles.count;
 }
 
 
@@ -78,7 +76,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    NSURL *gpxURL = self.gpxs[indexPath.row];
+    NSURL *gpxURL = _trackFiles[indexPath.row];
     cell.textLabel.text = [gpxURL lastPathComponent];
     return cell;
 }
