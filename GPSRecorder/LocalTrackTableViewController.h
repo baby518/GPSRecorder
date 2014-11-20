@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FileHelper.h"
 
 @interface LocalTrackTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *mLocalTrackTableView;

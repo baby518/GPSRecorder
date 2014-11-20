@@ -28,7 +28,7 @@
 
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Documents directory
-        NSString *documentsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        NSString *documentsDir = [FileHelper getDocumentsDirectory];
         NSArray *filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDir error:nil];
         for (NSString *path in filePaths) {
             if ([path hasSuffix:@".gpx"]) {
