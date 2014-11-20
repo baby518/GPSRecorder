@@ -17,6 +17,7 @@
 		D4CB48F21A1E553A0000B4BE /* TrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48EB1A1E553A0000B4BE /* TrackPoint.m */; };
 		D4CB48F31A1E553A0000B4BE /* TrackSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48ED1A1E553A0000B4BE /* TrackSegment.m */; };
 		D4CB48F51A1E55D40000B4BE /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CB48F41A1E55D40000B4BE /* libxml2.dylib */; };
+		D4CB48F91A1E57630000B4BE /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48F81A1E57630000B4BE /* FileHelper.m */; };
 		D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */; };
 		D4CFB4791A07D140002AC497 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB4781A07D140002AC497 /* main.m */; };
 		D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB47B1A07D140002AC497 /* AppDelegate.m */; };
@@ -62,6 +63,8 @@
 		D4CB48EC1A1E553A0000B4BE /* TrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSegment.h; sourceTree = "<group>"; };
 		D4CB48ED1A1E553A0000B4BE /* TrackSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackSegment.m; sourceTree = "<group>"; };
 		D4CB48F41A1E55D40000B4BE /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		D4CB48F71A1E57630000B4BE /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		D4CB48F81A1E57630000B4BE /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
 		D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleViewController.h; sourceTree = "<group>"; };
 		D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleViewController.m; sourceTree = "<group>"; };
 		D4CFB4731A07D140002AC497 /* GPSRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +152,15 @@
 			path = "gpx-parser-function";
 			sourceTree = "<group>";
 		};
+		D4CB48F61A1E57630000B4BE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB48F71A1E57630000B4BE /* FileHelper.h */,
+				D4CB48F81A1E57630000B4BE /* FileHelper.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		D4CFB46A1A07D140002AC497 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +184,7 @@
 		D4CFB4751A07D140002AC497 /* GPSRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				D4CB48F61A1E57630000B4BE /* Helpers */,
 				D4CB48E01A1E553A0000B4BE /* gpx-parser-function */,
 				D4CB20711A164A6500A93E9D /* Res */,
 				D4CFB47A1A07D140002AC497 /* AppDelegate.h */,
@@ -350,6 +363,7 @@
 				D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */,
 				D4CFB47F1A07D140002AC497 /* WorkingTabViewController.m in Sources */,
 				D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */,
+				D4CB48F91A1E57630000B4BE /* FileHelper.m in Sources */,
 				D4CB48EF1A1E553A0000B4BE /* GPXParser.m in Sources */,
 				D4CFB4791A07D140002AC497 /* main.m in Sources */,
 			);
