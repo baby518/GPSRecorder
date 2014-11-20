@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D48266741A1B84DC002BFC2E /* gpx-parser-function in Resources */ = {isa = PBXBuildFile; fileRef = D48266731A1B84DC002BFC2E /* gpx-parser-function */; };
 		D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */; };
 		D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4CB206E1A164A4A00A93E9D /* Localizable.strings */; };
 		D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB20751A165BD000A93E9D /* MapViewController.m */; };
+		D4CB48EE1A1E553A0000B4BE /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48E21A1E553A0000B4BE /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4CB48EF1A1E553A0000B4BE /* GPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48E51A1E553A0000B4BE /* GPXParser.m */; };
+		D4CB48F01A1E553A0000B4BE /* GPXSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48E71A1E553A0000B4BE /* GPXSchema.m */; };
+		D4CB48F11A1E553A0000B4BE /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48E91A1E553A0000B4BE /* Track.m */; };
+		D4CB48F21A1E553A0000B4BE /* TrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48EB1A1E553A0000B4BE /* TrackPoint.m */; };
+		D4CB48F31A1E553A0000B4BE /* TrackSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48ED1A1E553A0000B4BE /* TrackSegment.m */; };
+		D4CB48F51A1E55D40000B4BE /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CB48F41A1E55D40000B4BE /* libxml2.dylib */; };
 		D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */; };
 		D4CFB4791A07D140002AC497 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB4781A07D140002AC497 /* main.m */; };
 		D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB47B1A07D140002AC497 /* AppDelegate.m */; };
@@ -35,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		D47183FD1A093A7B00E5CDED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		D48266731A1B84DC002BFC2E /* gpx-parser-function */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "gpx-parser-function"; sourceTree = "<group>"; };
 		D48266781A1BAAA9002BFC2E /* LocalTrackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTrackTableViewController.h; sourceTree = "<group>"; };
 		D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTrackTableViewController.m; sourceTree = "<group>"; };
 		D4CB206D1A164A4A00A93E9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -43,6 +48,20 @@
 		D4CB20701A164A4E00A93E9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D4CB20741A165BD000A93E9D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		D4CB20751A165BD000A93E9D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		D4CB48E11A1E553A0000B4BE /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		D4CB48E21A1E553A0000B4BE /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		D4CB48E31A1E553A0000B4BE /* GPXLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXLog.h; sourceTree = "<group>"; };
+		D4CB48E41A1E553A0000B4BE /* GPXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXParser.h; sourceTree = "<group>"; };
+		D4CB48E51A1E553A0000B4BE /* GPXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXParser.m; sourceTree = "<group>"; };
+		D4CB48E61A1E553A0000B4BE /* GPXSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXSchema.h; sourceTree = "<group>"; };
+		D4CB48E71A1E553A0000B4BE /* GPXSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXSchema.m; sourceTree = "<group>"; };
+		D4CB48E81A1E553A0000B4BE /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		D4CB48E91A1E553A0000B4BE /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		D4CB48EA1A1E553A0000B4BE /* TrackPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackPoint.h; sourceTree = "<group>"; };
+		D4CB48EB1A1E553A0000B4BE /* TrackPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPoint.m; sourceTree = "<group>"; };
+		D4CB48EC1A1E553A0000B4BE /* TrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSegment.h; sourceTree = "<group>"; };
+		D4CB48ED1A1E553A0000B4BE /* TrackSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackSegment.m; sourceTree = "<group>"; };
+		D4CB48F41A1E55D40000B4BE /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleViewController.h; sourceTree = "<group>"; };
 		D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleViewController.m; sourceTree = "<group>"; };
 		D4CFB4731A07D140002AC497 /* GPSRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4CB48F51A1E55D40000B4BE /* libxml2.dylib in Frameworks */,
 				D4D21D761A1516180053B3EF /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,9 +129,30 @@
 			name = drawable;
 			sourceTree = "<group>";
 		};
+		D4CB48E01A1E553A0000B4BE /* gpx-parser-function */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB48E11A1E553A0000B4BE /* GDataXMLNode.h */,
+				D4CB48E21A1E553A0000B4BE /* GDataXMLNode.m */,
+				D4CB48E31A1E553A0000B4BE /* GPXLog.h */,
+				D4CB48E41A1E553A0000B4BE /* GPXParser.h */,
+				D4CB48E51A1E553A0000B4BE /* GPXParser.m */,
+				D4CB48E61A1E553A0000B4BE /* GPXSchema.h */,
+				D4CB48E71A1E553A0000B4BE /* GPXSchema.m */,
+				D4CB48E81A1E553A0000B4BE /* Track.h */,
+				D4CB48E91A1E553A0000B4BE /* Track.m */,
+				D4CB48EA1A1E553A0000B4BE /* TrackPoint.h */,
+				D4CB48EB1A1E553A0000B4BE /* TrackPoint.m */,
+				D4CB48EC1A1E553A0000B4BE /* TrackSegment.h */,
+				D4CB48ED1A1E553A0000B4BE /* TrackSegment.m */,
+			);
+			path = "gpx-parser-function";
+			sourceTree = "<group>";
+		};
 		D4CFB46A1A07D140002AC497 = {
 			isa = PBXGroup;
 			children = (
+				D4CB48F41A1E55D40000B4BE /* libxml2.dylib */,
 				D4D21D751A1516180053B3EF /* MapKit.framework */,
 				D4CFB4751A07D140002AC497 /* GPSRecorder */,
 				D4CFB4921A07D140002AC497 /* GPSRecorderTests */,
@@ -131,7 +172,7 @@
 		D4CFB4751A07D140002AC497 /* GPSRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				D48266731A1B84DC002BFC2E /* gpx-parser-function */,
+				D4CB48E01A1E553A0000B4BE /* gpx-parser-function */,
 				D4CB20711A164A6500A93E9D /* Res */,
 				D4CFB47A1A07D140002AC497 /* AppDelegate.h */,
 				D4CFB47B1A07D140002AC497 /* AppDelegate.m */,
@@ -263,7 +304,6 @@
 			files = (
 				D4CFB4851A07D140002AC497 /* Main.storyboard in Resources */,
 				D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */,
-				D48266741A1B84DC002BFC2E /* gpx-parser-function in Resources */,
 				D4CFB48A1A07D140002AC497 /* LaunchScreen.xib in Resources */,
 				D4CFB4871A07D140002AC497 /* Images.xcassets in Resources */,
 			);
@@ -299,12 +339,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4CB48F01A1E553A0000B4BE /* GPXSchema.m in Sources */,
 				D4CFB4821A07D140002AC497 /* SettingTabViewController.m in Sources */,
+				D4CB48EE1A1E553A0000B4BE /* GDataXMLNode.m in Sources */,
+				D4CB48F11A1E553A0000B4BE /* Track.m in Sources */,
+				D4CB48F31A1E553A0000B4BE /* TrackSegment.m in Sources */,
 				D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */,
 				D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */,
+				D4CB48F21A1E553A0000B4BE /* TrackPoint.m in Sources */,
 				D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */,
 				D4CFB47F1A07D140002AC497 /* WorkingTabViewController.m in Sources */,
 				D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */,
+				D4CB48EF1A1E553A0000B4BE /* GPXParser.m in Sources */,
 				D4CFB4791A07D140002AC497 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,9 +443,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -433,8 +485,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lxml2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
