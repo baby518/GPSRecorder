@@ -29,27 +29,15 @@
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Documents directory
         NSString *documentsDir = [FileHelper getDocumentsDirectory];
-        NSArray *filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDir error:nil];
-        for (NSString *path in filePaths) {
-            if ([path hasSuffix:@".gpx"]) {
-                NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", documentsDir, path]];
-                [_trackFiles addObject:url];
-            }
-        }
-        
-        // sort our paths
-        [_trackFiles sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            NSURL *url1 = (NSURL*)obj1;
-            NSURL *url2 = (NSURL*)obj2;
-            return [[url1 absoluteString] compare:[url2 absoluteString]] == NSOrderedAscending;
-        }];
-        
+        NSArray *filesArray = [FileHelper getFilesListInDirectory:documentsDir filterSuffix:@".gpx"];
+
+        [_trackFiles addObjectsFromArray:filesArray];
+
         // call back on main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             [_mLocalTrackTableView reloadData];
         });
     });
-    
 }
 
 - (void)didReceiveMemoryWarning {

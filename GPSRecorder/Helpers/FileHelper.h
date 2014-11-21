@@ -9,4 +9,6 @@
 }
 
 + (NSString *) getDocumentsDirectory;
++ (NSArray *) getFilesListInDirectory:(NSString *)directory;
++ (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix;
 @end

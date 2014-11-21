@@ -14,4 +14,31 @@
     NSString *documentsDir = paths[0];
     return documentsDir;
 }
+
++ (NSArray *) getFilesListInDirectory:(NSString *)directory {
+    return [self getFilesListInDirectory:directory filterSuffix:@".*"];
+}
+
++ (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix {
+    NSMutableArray *result = [NSMutableArray array];
+    NSArray *filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:nil];
+    for (NSString *path in filePaths) {
+        if ([path hasSuffix:suffix] || [suffix isEqualToString:@".*"]) {
+            NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", directory, path]];
+            [result addObject:url];
+        }
+    }
+    // sort elements, default is ASC.
+    [result sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSComparisonResult result = [[(NSURL*)obj1 absoluteString] compare:[(NSURL*)obj2 absoluteString]];
+        if (result == NSOrderedAscending) {
+            return NSOrderedAscending;
+        } else if (result == NSOrderedDescending) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
+    return result;
+}
 @end
