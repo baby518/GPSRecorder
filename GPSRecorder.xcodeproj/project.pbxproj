@@ -108,6 +108,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D47C75BB1A1FA771009D01EE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFB47D1A07D140002AC497 /* WorkingTabViewController.h */,
+				D4CFB47E1A07D140002AC497 /* WorkingTabViewController.m */,
+				D4CFB4801A07D140002AC497 /* SettingTabViewController.h */,
+				D4CFB4811A07D140002AC497 /* SettingTabViewController.m */,
+				D48266781A1BAAA9002BFC2E /* LocalTrackTableViewController.h */,
+				D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */,
+				D4CB20741A165BD000A93E9D /* MapViewController.h */,
+				D4CB20751A165BD000A93E9D /* MapViewController.m */,
+				D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */,
+				D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		D4CB20711A164A6500A93E9D /* Res */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,18 +204,9 @@
 				D4CB48F61A1E57630000B4BE /* Helpers */,
 				D4CB48E01A1E553A0000B4BE /* gpx-parser-function */,
 				D4CB20711A164A6500A93E9D /* Res */,
+				D47C75BB1A1FA771009D01EE /* ViewController */,
 				D4CFB47A1A07D140002AC497 /* AppDelegate.h */,
 				D4CFB47B1A07D140002AC497 /* AppDelegate.m */,
-				D4CFB47D1A07D140002AC497 /* WorkingTabViewController.h */,
-				D4CFB47E1A07D140002AC497 /* WorkingTabViewController.m */,
-				D4CFB4801A07D140002AC497 /* SettingTabViewController.h */,
-				D4CFB4811A07D140002AC497 /* SettingTabViewController.m */,
-				D48266781A1BAAA9002BFC2E /* LocalTrackTableViewController.h */,
-				D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */,
-				D4CB20741A165BD000A93E9D /* MapViewController.h */,
-				D4CB20751A165BD000A93E9D /* MapViewController.m */,
-				D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */,
-				D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */,
 				D4CFB4831A07D140002AC497 /* Main.storyboard */,
 				D4CFB4861A07D140002AC497 /* Images.xcassets */,
 				D4CFB4881A07D140002AC497 /* LaunchScreen.xib */,
