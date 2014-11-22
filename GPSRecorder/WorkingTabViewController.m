@@ -46,8 +46,8 @@
 }
 
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender {
-    int index = [sender selectedSegmentIndex];
-    NSLog(@"segmentChangedValue %d", index);
+    long index = [sender selectedSegmentIndex];
+    NSLog(@"segmentChangedValue %ld", index);
     
     switch (index) {
         case 0:

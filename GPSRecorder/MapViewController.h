@@ -12,4 +12,10 @@
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mTrackMapView;
 
+/** show gpx file's track OR show user's track in real time.
+*   default is true. */
+@property (nonatomic, assign) bool isRealTimeMode;
+@property (strong, nonatomic) MKPolyline *routeLine;
+@property (strong, nonatomic) MKPolylineView * routeLineView;
+
 @end
