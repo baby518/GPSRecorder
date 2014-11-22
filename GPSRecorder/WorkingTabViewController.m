@@ -23,6 +23,7 @@
     //由storyboard根据myView的storyBoardID来获取我们要切换的视图
     _mSimpleViewControler = [story instantiateViewControllerWithIdentifier:@"simpleViewControler"];
     _mMapViewControler = [story instantiateViewControllerWithIdentifier:@"mapViewControler"];
+    _mMapViewControler.isRealTimeMode = true;
 
     [self.view addSubview:_mSimpleViewControler.view];
     [self.view addSubview:_mMapViewControler.view];

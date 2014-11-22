@@ -64,11 +64,24 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    NSURL *gpxURL = _trackFiles[indexPath.row];
-    cell.textLabel.text = [gpxURL lastPathComponent];
+    NSURL *fileURL = _trackFiles[indexPath.row];
+    cell.textLabel.text = [fileURL lastPathComponent];
     return cell;
 }
 
+#pragma mark UITableViewDelegate
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    MapViewController *mapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewControler"];
+
+    NSURL *fileURL = _trackFiles[indexPath.row];
+    NSArray *array = [[fileURL lastPathComponent] componentsSeparatedByString:@"."];
+
+    mapViewController.title = array[0];
+    mapViewController.isRealTimeMode = false;
+    [self.navigationController pushViewController:mapViewController animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

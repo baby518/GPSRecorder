@@ -18,7 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    _isRealTimeMode = true;
     _mTrackMapView.delegate = self;
     [_mTrackMapView setMapType:MKMapTypeStandard];
     _mTrackMapView.showsUserLocation = YES;

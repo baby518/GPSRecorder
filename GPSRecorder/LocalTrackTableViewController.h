@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FileHelper.h"
+#import "MapViewController.h"
 
 @interface LocalTrackTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *mLocalTrackTableView;
