@@ -48,8 +48,7 @@
 
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender {
     long index = [sender selectedSegmentIndex];
-    NSLog(@"segmentChangedValue %ld", index);
-    
+
     switch (index) {
         case 0:
             _mSimpleViewControler.view.hidden = NO;

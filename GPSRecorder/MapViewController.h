@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
-@property (weak, nonatomic) IBOutlet MKMapView *mTrackMapView;
+@property (strong, nonatomic) IBOutlet MKMapView *mTrackMapView;
 
 /** show gpx file's track OR show user's track in real time.
 *   default is true. */

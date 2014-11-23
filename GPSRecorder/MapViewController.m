@@ -18,25 +18,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    _mTrackMapView.delegate = self;
+    NSLog(@"viewDidLoad isRealTimeMode : %d", _isRealTimeMode);
+    if (_isRealTimeMode) {
+        _mTrackMapView.delegate = self;
+        _mTrackMapView.showsUserLocation = YES;
+        _mTrackMapView.userTrackingMode = MKUserTrackingModeFollow;
+    }
     [_mTrackMapView setMapType:MKMapTypeStandard];
-    _mTrackMapView.showsUserLocation = YES;
-    _mTrackMapView.userTrackingMode = MKUserTrackingModeFollow;
     [_mTrackMapView setZoomEnabled:YES];
 
-    CLLocationCoordinate2D coord1 = CLLocationCoordinate2DMake(31.203, 121.6231);
-    CLLocationCoordinate2D coord2 = CLLocationCoordinate2DMake(31.204, 121.6232);
-
-    // create a c array of points.
-    MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * 2);
-
-    MKMapPoint points1 = MKMapPointForCoordinate(coord1);
-    MKMapPoint points2 = MKMapPointForCoordinate(coord2);
-    pointArr[0] = points1;
-    pointArr[1] = points2;
-    _routeLine = [MKPolyline polylineWithPoints:pointArr count:2];
-
-    [_mTrackMapView addOverlay:_routeLine];
+//    CLLocationCoordinate2D coord1 = CLLocationCoordinate2DMake(31.203, 121.6231);
+//    CLLocationCoordinate2D coord2 = CLLocationCoordinate2DMake(31.204, 121.6232);
+//
+//    // create a c array of points.
+//    MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * 2);
+//
+//    MKMapPoint points1 = MKMapPointForCoordinate(coord1);
+//    MKMapPoint points2 = MKMapPointForCoordinate(coord2);
+//    pointArr[0] = points1;
+//    pointArr[1] = points2;
+//    _routeLine = [MKPolyline polylineWithPoints:pointArr count:2];
+//
+//    [_mTrackMapView addOverlay:_routeLine];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,9 +58,9 @@
 */
 
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
-    [_mTrackMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
-    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:YES];
+//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
+//    [_mTrackMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+//    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:YES];
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay {
