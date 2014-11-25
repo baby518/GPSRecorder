@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "GPXParser.h"
 
-@interface MapViewController : UIViewController <MKMapViewDelegate>
+@interface MapViewController : UIViewController <MKMapViewDelegate, GPXParserDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mTrackMapView;
 
+@property (strong, nonatomic) NSData *gpxData;
 /** show gpx file's track OR show user's track in real time.
 *   default is true. */
 @property (nonatomic, assign) bool isRealTimeMode;

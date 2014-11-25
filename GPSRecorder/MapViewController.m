@@ -27,6 +27,13 @@
     [_mTrackMapView setMapType:MKMapTypeStandard];
     [_mTrackMapView setZoomEnabled:YES];
 
+    if (_gpxData != nil) {
+        GPXParser *gpxParser = [[GPXParser alloc] initWithData:_gpxData];
+        gpxParser.delegate = self;
+//        gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
+        [gpxParser parserAllElements];
+    }
+
 //    CLLocationCoordinate2D coord1 = CLLocationCoordinate2DMake(31.203, 121.6231);
 //    CLLocationCoordinate2D coord2 = CLLocationCoordinate2DMake(31.204, 121.6232);
 //
@@ -78,4 +85,35 @@
 
     return overlayView;
 }
+
+#pragma mark - GPXParser
+
+- (void)rootCreatorDidParser:(NSString *)creator {
+    NSLog(@"rootCreatorDidParser from GPXParserDelegate. %@", creator);
+}
+
+- (void)rootVersionDidParser:(NSString *)version {
+    NSLog(@"rootVersionDidParser from GPXParserDelegate. %@", version);
+}
+
+- (void)onErrorWhenParser:(int)errorCode {
+    NSLog(@"onErrorWhenParser from GPXParserDelegate, errorCode : %d", errorCode);
+}
+
+- (void)onPercentageOfParser:(double)percentage {
+    NSLog(@"onPercentOfParser from GPXParserDelegate, percentage : %f", percentage);
+}
+
+- (void)trackPointDidParser:(TrackPoint *)trackPoint {
+}
+
+- (void)trackSegmentDidParser:(TrackSegment *)segment {
+}
+
+- (void)trackDidParser:(Track *)track {
+}
+
+- (void)allTracksDidParser:(NSArray *)tracks {
+}
+
 @end

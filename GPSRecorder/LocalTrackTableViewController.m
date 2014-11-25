@@ -45,6 +45,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSData *)loadDataFromURL:(NSURL *)fileURL {
+    NSData *data = [NSData dataWithContentsOfURL:fileURL];
+    if (data == nil) {
+        NSLog(@"loadDataFromURL data is NULL !!!");
+    }
+    return data;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -76,9 +84,14 @@
     MapViewController *mapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewControler"];
 
     NSURL *fileURL = _trackFiles[indexPath.row];
-    NSArray *array = [[fileURL lastPathComponent] componentsSeparatedByString:@"."];
+    NSArray *fileName = [[fileURL lastPathComponent] componentsSeparatedByString:@"."];
 
-    mapViewController.title = array[0];
+    NSData *data = [self loadDataFromURL:fileURL];
+    if (data != nil) {
+        mapViewController.gpxData = data;
+    }
+
+    mapViewController.title = fileName[0];
     mapViewController.isRealTimeMode = false;
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
