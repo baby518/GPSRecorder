@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *mTrackMapView;
 
 @property (strong, nonatomic) NSData *gpxData;
+@property (strong, nonatomic, readonly) GPXParser *gpxParser;
 /** show gpx file's track OR show user's track in real time.
 *   default is true. */
 @property (nonatomic, assign) bool isRealTimeMode;

@@ -28,10 +28,10 @@
     [_mTrackMapView setZoomEnabled:YES];
 
     if (_gpxData != nil) {
-        GPXParser *gpxParser = [[GPXParser alloc] initWithData:_gpxData];
-        gpxParser.delegate = self;
-//        gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
-        [gpxParser parserAllElements];
+        _gpxParser = [[GPXParser alloc] initWithData:_gpxData];
+        _gpxParser.delegate = self;
+        _gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
+        [_gpxParser parserAllElements];
     }
 
 //    CLLocationCoordinate2D coord1 = CLLocationCoordinate2DMake(31.203, 121.6231);
@@ -47,6 +47,11 @@
 //    _routeLine = [MKPolyline polylineWithPoints:pointArr count:2];
 //
 //    [_mTrackMapView addOverlay:_routeLine];
+}
+
+- (void)dealloc {
+    NSLog(@"MapViewController dealloc");
+    [_gpxParser stopParser];
 }
 
 - (void)didReceiveMemoryWarning {
