@@ -27,6 +27,7 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
 - (id)initWithData:(NSData *)data {
     self = [super self];
     if (self) {
+        _isNeedCancel = false;
         unsigned long size = [data length];
         LOGD(@"initWithData size : %lu Byte, %lu KB", size, size / 1024);
         mXMLData = data;
@@ -38,6 +39,11 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
         _callbackMode = PARSER_CALLBACK_MODE_DEFAULT;
     }
     return self;
+}
+
+- (void)stopParser {
+    _isNeedCancel = true;
+    _delegate = nil;
 }
 
 - (void)parserRouteElements:(GDataXMLElement *)rootElement {
@@ -109,6 +115,8 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
                 curPercentage = curPercentage + trkptStep;
                 //发送当前进度
                 [self postPercentageOfParser:curPercentage];
+                // cancel it when need.
+                if (_isNeedCancel) break;
             }
             //发送当前TrackSegment
             if (_callbackMode == PARSER_CALLBACK_MODE_ALL)
@@ -120,6 +128,8 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
                 curPercentage = curPercentage + trksegStep;
                 [self postPercentageOfParser:curPercentage];
             }
+            // cancel it when need.
+            if (_isNeedCancel) break;
         }
         //发送当前Track
         if (_callbackMode == PARSER_CALLBACK_MODE_ALL)
@@ -132,10 +142,17 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
             curPercentage = curPercentage + tracksStep;
             [self postPercentageOfParser:curPercentage];
         }
+        // cancel it when need.
+        if (_isNeedCancel) break;
     }
     if (_callbackMode == PARSER_CALLBACK_MODE_ALL || _callbackMode == PARSER_CALLBACK_MODE_JUST_RESULT)
         [self postAllTracksOfParser:mAllTracks];
-    [self postPercentageOfParser:100.0];
+
+    if (_isNeedCancel) {
+        // maybe post some state??
+    } else {
+        [self postPercentageOfParser:100.0];
+    }
 }
 - (void)postPercentageOfParser:(double)percentage {
     if (percentage < 0.0) percentage = 0.0;

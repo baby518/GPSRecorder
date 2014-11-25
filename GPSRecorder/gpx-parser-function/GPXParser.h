@@ -57,6 +57,7 @@ extern int const PARSER_CALLBACK_MODE_JUST_RESULT;
 
 @property (nonatomic, assign) id <GPXParserDelegate> delegate;
 @property (nonatomic, assign) int callbackMode;
+@property (nonatomic, assign, readonly) bool isNeedCancel;
 
 - (id)initWithData:(NSData *)data;
 - (void)parserAllElements;
@@ -68,4 +69,5 @@ extern int const PARSER_CALLBACK_MODE_JUST_RESULT;
 - (void)postTrackOfParser:(Track *)track;
 - (void)postAllTracksOfParser:(NSArray *)tracks;
 
+- (void)stopParser;
 @end
