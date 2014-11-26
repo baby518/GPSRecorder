@@ -27,26 +27,15 @@
     [_mTrackMapView setMapType:MKMapTypeStandard];
     [_mTrackMapView setZoomEnabled:YES];
 
+    _countOfPoints = 0;
+    _currentTrackPoints = [NSMutableArray array];
+
     if (_gpxData != nil) {
         _gpxParser = [[GPXParser alloc] initWithData:_gpxData];
         _gpxParser.delegate = self;
         _gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
         [_gpxParser parserAllElements];
     }
-
-//    CLLocationCoordinate2D coord1 = CLLocationCoordinate2DMake(31.203, 121.6231);
-//    CLLocationCoordinate2D coord2 = CLLocationCoordinate2DMake(31.204, 121.6232);
-//
-//    // create a c array of points.
-//    MKMapPoint* pointArr = malloc(sizeof(CLLocationCoordinate2D) * 2);
-//
-//    MKMapPoint points1 = MKMapPointForCoordinate(coord1);
-//    MKMapPoint points2 = MKMapPointForCoordinate(coord2);
-//    pointArr[0] = points1;
-//    pointArr[1] = points2;
-//    _routeLine = [MKPolyline polylineWithPoints:pointArr count:2];
-//
-//    [_mTrackMapView addOverlay:_routeLine];
 }
 
 - (void)dealloc {
@@ -119,6 +108,39 @@
 }
 
 - (void)allTracksDidParser:(NSArray *)tracks {
+    _countOfPoints = 0;
+    for (Track *track in tracks) {
+        _countOfPoints += track.countOfPoints;
+        for (TrackSegment *segment in [track trackSegments]) {
+            for (TrackPoint *point in [segment trackPoints]) {
+                [_currentTrackPoints addObject:point];
+            }
+        }
+    }
+
+    // create a c array of points.
+    MKMapPoint *pointArray = malloc(sizeof(CLLocationCoordinate2D) * _countOfPoints);
+    for (int i = 0; i < _countOfPoints; i++) {
+        TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:i];
+        CLLocation *location = trackPoint.location;
+        CLLocationCoordinate2D coord = location.coordinate;
+        MKMapPoint mapPoint = MKMapPointForCoordinate(coord);
+        pointArray[i] = mapPoint;
+    }
+
+    _routeLine = [MKPolyline polylineWithPoints:pointArray count:_countOfPoints];
+    [_mTrackMapView addOverlay:_routeLine];
+
+//    CLLocationCoordinate2D coord1 = CLLocationCoordinate2DMake(31.203, 121.6231);
+//    CLLocationCoordinate2D coord2 = CLLocationCoordinate2DMake(31.204, 121.6232);
+//    MKMapPoint *pointArray = malloc(sizeof(CLLocationCoordinate2D) * 2);
+//    MKMapPoint mapPoint1 = MKMapPointForCoordinate(coord1);
+//    MKMapPoint mapPoint2 = MKMapPointForCoordinate(coord2);
+//    pointArray[0] = mapPoint1;
+//    pointArray[1] = mapPoint2;
+//    _routeLine = [MKPolyline polylineWithPoints:pointArray count:2];
+//    [_mTrackMapView addOverlay:_routeLine];
 }
+
 
 @end
