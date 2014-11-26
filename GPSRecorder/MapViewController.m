@@ -19,8 +19,8 @@
     // Do any additional setup after loading the view.
 
     NSLog(@"viewDidLoad isRealTimeMode : %d", _isRealTimeMode);
+    _mTrackMapView.delegate = self;
     if (_isRealTimeMode) {
-        _mTrackMapView.delegate = self;
         _mTrackMapView.showsUserLocation = YES;
         _mTrackMapView.userTrackingMode = MKUserTrackingModeFollow;
     }
@@ -57,6 +57,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - MKMapViewDelegate
 
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation{
 //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
@@ -130,16 +132,6 @@
 
     _routeLine = [MKPolyline polylineWithPoints:pointArray count:_countOfPoints];
     [_mTrackMapView addOverlay:_routeLine];
-
-//    CLLocationCoordinate2D coord1 = CLLocationCoordinate2DMake(31.203, 121.6231);
-//    CLLocationCoordinate2D coord2 = CLLocationCoordinate2DMake(31.204, 121.6232);
-//    MKMapPoint *pointArray = malloc(sizeof(CLLocationCoordinate2D) * 2);
-//    MKMapPoint mapPoint1 = MKMapPointForCoordinate(coord1);
-//    MKMapPoint mapPoint2 = MKMapPointForCoordinate(coord2);
-//    pointArray[0] = mapPoint1;
-//    pointArray[1] = mapPoint2;
-//    _routeLine = [MKPolyline polylineWithPoints:pointArray count:2];
-//    [_mTrackMapView addOverlay:_routeLine];
 }
 
 
