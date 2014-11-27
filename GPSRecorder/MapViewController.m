@@ -103,7 +103,7 @@
 }
 
 - (void)onPercentageOfParser:(double)percentage {
-    NSLog(@"onPercentOfParser from GPXParserDelegate, percentage : %f", percentage);
+//    NSLog(@"onPercentOfParser from GPXParserDelegate, percentage : %f", percentage);
 }
 
 - (void)trackPointDidParser:(TrackPoint *)trackPoint {
@@ -127,9 +127,14 @@
         }
     }
 
+    // use first point to set center of map.
     TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:0];
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(trackPoint.location.coordinate, 1000, 1000);
-    [_mTrackMapView setCenterCoordinate:trackPoint.location.coordinate animated:NO];
+    CLLocationCoordinate2D coord = trackPoint.location.coordinate;
+    // convert WGS to GCJ
+    CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];
+
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordGCJ, 1000, 1000);
+    [_mTrackMapView setCenterCoordinate:coordGCJ animated:NO];
     [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:NO];
 
     // create a c array of points.
