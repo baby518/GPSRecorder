@@ -21,7 +21,10 @@
     NSLog(@"viewDidLoad isRealTimeMode : %d", _isRealTimeMode);
     _mTrackMapView.delegate = self;
     if (_isRealTimeMode) {
-        _mTrackMapView.showsUserLocation = YES;
+        // I want use CLLocationManager to update it. so don't set it;
+//        _mTrackMapView.showsUserLocation = YES;
+        // if set userTrackingMode is MKUserTrackingModeFollow,
+        // it will show user's blue point always and auto resize it ...
         _mTrackMapView.userTrackingMode = MKUserTrackingModeFollow;
     }
     [_mTrackMapView setMapType:MKMapTypeStandard];
@@ -60,10 +63,13 @@
 
 #pragma mark - MKMapViewDelegate
 
+/** this Location is based on GCJ-02 if the map is chinese GaoDeMap. */
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation{
 //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
 //    [_mTrackMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
 //    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:YES];
+    NSLog(@"didUpdateUserLocation from theMapView : %.6f, %.6f",
+            userLocation.coordinate.longitude, userLocation.coordinate.latitude);
 }
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay {

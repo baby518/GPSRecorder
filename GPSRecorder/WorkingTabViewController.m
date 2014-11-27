@@ -63,9 +63,13 @@
     }
 }
 
+/** this Location is based on WGS84, different from TrackMapView.
+*   we must convert to GCJ-02 if want show it on the chinese map.
+*   so just save it to GPX, use TrackMapView to show track. */
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
 //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 800, 800);
+//    [_mMapViewControler.mTrackMapView setCenterCoordinate:newLocation.coordinate animated:YES];
 //    [_mMapViewControler.mTrackMapView setRegion:[_mMapViewControler.mTrackMapView regionThatFits:region] animated:YES];
     //refresh SimpleView
     [_mSimpleViewControler didUpdateToLocation:newLocation fromLocation:oldLocation];
