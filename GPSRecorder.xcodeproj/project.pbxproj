@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8E2BB234B7ABB2592EEDBDA /* GPSLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E2B552D11ED541D4A1FA54 /* GPSLocationHelper.m */; };
 		D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */; };
 		D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4CB206E1A164A4A00A93E9D /* Localizable.strings */; };
 		D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB20751A165BD000A93E9D /* MapViewController.m */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8E2B552D11ED541D4A1FA54 /* GPSLocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSLocationHelper.m; sourceTree = "<group>"; };
+		A8E2B883F624B20AB1883068 /* GPSLocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSLocationHelper.h; sourceTree = "<group>"; };
 		D47183FD1A093A7B00E5CDED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		D48266781A1BAAA9002BFC2E /* LocalTrackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTrackTableViewController.h; sourceTree = "<group>"; };
 		D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTrackTableViewController.m; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 			children = (
 				D4CB48F71A1E57630000B4BE /* FileHelper.h */,
 				D4CB48F81A1E57630000B4BE /* FileHelper.m */,
+				A8E2B552D11ED541D4A1FA54 /* GPSLocationHelper.m */,
+				A8E2B883F624B20AB1883068 /* GPSLocationHelper.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				D4CB48F91A1E57630000B4BE /* FileHelper.m in Sources */,
 				D4CB48EF1A1E553A0000B4BE /* GPXParser.m in Sources */,
 				D4CFB4791A07D140002AC497 /* main.m in Sources */,
+				A8E2BB234B7ABB2592EEDBDA /* GPSLocationHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

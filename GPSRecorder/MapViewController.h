@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "GPXParser.h"
+#import "GPSLocationHelper.h"
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, GPXParserDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mTrackMapView;

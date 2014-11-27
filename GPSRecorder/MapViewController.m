@@ -116,6 +116,7 @@
 }
 
 - (void)allTracksDidParser:(NSArray *)tracks {
+    // get All points in the tracks.
     _countOfPoints = 0;
     for (Track *track in tracks) {
         _countOfPoints += track.countOfPoints;
@@ -132,7 +133,10 @@
         TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:i];
         CLLocation *location = trackPoint.location;
         CLLocationCoordinate2D coord = location.coordinate;
-        MKMapPoint mapPoint = MKMapPointForCoordinate(coord);
+
+        // convert WGS to GCJ
+        CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];
+        MKMapPoint mapPoint = MKMapPointForCoordinate(coordGCJ);
         pointArray[i] = mapPoint;
     }
 
