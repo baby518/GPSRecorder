@@ -127,6 +127,11 @@
         }
     }
 
+    TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:0];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(trackPoint.location.coordinate, 1000, 1000);
+    [_mTrackMapView setCenterCoordinate:trackPoint.location.coordinate animated:NO];
+    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:NO];
+
     // create a c array of points.
     MKMapPoint *pointArray = malloc(sizeof(CLLocationCoordinate2D) * _countOfPoints);
     for (int i = 0; i < _countOfPoints; i++) {
