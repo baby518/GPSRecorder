@@ -9,6 +9,13 @@ NSString * const ROOT_NAME                          = @"gpx";
 NSString * const ATTRIBUTE_ROOT_CREATOR             = @"creator";
 NSString * const ATTRIBUTE_ROOT_VERSION             = @"version";
 
+NSString * const ELEMENT_METADATA                   = @"metadata";
+NSString * const ELEMENT_METADATA_BOUNDS            = @"bounds";
+NSString * const ELEMENT_METADATA_BOUNDS_MAXLNG     = @"maxLng";
+NSString * const ELEMENT_METADATA_BOUNDS_MAXLAT     = @"maxLat";
+NSString * const ELEMENT_METADATA_BOUNDS_MINLNG     = @"minLng";
+NSString * const ELEMENT_METADATA_BOUNDS_MINLAT     = @"minLat";
+
 NSString * const ELEMENT_ROUTE                      = @"rte";
 NSString * const ELEMENT_ROUTE_NUM                  = @"number";
 NSString * const ELEMENT_ROUTE_POINT                = @"rtept";

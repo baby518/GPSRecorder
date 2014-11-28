@@ -10,6 +10,13 @@ extern NSString * const ROOT_NAME;
 extern NSString * const ATTRIBUTE_ROOT_CREATOR;
 extern NSString * const ATTRIBUTE_ROOT_VERSION;
 
+extern NSString * const ELEMENT_METADATA;
+extern NSString * const ELEMENT_METADATA_BOUNDS;
+extern NSString * const ELEMENT_METADATA_BOUNDS_MAXLNG;
+extern NSString * const ELEMENT_METADATA_BOUNDS_MAXLAT;
+extern NSString * const ELEMENT_METADATA_BOUNDS_MINLNG;
+extern NSString * const ELEMENT_METADATA_BOUNDS_MINLAT;
+
 extern NSString * const ELEMENT_ROUTE;
 extern NSString * const ELEMENT_ROUTE_NUM;
 extern NSString * const ELEMENT_ROUTE_POINT;

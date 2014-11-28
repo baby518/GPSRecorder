@@ -31,7 +31,6 @@ extern int const PARSER_CALLBACK_MODE_JUST_RESULT;
 *  @data 2014-10-27
 *  @brief Delegate for View.*/
 @protocol GPXParserDelegate <NSObject>
-@optional
 /** PARSER_ERROR_UNSUPPORTED or PARSER_ERROR_UNPARSERALBE */
 - (void)onErrorWhenParser:(int)errorCode;
 - (void)rootCreatorDidParser:(NSString *)creator;
@@ -41,6 +40,7 @@ extern int const PARSER_CALLBACK_MODE_JUST_RESULT;
 - (void)trackSegmentDidParser:(TrackSegment *)segment;
 - (void)trackDidParser:(Track *)track;
 - (void)allTracksDidParser:(NSArray *)tracks;
+- (void)tracksBoundsDidParser:(CGRect)rect needFixIt:(bool)needFix;
 @end
 
 /** @author zhangchao
@@ -58,16 +58,19 @@ extern int const PARSER_CALLBACK_MODE_JUST_RESULT;
 @property (nonatomic, assign) id <GPXParserDelegate> delegate;
 @property (nonatomic, assign) int callbackMode;
 @property (nonatomic, assign, readonly) bool isNeedCancel;
+@property (nonatomic, assign, readonly) bool hasBoundsElement;
 
 - (id)initWithData:(NSData *)data;
 - (void)parserAllElements;
 - (void)parserRouteElements:(GDataXMLElement *)rootElement;
+- (void)parserMetadataElements:(GDataXMLElement *)rootElement;
 - (void)parserTrackElements:(GDataXMLElement *)rootElement;
 - (void)postPercentageOfParser:(double)percentage;
 - (void)postTrackPointOfParser:(TrackPoint *)point;
 - (void)postTrackSegmentOfParser:(TrackSegment *)segment;
 - (void)postTrackOfParser:(Track *)track;
 - (void)postAllTracksOfParser:(NSArray *)tracks;
+- (void)postTheBoundsOfAllTracks:(CGRect)rect needFixIt:(bool)needFix;
 
 - (void)stopParser;
 @end
