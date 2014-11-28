@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "GDataXMLNode.h"
 #import "GPXSchema.h"
 #import "GPXLog.h"
