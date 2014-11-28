@@ -22,6 +22,7 @@
 @property (nonatomic, assign, readonly) int countOfPoints;
 @property (nonatomic, copy, readonly) NSMutableArray *currentTrackPoints;
 
+@property (nonatomic, assign, readonly) CGRect boundsRect;
 @property (strong, nonatomic) MKPolyline *routeLine;
 @property (strong, nonatomic) MKPolylineView * routeLineView;
 

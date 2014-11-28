@@ -88,7 +88,7 @@
     return overlayView;
 }
 
-#pragma mark - GPXParser
+#pragma mark - GPXParserDelegate
 
 - (void)rootCreatorDidParser:(NSString *)creator {
     NSLog(@"rootCreatorDidParser from GPXParserDelegate. %@", creator);
@@ -127,16 +127,6 @@
         }
     }
 
-    // use first point to set center of map.
-    TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:0];
-    CLLocationCoordinate2D coord = trackPoint.location.coordinate;
-    // convert WGS to GCJ
-    CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];
-
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordGCJ, 1000, 1000);
-    [_mTrackMapView setCenterCoordinate:coordGCJ animated:NO];
-    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:NO];
-
     // create a c array of points.
     MKMapPoint *pointArray = malloc(sizeof(CLLocationCoordinate2D) * _countOfPoints);
     for (int i = 0; i < _countOfPoints; i++) {
@@ -154,5 +144,23 @@
     [_mTrackMapView addOverlay:_routeLine];
 }
 
+- (void)tracksBoundsDidParser:(CGRect)rect needFixIt:(bool)needFix {
+    _boundsRect = rect;
+
+    CLLocation *coordOrigin = [[CLLocation alloc] initWithLatitude:_boundsRect.origin.x longitude:_boundsRect.origin.y];
+    CLLocation *coordLeftTop = [[CLLocation alloc] initWithLatitude:_boundsRect.origin.x + _boundsRect.size.width longitude:_boundsRect.origin.y];
+    CLLocation *coordRightBottom = [[CLLocation alloc] initWithLatitude:_boundsRect.origin.x longitude:_boundsRect.origin.y + _boundsRect.size.height];
+    double latitudinalMeters = [coordOrigin distanceFromLocation:coordLeftTop];
+    double longitudinalMeters = [coordOrigin distanceFromLocation:coordRightBottom];
+
+    // set center of map.
+    CLLocationCoordinate2D coordCenter = CLLocationCoordinate2DMake(_boundsRect.origin.x + _boundsRect.size.width / 2, _boundsRect.origin.y + _boundsRect.size.height / 2);
+    // convert WGS to GCJ
+    CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coordCenter];
+
+    [_mTrackMapView setCenterCoordinate:coordGCJ animated:NO];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordGCJ, latitudinalMeters + 200, longitudinalMeters + 200);
+    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:NO];
+}
 
 @end
