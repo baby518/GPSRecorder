@@ -67,13 +67,18 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID = @"ID";
+    static NSString *cellID = @"LocalTrackTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     NSURL *fileURL = _trackFiles[indexPath.row];
-    cell.textLabel.text = [fileURL lastPathComponent];
+    // juse use file name, not include suffix.
+    NSArray *fileName = [[fileURL lastPathComponent] componentsSeparatedByString:@"."];
+    cell.textLabel.text = fileName[0];
+//    cell.textLabel.text = [fileURL lastPathComponent];
+
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
     return cell;
 }
 
