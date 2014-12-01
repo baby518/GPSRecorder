@@ -15,4 +15,5 @@
 @property (strong, nonatomic) NSMutableArray *trackFiles;
 
 - (NSData *)loadDataFromURL:(NSURL *)fileURL;
+- (NSData *)loadDataFromPath:(NSString *)filePath;
 @end

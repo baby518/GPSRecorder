@@ -53,6 +53,13 @@
     return data;
 }
 
+- (NSData *)loadDataFromPath:(NSString *)filePath {
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    if (data == nil) {
+        NSLog(@"loadDataFromPath data is NULL !!!");
+    }
+    return data;
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -72,10 +79,10 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    NSURL *fileURL = _trackFiles[indexPath.row];
+//    NSURL *fileURL = _trackFiles[indexPath.row];
+    NSString *filePath = _trackFiles[indexPath.row];
     // juse use file name, not include suffix.
-    NSArray *fileName = [[fileURL lastPathComponent] componentsSeparatedByString:@"."];
-    cell.textLabel.text = fileName[0];
+    cell.textLabel.text = [FileHelper getFilesName:filePath];
 //    cell.textLabel.text = [fileURL lastPathComponent];
 
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
@@ -88,15 +95,16 @@
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     MapViewController *mapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewControler"];
 
-    NSURL *fileURL = _trackFiles[indexPath.row];
-    NSArray *fileName = [[fileURL lastPathComponent] componentsSeparatedByString:@"."];
+//    NSURL *fileURL = _trackFiles[indexPath.row];
+    NSString *filePath = _trackFiles[indexPath.row];
 
-    NSData *data = [self loadDataFromURL:fileURL];
+//    NSData *data = [self loadDataFromURL:fileURL];
+    NSData *data = [self loadDataFromPath:filePath];
     if (data != nil) {
         mapViewController.gpxData = data;
     }
 
-    mapViewController.title = fileName[0];
+    mapViewController.title = [FileHelper getFilesName:filePath];
     mapViewController.isRealTimeMode = false;
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
@@ -112,6 +120,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         NSInteger row = [indexPath row];
+        [FileHelper removeFile:_trackFiles[row]];
         [_trackFiles removeObjectAtIndex:row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {

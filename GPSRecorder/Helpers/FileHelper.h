@@ -11,4 +11,6 @@
 + (NSString *) getDocumentsDirectory;
 + (NSArray *) getFilesListInDirectory:(NSString *)directory;
 + (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix;
++ (void) removeFile:(NSString *)fileName;
++ (NSString *) getFilesName:(NSString *)path;
 @end
