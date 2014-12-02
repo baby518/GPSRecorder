@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *mLocalTrackTableView;
 @property (strong, nonatomic) NSMutableArray *trackFiles;
 
+- (void)refreshFilesList;
 - (NSData *)loadDataFromURL:(NSURL *)fileURL;
 - (NSData *)loadDataFromPath:(NSString *)filePath;
 @end

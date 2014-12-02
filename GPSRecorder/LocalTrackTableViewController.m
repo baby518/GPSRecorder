@@ -26,11 +26,21 @@
     _mLocalTrackTableView.dataSource = self;
     _trackFiles = [NSMutableArray array];
 
+    [self refreshFilesList];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)refreshFilesList {
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Documents directory
         NSString *documentsDir = [FileHelper getDocumentsDirectory];
         NSArray *filesArray = [FileHelper getFilesListInDirectory:documentsDir filterSuffix:@".gpx"];
 
+        [_trackFiles removeAllObjects];
         [_trackFiles addObjectsFromArray:filesArray];
 
         // call back on main thread
@@ -38,11 +48,6 @@
             [_mLocalTrackTableView reloadData];
         });
     });
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSData *)loadDataFromURL:(NSURL *)fileURL {
