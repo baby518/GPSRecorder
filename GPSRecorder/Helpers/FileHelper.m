@@ -50,19 +50,9 @@
 
 + (NSString *) getFilesName:(NSString *)path {
     NSString *result = @"";
-    NSArray *fileName = [[path lastPathComponent] componentsSeparatedByString:@"."];
-    int length = [fileName count];
-    if (length > 2) {
-        for (int i = 0; i < length - 1; i++) {
-            if (i == 0) {
-                result = [NSString stringWithFormat:@"%@%@",result,fileName[i]];
-            } else {
-                result = [NSString stringWithFormat:@"%@.%@",result,fileName[i]];
-            }
-        }
-    } else if (length > 0 && length <= 2) {
-        result = fileName[0];
-    }
+    NSMutableArray *fileName = [NSMutableArray arrayWithArray:[[path lastPathComponent] componentsSeparatedByString:@"."]];
+    [fileName removeLastObject];
+    result = [fileName componentsJoinedByString:@"."];
     return result;
 }
 @end
