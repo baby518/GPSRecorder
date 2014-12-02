@@ -49,10 +49,8 @@
 }
 
 + (NSString *) getFilesName:(NSString *)path {
-    NSString *result = @"";
     NSMutableArray *fileName = [NSMutableArray arrayWithArray:[[path lastPathComponent] componentsSeparatedByString:@"."]];
     [fileName removeLastObject];
-    result = [fileName componentsJoinedByString:@"."];
-    return result;
+    return [fileName componentsJoinedByString:@"."];
 }
 @end
