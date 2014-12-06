@@ -286,11 +286,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Track List" id="Bh9-5o-jqN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Ia1-ya-MrX">
-                            <connections>
-                                <action selector="onEditClick:" destination="Lni-hC-Vhb" id="y0P-m2-Tbk"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Ia1-ya-MrX"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="zEO-pj-vbs">
                             <connections>
                                 <action selector="onDeleteClick:" destination="Lni-hC-Vhb" id="bGS-2M-M08"/>
@@ -298,7 +294,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mLeftBarButtonItem" destination="Ia1-ya-MrX" id="gFv-KX-4fd"/>
                         <outlet property="mLocalTrackTableView" destination="Ip5-sn-XpT" id="y9w-wW-NJW"/>
                     </connections>
                 </tableViewController>

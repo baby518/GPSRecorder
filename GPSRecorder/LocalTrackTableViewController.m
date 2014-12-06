@@ -25,7 +25,9 @@
     _mLocalTrackTableView.delegate = self;
     _mLocalTrackTableView.dataSource = self;
     _trackFiles = [NSMutableArray array];
-
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
 //    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(selectLeftAction:)];
 //    self.navigationItem.leftBarButtonItem = leftButton;
 
@@ -173,11 +175,9 @@
 
 #pragma mark - NavigationItem
 
-- (IBAction)onEditClick:(UIBarButtonItem *)sender {
-    bool isEditing = _mLocalTrackTableView.isEditing;
-    [_mLocalTrackTableView setEditing:!isEditing animated:YES];
-    _mLeftBarButtonItem.style = isEditing ? UIBarButtonSystemItemCancel : UIBarButtonSystemItemEdit;
-}
+//- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+//    [super setEditing:editing animated:animated];
+//}
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender {
 
