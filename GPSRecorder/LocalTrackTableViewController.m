@@ -26,6 +26,12 @@
     _mLocalTrackTableView.dataSource = self;
     _trackFiles = [NSMutableArray array];
 
+//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(selectLeftAction:)];
+//    self.navigationItem.leftBarButtonItem = leftButton;
+
+//    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(selectRightAction:)];
+//    self.navigationItem.rightBarButtonItem = rightButton;
+
     [self refreshFilesList];
 }
 
@@ -77,7 +83,6 @@
     return _trackFiles.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellID = @"LocalTrackTableViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
@@ -86,7 +91,7 @@
     }
 //    NSURL *fileURL = _trackFiles[indexPath.row];
     NSString *filePath = _trackFiles[indexPath.row];
-    // juse use file name, not include suffix.
+    // just use file name, not include suffix.
     cell.textLabel.text = [FileHelper getFilesName:filePath];
 //    cell.textLabel.text = [fileURL lastPathComponent];
 
@@ -97,27 +102,36 @@
 #pragma mark UITableViewDelegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    MapViewController *mapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewControler"];
+    if (_mLocalTrackTableView.isEditing) {
+        // multi select
+    } else {
+        // open selected file
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        MapViewController *mapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewControler"];
 
 //    NSURL *fileURL = _trackFiles[indexPath.row];
-    NSString *filePath = _trackFiles[indexPath.row];
+        NSString *filePath = _trackFiles[indexPath.row];
 
 //    NSData *data = [self loadDataFromURL:fileURL];
-    NSData *data = [self loadDataFromPath:filePath];
-    if (data != nil) {
-        mapViewController.gpxData = data;
-    }
+        NSData *data = [self loadDataFromPath:filePath];
+        if (data != nil) {
+            mapViewController.gpxData = data;
+        }
 
-    mapViewController.title = [FileHelper getFilesName:filePath];
-    mapViewController.isRealTimeMode = false;
-    [self.navigationController pushViewController:mapViewController animated:YES];
+        mapViewController.title = [FileHelper getFilesName:filePath];
+        mapViewController.isRealTimeMode = false;
+        [self.navigationController pushViewController:mapViewController animated:YES];
+    }
 }
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
 }
 
 // Override to support editing the table view.
@@ -157,4 +171,15 @@
 }
 */
 
+#pragma mark - NavigationItem
+
+- (IBAction)onEditClick:(UIBarButtonItem *)sender {
+    bool isEditing = _mLocalTrackTableView.isEditing;
+    [_mLocalTrackTableView setEditing:!isEditing animated:YES];
+    _mLeftBarButtonItem.style = isEditing ? UIBarButtonSystemItemCancel : UIBarButtonSystemItemEdit;
+}
+
+- (IBAction)onDeleteClick:(UIBarButtonItem *)sender {
+
+}
 @end
