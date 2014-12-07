@@ -12,6 +12,7 @@
 
 @interface LocalTrackTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *mLocalTrackTableView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *mDeleteButton;
 @property (strong, nonatomic) NSMutableArray *trackFiles;
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender;
@@ -19,4 +20,5 @@
 - (void)refreshFilesList;
 - (NSData *)loadDataFromURL:(NSURL *)fileURL;
 - (NSData *)loadDataFromPath:(NSString *)filePath;
+- (void)updateDeleteButtonTitle;
 @end

@@ -19,6 +19,7 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+    _mLocalTrackTableView.allowsMultipleSelectionDuringEditing = YES;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -27,6 +28,8 @@
     _trackFiles = [NSMutableArray array];
 
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    [self updateDeleteButtonTitle];
+//    self.navigationItem.rightBarButtonItem = _mDeleteButton;
     
 //    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(selectLeftAction:)];
 //    self.navigationItem.leftBarButtonItem = leftButton;
@@ -73,6 +76,23 @@
     }
     return data;
 }
+
+- (void)updateDeleteButtonTitle {
+    // Update the delete button's title, based on how many items are selected
+    NSArray *selectedRows = [_mLocalTrackTableView indexPathsForSelectedRows];
+
+    bool allItemsAreSelected = (selectedRows.count == _trackFiles.count);
+    bool noItemsAreSelected = (selectedRows.count == 0);
+
+    if (allItemsAreSelected || noItemsAreSelected) {
+        _mDeleteButton.title = NSLocalizedString(@"NavigationItem.DeleteAll", @"Delete All");
+    } else {
+        NSString *titleFormatString =
+                NSLocalizedString(@"NavigationItem.Delete", @"Title for delete button with placeholder for number");
+        _mDeleteButton.title = [NSString stringWithFormat:titleFormatString, selectedRows.count];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -106,6 +126,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_mLocalTrackTableView.isEditing) {
         // multi select
+        [self updateDeleteButtonTitle];
     } else {
         // open selected file
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -126,8 +147,12 @@
     }
 }
 
-//- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-//}
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_mLocalTrackTableView.isEditing) {
+        // multi select
+        [self updateDeleteButtonTitle];
+    }
+}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -178,23 +203,44 @@
 
 #pragma mark - NavigationItem
 
-//- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-//    [super setEditing:editing animated:animated];
-//}
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    self.navigationItem.rightBarButtonItem = editing ? _mDeleteButton : nil;
+}
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender {
-    NSMutableIndexSet *indicesOfItemsToDelete = [NSMutableIndexSet new];
-    // Delete what the user selected.
+    // delete function based on how many items are selected
     NSArray *selectedRows = [_mLocalTrackTableView indexPathsForSelectedRows];
-    for (NSIndexPath *indexPath in selectedRows) {
-        // Delete the row from the data source
-        NSInteger row = [indexPath row];
-        NSLog(@"this file will be deleted : %d", row);
-        [indicesOfItemsToDelete addIndex:row];
 
-        [FileHelper removeFile:_trackFiles[row]];
+    bool allItemsAreSelected = (selectedRows.count == _trackFiles.count);
+    bool noItemsAreSelected = (selectedRows.count == 0);
+
+    if (allItemsAreSelected || noItemsAreSelected) {
+        NSUInteger count = _trackFiles.count;
+        for (int row = 0; row < count; row++) {
+            // Delete the row from the data source
+            NSLog(@"this file will be deleted : %d", row);
+            [FileHelper removeFile:_trackFiles[row]];
+        }
+        [self updateDeleteButtonTitle];
+        [_trackFiles removeAllObjects];
+        [self refreshFilesList];
+    } else {
+        NSMutableIndexSet *indicesOfItemsToDelete = [NSMutableIndexSet new];
+        // Delete what the user selected.
+        for (NSIndexPath *indexPath in selectedRows) {
+            // Delete the row from the data source
+            NSInteger row = [indexPath row];
+            NSLog(@"this file will be deleted : %d", row);
+            [indicesOfItemsToDelete addIndex:row];
+
+            [FileHelper removeFile:_trackFiles[row]];
+        }
+        [self updateDeleteButtonTitle];
+        [_trackFiles removeObjectsAtIndexes:indicesOfItemsToDelete];
+        [_mLocalTrackTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
     }
-    [_trackFiles removeObjectsAtIndexes:indicesOfItemsToDelete];
-    [_mLocalTrackTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
+
+    [self setEditing:NO animated:YES];
 }
 @end

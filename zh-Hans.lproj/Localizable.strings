@@ -6,3 +6,6 @@
   Copyright (c) 2014年 zhangchao. All rights reserved.
 */
 //my custom
+
+"NavigationItem.DeleteAll" = "删除所有";
+"NavigationItem.Delete" = "删除%d项";

@@ -6,3 +6,6 @@
   Copyright (c) 2014年 zhangchao. All rights reserved.
 */
 //my custom
+
+"NavigationItem.DeleteAll" = "Delete All";
+"NavigationItem.Delete" = "Delete (%d)";

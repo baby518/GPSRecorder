@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68k" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C78c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -285,15 +285,19 @@
                             <outlet property="delegate" destination="Lni-hC-Vhb" id="1n3-Ox-kYX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Track List" id="Bh9-5o-jqN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Ia1-ya-MrX"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="zEO-pj-vbs">
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="EjC-0L-tA1" userLabel="DeleteButton">
                             <connections>
-                                <action selector="onDeleteClick:" destination="Lni-hC-Vhb" id="bGS-2M-M08"/>
+                                <action selector="onDeleteClick:" destination="Lni-hC-Vhb" id="wdp-nB-VVM"/>
                             </connections>
                         </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Track List" id="Bh9-5o-jqN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Ia1-ya-MrX"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="mDeleteButton" destination="EjC-0L-tA1" id="0ac-kz-OZU"/>
                         <outlet property="mLocalTrackTableView" destination="Ip5-sn-XpT" id="y9w-wW-NJW"/>
                     </connections>
                 </tableViewController>
