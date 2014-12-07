@@ -29,8 +29,8 @@
 
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     [self updateDeleteButtonTitle];
-//    self.navigationItem.rightBarButtonItem = _mDeleteButton;
-    
+    self.editButtonItem.enabled = NO;
+
 //    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(selectLeftAction:)];
 //    self.navigationItem.leftBarButtonItem = leftButton;
 
@@ -57,6 +57,7 @@
         // call back on main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             [_mLocalTrackTableView reloadData];
+            [self updateEditButtonTitle];
         });
     });
 }
@@ -90,6 +91,15 @@
         NSString *titleFormatString =
                 NSLocalizedString(@"NavigationItem.Delete", @"Title for delete button with placeholder for number");
         _mDeleteButton.title = [NSString stringWithFormat:titleFormatString, selectedRows.count];
+    }
+}
+
+- (void)updateEditButtonTitle {
+    // Show the edit button, but disable the edit button if there's nothing to edit.
+    if (_trackFiles.count > 0) {
+        self.editButtonItem.enabled = YES;
+    } else {
+        self.editButtonItem.enabled = NO;
     }
 }
 
@@ -222,7 +232,6 @@
             NSLog(@"this file will be deleted : %d", row);
             [FileHelper removeFile:_trackFiles[row]];
         }
-        [self updateDeleteButtonTitle];
         [_trackFiles removeAllObjects];
         [self refreshFilesList];
     } else {
@@ -236,11 +245,12 @@
 
             [FileHelper removeFile:_trackFiles[row]];
         }
-        [self updateDeleteButtonTitle];
         [_trackFiles removeObjectsAtIndexes:indicesOfItemsToDelete];
         [_mLocalTrackTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
     }
 
+    [self updateDeleteButtonTitle];
+    [self updateEditButtonTitle];
     [self setEditing:NO animated:YES];
 }
 @end

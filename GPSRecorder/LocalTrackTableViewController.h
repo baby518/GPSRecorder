@@ -21,4 +21,5 @@
 - (NSData *)loadDataFromURL:(NSURL *)fileURL;
 - (NSData *)loadDataFromPath:(NSString *)filePath;
 - (void)updateDeleteButtonTitle;
+- (void)updateEditButtonTitle;
 @end
