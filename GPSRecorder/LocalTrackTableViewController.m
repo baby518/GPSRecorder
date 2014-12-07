@@ -25,8 +25,7 @@
     _mLocalTrackTableView.delegate = self;
     _mLocalTrackTableView.dataSource = self;
     _trackFiles = [NSMutableArray array];
-    _selectedFiles = [NSMutableArray array];
-    
+
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
 //    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(selectLeftAction:)];
@@ -107,7 +106,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_mLocalTrackTableView.isEditing) {
         // multi select
-        [_selectedFiles addObject:indexPath];
     } else {
         // open selected file
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -128,14 +126,8 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_mLocalTrackTableView.isEditing) {
-        // multi select
-        [_selectedFiles removeObject:indexPath];
-    } else {
-
-    }
-}
+//- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+//}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -192,7 +184,9 @@
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender {
     NSMutableIndexSet *indicesOfItemsToDelete = [NSMutableIndexSet new];
-    for (NSIndexPath *indexPath in _selectedFiles) {
+    // Delete what the user selected.
+    NSArray *selectedRows = [_mLocalTrackTableView indexPathsForSelectedRows];
+    for (NSIndexPath *indexPath in selectedRows) {
         // Delete the row from the data source
         NSInteger row = [indexPath row];
         NSLog(@"this file will be deleted : %d", row);
@@ -201,7 +195,6 @@
         [FileHelper removeFile:_trackFiles[row]];
     }
     [_trackFiles removeObjectsAtIndexes:indicesOfItemsToDelete];
-    [_mLocalTrackTableView deleteRowsAtIndexPaths:_selectedFiles withRowAnimation:UITableViewRowAnimationFade];
-    [_selectedFiles removeAllObjects];
+    [_mLocalTrackTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
 }
 @end
