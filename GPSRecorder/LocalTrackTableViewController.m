@@ -25,6 +25,7 @@
     _mLocalTrackTableView.delegate = self;
     _mLocalTrackTableView.dataSource = self;
     _trackFiles = [NSMutableArray array];
+    _selectedFiles = [NSMutableArray array];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
@@ -106,6 +107,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_mLocalTrackTableView.isEditing) {
         // multi select
+        [_selectedFiles addObject:indexPath];
     } else {
         // open selected file
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -123,6 +125,15 @@
         mapViewController.title = [FileHelper getFilesName:filePath];
         mapViewController.isRealTimeMode = false;
         [self.navigationController pushViewController:mapViewController animated:YES];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_mLocalTrackTableView.isEditing) {
+        // multi select
+        [_selectedFiles removeObject:indexPath];
+    } else {
+
     }
 }
 
@@ -180,6 +191,17 @@
 //}
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender {
+    NSMutableIndexSet *indicesOfItemsToDelete = [NSMutableIndexSet new];
+    for (NSIndexPath *indexPath in _selectedFiles) {
+        // Delete the row from the data source
+        NSInteger row = [indexPath row];
+        NSLog(@"this file will be deleted : %d", row);
+        [indicesOfItemsToDelete addIndex:row];
 
+        [FileHelper removeFile:_trackFiles[row]];
+    }
+    [_trackFiles removeObjectsAtIndexes:indicesOfItemsToDelete];
+    [_mLocalTrackTableView deleteRowsAtIndexPaths:_selectedFiles withRowAnimation:UITableViewRowAnimationFade];
+    [_selectedFiles removeAllObjects];
 }
 @end

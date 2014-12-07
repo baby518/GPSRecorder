@@ -13,6 +13,7 @@
 @interface LocalTrackTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *mLocalTrackTableView;
 @property (strong, nonatomic) NSMutableArray *trackFiles;
+@property (strong, nonatomic) NSMutableArray *selectedFiles;
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender;
 
