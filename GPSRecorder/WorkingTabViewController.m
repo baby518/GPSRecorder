@@ -21,15 +21,15 @@
     // load "Main" storyboard from NSBundle
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     // load viewController from storyboard.
-    _mSimpleViewControler = [story instantiateViewControllerWithIdentifier:@"simpleViewController"];
-    _mMapViewControler = [story instantiateViewControllerWithIdentifier:@"mapViewController"];
-    _mMapViewControler.isRealTimeMode = true;
+    _mSimpleViewController = [story instantiateViewControllerWithIdentifier:@"simpleViewController"];
+    _mMapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewController"];
+    _mMapViewController.isRealTimeMode = true;
 
-    [self.view addSubview:_mSimpleViewControler.view];
-    [self.view addSubview:_mMapViewControler.view];
+    [self.view addSubview:_mSimpleViewController.view];
+    [self.view addSubview:_mMapViewController.view];
 
-    _mSimpleViewControler.view.hidden = NO;
-    _mMapViewControler.view.hidden = YES;
+    _mSimpleViewController.view.hidden = NO;
+    _mMapViewController.view.hidden = YES;
 
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.distanceFilter = 5;//the minimum update distance in meters.
@@ -51,12 +51,12 @@
 
     switch (index) {
         case 0:
-            _mSimpleViewControler.view.hidden = NO;
-            _mMapViewControler.view.hidden = YES;
+            _mSimpleViewController.view.hidden = NO;
+            _mMapViewController.view.hidden = YES;
             break;
         case 1:
-            _mSimpleViewControler.view.hidden = YES;
-            _mMapViewControler.view.hidden = NO;
+            _mSimpleViewController.view.hidden = YES;
+            _mMapViewController.view.hidden = NO;
             break;
         default:
             break;
@@ -71,10 +71,10 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
 //    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 800, 800);
-//    [_mMapViewControler.mTrackMapView setCenterCoordinate:newLocation.coordinate animated:YES];
-//    [_mMapViewControler.mTrackMapView setRegion:[_mMapViewControler.mTrackMapView regionThatFits:region] animated:YES];
+//    [_mMapViewController.mTrackMapView setCenterCoordinate:newLocation.coordinate animated:YES];
+//    [_mMapViewController.mTrackMapView setRegion:[_mMapViewController.mTrackMapView regionThatFits:region] animated:YES];
     //refresh SimpleView
-    [_mSimpleViewControler didUpdateToLocation:newLocation fromLocation:oldLocation];
+    [_mSimpleViewController didUpdateToLocation:newLocation fromLocation:oldLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager

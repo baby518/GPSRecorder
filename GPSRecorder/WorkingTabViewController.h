@@ -16,8 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mSegmentedControl;
 @property(nonatomic, retain) CLLocationManager *locationManager;
-@property(nonatomic, retain) SimpleViewController *mSimpleViewControler;
-@property(nonatomic, retain) MapViewController *mMapViewControler;
+@property(nonatomic, retain) SimpleViewController *mSimpleViewController;
+@property(nonatomic, retain) MapViewController *mMapViewController;
 
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender;
 
