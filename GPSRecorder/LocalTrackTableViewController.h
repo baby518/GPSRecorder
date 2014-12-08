@@ -13,9 +13,11 @@
 @interface LocalTrackTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *mLocalTrackTableView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *mDeleteButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *mRefreshButton;
 @property (strong, nonatomic) NSMutableArray *trackFiles;
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender;
+- (IBAction)onRefreshClick:(UIBarButtonItem *)sender;
 
 - (void)refreshFilesList;
 - (NSData *)loadDataFromURL:(NSURL *)fileURL;

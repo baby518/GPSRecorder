@@ -20,22 +20,16 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     _mLocalTrackTableView.allowsMultipleSelectionDuringEditing = YES;
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+
     _mLocalTrackTableView.delegate = self;
     _mLocalTrackTableView.dataSource = self;
     _trackFiles = [NSMutableArray array];
 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = _mRefreshButton;
     [self updateDeleteButtonTitle];
     self.editButtonItem.enabled = NO;
-
-//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(selectLeftAction:)];
-//    self.navigationItem.leftBarButtonItem = leftButton;
-
-//    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(selectRightAction:)];
-//    self.navigationItem.rightBarButtonItem = rightButton;
 
     [self refreshFilesList];
 }
@@ -215,7 +209,7 @@
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
-    self.navigationItem.rightBarButtonItem = editing ? _mDeleteButton : nil;
+    self.navigationItem.rightBarButtonItem = editing ? _mDeleteButton : _mRefreshButton;
 }
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender {
@@ -252,5 +246,9 @@
     [self updateDeleteButtonTitle];
     [self updateEditButtonTitle];
     [self setEditing:NO animated:YES];
+}
+
+- (IBAction)onRefreshClick:(UIBarButtonItem *)sender {
+    [self refreshFilesList];
 }
 @end
