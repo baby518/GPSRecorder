@@ -18,11 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    //获取storyboard: 通过bundle根据storyboard的名字来获取我们的storyboard,
+    // load "Main" storyboard from NSBundle
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    //由storyboard根据myView的storyBoardID来获取我们要切换的视图
-    _mSimpleViewControler = [story instantiateViewControllerWithIdentifier:@"simpleViewControler"];
-    _mMapViewControler = [story instantiateViewControllerWithIdentifier:@"mapViewControler"];
+    // load viewController from storyboard.
+    _mSimpleViewControler = [story instantiateViewControllerWithIdentifier:@"simpleViewController"];
+    _mMapViewControler = [story instantiateViewControllerWithIdentifier:@"mapViewController"];
     _mMapViewControler.isRealTimeMode = true;
 
     [self.view addSubview:_mSimpleViewControler.view];
@@ -62,6 +62,8 @@
             break;
     }
 }
+
+#pragma mark - CLLocationManagerDelegate
 
 /** this Location is based on WGS84, different from TrackMapView.
 *   we must convert to GCJ-02 if want show it on the chinese map.

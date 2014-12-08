@@ -40,7 +40,7 @@
         <!--Simple-->
         <scene sceneID="o1M-Gi-1eJ">
             <objects>
-                <viewController storyboardIdentifier="simpleViewControler" title="Simple" useStoryboardIdentifierAsRestorationIdentifier="YES" id="62o-sC-aYT" customClass="SimpleViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="simpleViewController" title="Simple" useStoryboardIdentifierAsRestorationIdentifier="YES" id="62o-sC-aYT" customClass="SimpleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bWZ-1l-KSB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
         <!--Map-->
         <scene sceneID="ASw-fE-63X">
             <objects>
-                <viewController storyboardIdentifier="mapViewControler" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OQ6-xa-Qnh" userLabel="Map" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OQ6-xa-Qnh" userLabel="Map" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aEj-CB-J3b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
