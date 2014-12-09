@@ -18,7 +18,8 @@
     [super viewDidLoad];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+
+    // This option is also selected in the storyboard.
     _mLocalTrackTableView.allowsMultipleSelectionDuringEditing = YES;
 
     _mLocalTrackTableView.delegate = self;
@@ -162,10 +163,6 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
-}
-
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleDelete | UITableViewCellEditingStyleInsert;
 }
 
 // Override to support editing the table view.

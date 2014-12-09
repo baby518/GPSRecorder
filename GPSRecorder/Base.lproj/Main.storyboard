@@ -254,7 +254,7 @@
         <scene sceneID="c9q-hb-Xsm">
             <objects>
                 <tableViewController id="Lni-hC-Vhb" userLabel="Track List" customClass="LocalTrackTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ip5-sn-XpT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ip5-sn-XpT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -285,21 +285,8 @@
                             <outlet property="delegate" destination="Lni-hC-Vhb" id="1n3-Ox-kYX"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="EjC-0L-tA1" userLabel="DeleteButton">
-                            <connections>
-                                <action selector="onDeleteClick:" destination="Lni-hC-Vhb" id="wdp-nB-VVM"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem systemItem="refresh" id="GKr-c3-cum">
-                            <connections>
-                                <action selector="onRefreshClick:" destination="Lni-hC-Vhb" id="uYd-SG-fNb"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" title="Track List" id="Bh9-5o-jqN">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Ia1-ya-MrX"/>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Track List" id="Bh9-5o-jqN"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mDeleteButton" destination="EjC-0L-tA1" id="0ac-kz-OZU"/>
@@ -308,6 +295,16 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gA8-8G-gDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Item" id="EjC-0L-tA1" userLabel="DeleteButton">
+                    <connections>
+                        <action selector="onDeleteClick:" destination="Lni-hC-Vhb" id="wdp-nB-VVM"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="refresh" id="GKr-c3-cum">
+                    <connections>
+                        <action selector="onRefreshClick:" destination="Lni-hC-Vhb" id="uYd-SG-fNb"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="88" y="620"/>
         </scene>
