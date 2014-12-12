@@ -155,11 +155,8 @@
 		D4CB48E01A1E553A0000B4BE /* gpx-parser-function */ = {
 			isa = PBXGroup;
 			children = (
-				D4CB48E11A1E553A0000B4BE /* GDataXMLNode.h */,
-				D4CB48E21A1E553A0000B4BE /* GDataXMLNode.m */,
+				D4D3E1C71A3B30F600531DDF /* GDataXML */,
 				D4CB48E31A1E553A0000B4BE /* GPXLog.h */,
-				D4CB48E41A1E553A0000B4BE /* GPXParser.h */,
-				D4CB48E51A1E553A0000B4BE /* GPXParser.m */,
 				D4CB48E61A1E553A0000B4BE /* GPXSchema.h */,
 				D4CB48E71A1E553A0000B4BE /* GPXSchema.m */,
 				D4CB48E81A1E553A0000B4BE /* Track.h */,
@@ -244,6 +241,17 @@
 				D4CFB4941A07D140002AC497 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4D3E1C71A3B30F600531DDF /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB48E11A1E553A0000B4BE /* GDataXMLNode.h */,
+				D4CB48E21A1E553A0000B4BE /* GDataXMLNode.m */,
+				D4CB48E41A1E553A0000B4BE /* GPXParser.h */,
+				D4CB48E51A1E553A0000B4BE /* GPXParser.m */,
+			);
+			name = GDataXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
