@@ -29,6 +29,7 @@
 		D4D21D761A1516180053B3EF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D21D751A1516180053B3EF /* MapKit.framework */; };
 		D4D3E1EC1A3B3B2100531DDF /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D3E1E91A3B3B2100531DDF /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4D3E1ED1A3B3B2100531DDF /* GPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */; };
+		D4D52C791A408CEB00F503A9 /* NSGPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D52C781A408CEB00F503A9 /* NSGPXParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		D4D3E1E91A3B3B2100531DDF /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 		D4D3E1EA1A3B3B2100531DDF /* GPXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXParser.h; sourceTree = "<group>"; };
 		D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXParser.m; sourceTree = "<group>"; };
+		D4D52C771A408CEB00F503A9 /* NSGPXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSGPXParser.h; sourceTree = "<group>"; };
+		D4D52C781A408CEB00F503A9 /* NSGPXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSGPXParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 		D4CB48E01A1E553A0000B4BE /* gpx-parser-function */ = {
 			isa = PBXGroup;
 			children = (
+				D4D52C761A408CEB00F503A9 /* NSXML */,
 				D4D3E1E71A3B3B2100531DDF /* GDataXML */,
 				D4CB48E31A1E553A0000B4BE /* GPXLog.h */,
 				D4CB48E61A1E553A0000B4BE /* GPXSchema.h */,
@@ -252,6 +256,15 @@
 				D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */,
 			);
 			path = GDataXML;
+			sourceTree = "<group>";
+		};
+		D4D52C761A408CEB00F503A9 /* NSXML */ = {
+			isa = PBXGroup;
+			children = (
+				D4D52C771A408CEB00F503A9 /* NSGPXParser.h */,
+				D4D52C781A408CEB00F503A9 /* NSGPXParser.m */,
+			);
+			path = NSXML;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +391,7 @@
 				D4CFB4821A07D140002AC497 /* SettingTabViewController.m in Sources */,
 				D4CB48F11A1E553A0000B4BE /* Track.m in Sources */,
 				D4CB48F31A1E553A0000B4BE /* TrackSegment.m in Sources */,
+				D4D52C791A408CEB00F503A9 /* NSGPXParser.m in Sources */,
 				D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */,
 				D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */,
 				D4CB48F21A1E553A0000B4BE /* TrackPoint.m in Sources */,
