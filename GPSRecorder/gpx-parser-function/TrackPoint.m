@@ -10,14 +10,14 @@
 }
 
 - (CLLocation *)getLocation {
-    if (!_location) {
-        _location = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(self.latitude, self.longitude)
+    if (!_location || (_location.altitude != _elevation) || (_location.timestamp != _time)) {
+        _location = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(_latitude, _longitude)
                                                   altitude:self.elevation
                                         horizontalAccuracy:0
                                           verticalAccuracy:0
                                                     course:0
                                                      speed:0
-                                                 timestamp:self.time];
+                                                 timestamp:_time];
     }
     return _location;
 }
