@@ -13,6 +13,7 @@
 - (id)initWithData:(NSData *)data {
     self = [super self];
     if (self) {
+        _isNeedCancel = false;
         unsigned long size = [data length];
         LOGD(@"initWithData size : %lu Byte, %lu KB", size, size / 1024);
         _mXMLData = data;
@@ -33,6 +34,11 @@
         [_gpxParser setShouldResolveExternalEntities:YES];
         [_gpxParser parse];
     });
+}
+
+- (void)stopParser {
+    _isNeedCancel = true;
+    _delegate = nil;
 }
 
 #pragma mark - NSXMLParserDelegate
@@ -110,6 +116,9 @@
     }
     _currentElement = elementName;
     _storingCharacters = true;
+
+    // cancel it when need.
+    if (_isNeedCancel) [parser abortParsing];
 }
 
 /*

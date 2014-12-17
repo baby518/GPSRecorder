@@ -35,14 +35,11 @@
 
     if (_gpxData != nil) {
         NSLog(@"startParserButtonPressed use NSXML.");
-        NSGPXParser *gpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
-        gpxParser.delegate = self;
-        [gpxParser satrtParser];
+        _nsGpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
+        _nsGpxParser.delegate = self;
+        [_nsGpxParser satrtParser];
 
-//        _nsGpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
-//        _nsGpxParser.delegate = self;
-//        [_nsGpxParser satrtParser];
-
+//        NSLog(@"startParserButtonPressed use GDataXML.");
 //        _gpxParser = [[GPXParser alloc] initWithData:_gpxData];
 //        _gpxParser.delegate = self;
 //        _gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
@@ -53,6 +50,7 @@
 - (void)dealloc {
     NSLog(@"MapViewController dealloc");
     [_gpxParser stopParser];
+    [_nsGpxParser stopParser];
 }
 
 - (void)didReceiveMemoryWarning {

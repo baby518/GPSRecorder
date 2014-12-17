@@ -39,8 +39,10 @@
 @property(nonatomic, strong, readonly) TrackSegment *currentTrackSegment;
 @property(nonatomic, strong, readonly) Track *currentTrack;
 @property(nonatomic, strong, readonly) NSMutableArray *mAllTracks;
+@property (nonatomic, assign, readonly) bool isNeedCancel;
 
 - (id)initWithData:(NSData *)data;
 
 - (void)satrtParser;
+- (void)stopParser;
 @end
