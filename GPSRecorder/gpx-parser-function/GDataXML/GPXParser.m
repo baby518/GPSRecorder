@@ -56,10 +56,10 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
     if (bounds != nil) {
         _hasBoundsElement = true;
         //获取 bounds 节点下的 maxLat, maxLng, minLat, minLng 属性
-        double maxLat = [[[bounds attributeForName:ELEMENT_METADATA_BOUNDS_MAXLAT] stringValue] doubleValue];
-        double maxLng = [[[bounds attributeForName:ELEMENT_METADATA_BOUNDS_MAXLNG] stringValue] doubleValue];
-        double minLat = [[[bounds attributeForName:ELEMENT_METADATA_BOUNDS_MINLAT] stringValue] doubleValue];
-        double minLng = [[[bounds attributeForName:ELEMENT_METADATA_BOUNDS_MINLNG] stringValue] doubleValue];
+        double maxLat = [[[bounds attributeForName:ATTRIBUTE_METADATA_BOUNDS_MAXLAT] stringValue] doubleValue];
+        double maxLng = [[[bounds attributeForName:ATTRIBUTE_METADATA_BOUNDS_MAXLNG] stringValue] doubleValue];
+        double minLat = [[[bounds attributeForName:ATTRIBUTE_METADATA_BOUNDS_MINLAT] stringValue] doubleValue];
+        double minLng = [[[bounds attributeForName:ATTRIBUTE_METADATA_BOUNDS_MINLNG] stringValue] doubleValue];
         LOGD(@"Metadata bounds is: (%f, %f) (%f, %f)", maxLat, maxLng, minLat, minLng);
         CGRect result = CGRectMake(minLat, minLng, maxLat - minLat, maxLng - minLng);
         [self postTheBoundsOfAllTracks:result needFixIt:false];
