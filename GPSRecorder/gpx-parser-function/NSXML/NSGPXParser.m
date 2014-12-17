@@ -92,12 +92,21 @@
         LOGD(@"track Point is: (%f, %f)", lat, lon);
         _currentTrackPoint = [[TrackPoint alloc] initWithTrack:lat :lon :0 :nil];
     } else if ([elementName isEqualToString:ELEMENT_ROUTE_POINT]) {
-        if ([_currentElement isEqualToString:ELEMENT_ROUTE]) {
-            //获取 rtept 节点下的 lat 和 lon 属性
-            NSString *lat = attributeDict[ATTRIBUTE_TRACK_POINT_LATITUDE];
-            NSString *lon = attributeDict[ATTRIBUTE_TRACK_POINT_LONGITUDE];
-            LOGD(@"route Point is: (%@, %@)", lat, lon);
-        }
+        //获取 rtept 节点下的 lat 和 lon 属性
+        NSString *lat = attributeDict[ATTRIBUTE_TRACK_POINT_LATITUDE];
+        NSString *lon = attributeDict[ATTRIBUTE_TRACK_POINT_LONGITUDE];
+        LOGD(@"route Point is: (%@, %@)", lat, lon);
+    } else if ([elementName isEqualToString:ELEMENT_METADATA_BOUNDS]) {
+        // metadata's bound.
+        double maxLat = [attributeDict[ATTRIBUTE_METADATA_BOUNDS_MAXLAT] doubleValue];
+        double maxLng = [attributeDict[ATTRIBUTE_METADATA_BOUNDS_MAXLNG] doubleValue];
+        double minLat = [attributeDict[ATTRIBUTE_METADATA_BOUNDS_MINLAT] doubleValue];
+        double minLng = [attributeDict[ATTRIBUTE_METADATA_BOUNDS_MINLNG] doubleValue];
+        LOGD(@"metadata bound is: (%f, %f) - (%f, %f)", maxLat, maxLng, minLat, minLng);
+        CGRect result = CGRectMake(minLat, minLng, maxLat - minLat, maxLng - minLng);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_delegate tracksBoundsDidParser:result needFixIt:false];
+        });
     }
     _currentElement = elementName;
     _storingCharacters = true;

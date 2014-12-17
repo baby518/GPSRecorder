@@ -34,10 +34,19 @@
     _currentTrackPoints = [NSMutableArray array];
 
     if (_gpxData != nil) {
-        _gpxParser = [[GPXParser alloc] initWithData:_gpxData];
-        _gpxParser.delegate = self;
-        _gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
-        [_gpxParser parserAllElements];
+        NSLog(@"startParserButtonPressed use NSXML.");
+        NSGPXParser *gpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
+        gpxParser.delegate = self;
+        [gpxParser satrtParser];
+
+//        _nsGpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
+//        _nsGpxParser.delegate = self;
+//        [_nsGpxParser satrtParser];
+
+//        _gpxParser = [[GPXParser alloc] initWithData:_gpxData];
+//        _gpxParser.delegate = self;
+//        _gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
+//        [_gpxParser parserAllElements];
     }
 }
 
