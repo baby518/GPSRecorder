@@ -140,15 +140,34 @@
 
     // create a c array of points.
     MKMapPoint *pointArray = malloc(sizeof(CLLocationCoordinate2D) * _countOfPoints);
+    CLLocation *firstLocation;
+    CLLocation *farthestLocation;
+    double distance = 0;
     for (int i = 0; i < _countOfPoints; i++) {
         TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:i];
         CLLocation *location = trackPoint.location;
         CLLocationCoordinate2D coord = location.coordinate;
 
+        if (i == 0) {
+            firstLocation = location;
+            distance = 0;
+        } else {
+            double temp = [location distanceFromLocation:firstLocation];
+            if (temp > distance) {
+                distance = temp;
+                farthestLocation = location;
+            }
+        }
+
         // convert WGS to GCJ
         CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];
         MKMapPoint mapPoint = MKMapPointForCoordinate(coordGCJ);
         pointArray[i] = mapPoint;
+    }
+
+    // if has no bounds, calc the center of Track.
+    if (_boundsRect.size.width == 0 && _boundsRect.size.height == 0) {
+        [self centerMyLocation:firstLocation :farthestLocation :true];
     }
 
     _routeLine = [MKPolyline polylineWithPoints:pointArray count:_countOfPoints];
@@ -174,4 +193,16 @@
     [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:NO];
 }
 
+- (void)centerMyLocation:(CLLocation *)start :(CLLocation *)end :(bool)needAnimation {
+    double distance = [start distanceFromLocation:end];
+    double latitude = (start.coordinate.latitude + end.coordinate.latitude) / 2;
+    double longitude = (start.coordinate.longitude + end.coordinate.longitude) / 2;
+    CLLocationCoordinate2D coordCenter = CLLocationCoordinate2DMake(latitude, longitude);
+    // convert WGS to GCJ
+    CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coordCenter];
+
+    [_mTrackMapView setCenterCoordinate:coordGCJ animated:NO];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordGCJ, distance + 200, distance + 200);
+    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:needAnimation];
+}
 @end

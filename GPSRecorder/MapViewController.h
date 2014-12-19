@@ -29,4 +29,6 @@
 @property (strong, nonatomic) MKPolyline *routeLine;
 @property (strong, nonatomic) MKPolylineView * routeLineView;
 
+- (void)centerMyLocation:(CLLocation *)start :(CLLocation *)end :(bool)needAnimation;
+
 @end
