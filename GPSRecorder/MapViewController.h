@@ -15,6 +15,7 @@
 @interface MapViewController : UIViewController <MKMapViewDelegate, GPXParserDelegate, NSGPXParserDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mTrackMapView;
 
+@property (nonatomic, assign) int xmlParseMode;
 @property (strong, nonatomic) NSData *gpxData;
 @property (strong, nonatomic, readonly) GPXParser *gpxParser;
 @property (strong, nonatomic, readonly) NSGPXParser *nsGpxParser;

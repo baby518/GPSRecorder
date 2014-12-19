@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    _xmlParseMode = 1;
+
     NSLog(@"viewDidLoad isRealTimeMode : %d", _isRealTimeMode);
     _mTrackMapView.delegate = self;
     if (_isRealTimeMode) {
@@ -34,16 +36,18 @@
     _currentTrackPoints = [NSMutableArray array];
 
     if (_gpxData != nil) {
-        NSLog(@"startParserButtonPressed use NSXML.");
-        _nsGpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
-        _nsGpxParser.delegate = self;
-        [_nsGpxParser satrtParser];
-
-//        NSLog(@"startParserButtonPressed use GDataXML.");
-//        _gpxParser = [[GPXParser alloc] initWithData:_gpxData];
-//        _gpxParser.delegate = self;
-//        _gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
-//        [_gpxParser parserAllElements];
+        if (_xmlParseMode == 1) {
+            NSLog(@"startParserButtonPressed use NSXML.");
+            _nsGpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
+            _nsGpxParser.delegate = self;
+            [_nsGpxParser satrtParser];
+        } else if (_xmlParseMode == 2) {
+            NSLog(@"startParserButtonPressed use GDataXML.");
+            _gpxParser = [[GPXParser alloc] initWithData:_gpxData];
+            _gpxParser.delegate = self;
+            _gpxParser.callbackMode = PARSER_CALLBACK_MODE_JUST_RESULT;
+            [_gpxParser parserAllElements];
+        }
     }
 }
 
