@@ -72,6 +72,80 @@
 }
 */
 
+- (void)displayRegionInMapView :(NSArray *) trackPoints fixCenter:(bool) fixCenter {
+    if (trackPoints) {
+        if (fixCenter) {
+            [self showCenterFromTrackPoints:trackPoints];
+        }
+        [self showPolylineFromTrack];
+    }
+}
+
+- (void)showCenterFromTrackPoints:(double)maxLatitude :(double)minLatitude :(double)maxLongitude :(double)minLongitude {
+    double margin = 0.005f;
+
+    double latitude = (maxLatitude + minLatitude) / 2;
+    double longitude = (maxLongitude + minLongitude) / 2;
+
+    CLLocationCoordinate2D centerCoordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    centerCoordinate = [GPSLocationHelper transformFromWGSToGCJ:centerCoordinate];
+
+    //determine the size of the map area to show around the location
+    double latitudeDelta = fabs(maxLatitude) - fabs(minLatitude) + margin;
+    double longitudeDelta = fabs(maxLongitude) - fabs(minLongitude) + margin;
+    MKCoordinateSpan coordinateSpan = MKCoordinateSpanMake(fabs(latitudeDelta), fabs(longitudeDelta));
+
+    //create the region of the map that we want to show
+    MKCoordinateRegion region = MKCoordinateRegionMake(centerCoordinate, coordinateSpan);
+
+    //update the map view
+    _mTrackMapView.region = region;
+}
+
+- (void)showCenterFromTrackPoints:(NSArray *)trackPoints {
+    //create a 2D coordinate for the map view
+    double maxLatitude = -MAXFLOAT;
+    double minLatitude = MAXFLOAT;
+    double maxLongitude = -MAXFLOAT;
+    double minLongitude = MAXFLOAT;
+
+    for (TrackPoint *point in trackPoints) {
+        CLLocation *location = [point getLocation];
+        if (location.coordinate.latitude > maxLatitude) {
+            maxLatitude = location.coordinate.latitude;
+        }
+        if (location.coordinate.latitude < minLatitude) {
+            minLatitude = location.coordinate.latitude;
+        }
+        if (location.coordinate.longitude > maxLongitude) {
+            maxLongitude = location.coordinate.longitude;
+        }
+        if (location.coordinate.longitude < minLongitude) {
+            minLongitude = location.coordinate.longitude;
+        }
+    }
+    [self showCenterFromTrackPoints:maxLatitude :minLatitude :maxLongitude :minLongitude];
+}
+
+- (void)showPolylineFromTrack {
+    // create a c array of points.
+    CLLocationCoordinate2D points[_countOfPoints];
+
+    for (int i = 0; i < _countOfPoints; i++) {
+        TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:i];
+        CLLocation *location = trackPoint.location;
+        CLLocationCoordinate2D coord = location.coordinate;
+
+        // convert WGS to GCJ
+        CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];
+        points[i] = coordGCJ;
+    }
+
+    MKPolyline *route = [MKPolyline polylineWithCoordinates:points count:_countOfPoints];
+    [_mTrackMapView removeOverlays:_mTrackMapView.overlays];
+    [_mTrackMapView addOverlay:route];
+}
+
 #pragma mark - MKMapViewDelegate
 
 /** this Location is based on GCJ-02 if the map is chinese GaoDeMap. */
@@ -83,20 +157,12 @@
             userLocation.coordinate.longitude, userLocation.coordinate.latitude);
 }
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id)overlay {
-    MKOverlayView *overlayView = nil;
-    if (overlay == _routeLine) {
-        //if we have not yet created an overlay view for this overlay, create it now.
-        if (nil == _routeLineView) {
-            _routeLineView = [[MKPolylineView alloc] initWithPolyline:_routeLine];
-            _routeLineView.fillColor = [UIColor redColor];
-            _routeLineView.strokeColor = [UIColor redColor];
-            _routeLineView.lineWidth = 3;
-        }
-        overlayView = _routeLineView;
-    }
-
-    return overlayView;
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay {
+    MKPolylineRenderer *routeView = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+    routeView.fillColor = [UIColor redColor];
+    routeView.strokeColor = [UIColor redColor];
+    routeView.lineWidth = 3.0f;
+    return routeView;
 }
 
 #pragma mark - GPXParserDelegate
@@ -138,71 +204,22 @@
         }
     }
 
-    // create a c array of points.
-    MKMapPoint *pointArray = malloc(sizeof(CLLocationCoordinate2D) * _countOfPoints);
-    CLLocation *firstLocation;
-    CLLocation *farthestLocation;
-    double distance = 0;
-    for (int i = 0; i < _countOfPoints; i++) {
-        TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:i];
-        CLLocation *location = trackPoint.location;
-        CLLocationCoordinate2D coord = location.coordinate;
-
-        if (i == 0) {
-            firstLocation = location;
-            distance = 0;
-        } else {
-            double temp = [location distanceFromLocation:firstLocation];
-            if (temp > distance) {
-                distance = temp;
-                farthestLocation = location;
-            }
-        }
-
-        // convert WGS to GCJ
-        CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];
-        MKMapPoint mapPoint = MKMapPointForCoordinate(coordGCJ);
-        pointArray[i] = mapPoint;
-    }
-
     // if has no bounds, calc the center of Track.
     if (_boundsRect.size.width == 0 && _boundsRect.size.height == 0) {
-        [self centerMyLocation:firstLocation :farthestLocation :true];
+        [self displayRegionInMapView:_currentTrackPoints fixCenter:true];
+    } else {
+        [self displayRegionInMapView:_currentTrackPoints fixCenter:false];
     }
-
-    _routeLine = [MKPolyline polylineWithPoints:pointArray count:_countOfPoints];
-    [_mTrackMapView addOverlay:_routeLine];
 }
 
 - (void)tracksBoundsDidParser:(CGRect)rect needFixIt:(bool)needFix {
     _boundsRect = rect;
 
-    CLLocation *coordOrigin = [[CLLocation alloc] initWithLatitude:_boundsRect.origin.x longitude:_boundsRect.origin.y];
-    CLLocation *coordLeftTop = [[CLLocation alloc] initWithLatitude:_boundsRect.origin.x + _boundsRect.size.width longitude:_boundsRect.origin.y];
-    CLLocation *coordRightBottom = [[CLLocation alloc] initWithLatitude:_boundsRect.origin.x longitude:_boundsRect.origin.y + _boundsRect.size.height];
-    double latitudinalMeters = [coordOrigin distanceFromLocation:coordLeftTop];
-    double longitudinalMeters = [coordOrigin distanceFromLocation:coordRightBottom];
+    double maxLatitude = _boundsRect.origin.x + _boundsRect.size.width;
+    double minLatitude = _boundsRect.origin.x;
+    double maxLongitude = _boundsRect.origin.y + _boundsRect.size.height;
+    double minLongitude = _boundsRect.origin.y;
 
-    // set center of map.
-    CLLocationCoordinate2D coordCenter = CLLocationCoordinate2DMake(_boundsRect.origin.x + _boundsRect.size.width / 2, _boundsRect.origin.y + _boundsRect.size.height / 2);
-    // convert WGS to GCJ
-    CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coordCenter];
-
-    [_mTrackMapView setCenterCoordinate:coordGCJ animated:NO];
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordGCJ, latitudinalMeters + 200, longitudinalMeters + 200);
-    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:NO];
-}
-
-- (void)centerMyLocation:(CLLocation *)start :(CLLocation *)end :(bool)needAnimation {
-    double distance = [start distanceFromLocation:end];
-    double latitude = (start.coordinate.latitude + end.coordinate.latitude) / 2;
-    double longitude = (start.coordinate.longitude + end.coordinate.longitude) / 2;
-    CLLocationCoordinate2D coordCenter = CLLocationCoordinate2DMake(latitude, longitude);
-    // convert WGS to GCJ
-    CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coordCenter];
-
-    [_mTrackMapView setCenterCoordinate:coordGCJ animated:NO];
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordGCJ, distance + 200, distance + 200);
-    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:needAnimation];
+    [self showCenterFromTrackPoints:maxLatitude :minLatitude :maxLongitude :minLongitude];
 }
 @end

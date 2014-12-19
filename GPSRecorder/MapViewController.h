@@ -29,6 +29,8 @@
 @property (strong, nonatomic) MKPolyline *routeLine;
 @property (strong, nonatomic) MKPolylineView * routeLineView;
 
-- (void)centerMyLocation:(CLLocation *)start :(CLLocation *)end :(bool)needAnimation;
-
+- (void)displayRegionInMapView:(NSArray *)trackPoints fixCenter:(bool)fixCenter;
+- (void)showCenterFromTrackPoints:(double)maxLatitude :(double)minLatitude :(double)maxLongitude :(double)minLongitude;
+- (void)showCenterFromTrackPoints:(NSArray *)trackPoints;
+- (void)showPolylineFromTrack;
 @end
