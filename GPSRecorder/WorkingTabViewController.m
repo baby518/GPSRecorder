@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    _currentLocationArray = [NSMutableArray array];
+
     // load "Main" storyboard from NSBundle
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     // load viewController from storyboard.
@@ -65,7 +67,7 @@
 
 #pragma mark - CLLocationManagerDelegate
 
-/** this Location is based on WGS84, different from TrackMapView.
+/** this Location is based on WGS84, different from MKMapView.
 *   we must convert to GCJ-02 if want show it on the chinese map.
 *   so just save it to GPX, use TrackMapView to show track. */
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation
@@ -75,6 +77,9 @@
 //    [_mMapViewController.mTrackMapView setRegion:[_mMapViewController.mTrackMapView regionThatFits:region] animated:YES];
     //refresh SimpleView
     [_mSimpleViewController didUpdateToLocation:newLocation fromLocation:oldLocation];
+
+    [_currentLocationArray addObject:newLocation];
+    [_mMapViewController showPolylineFromLocation:_currentLocationArray];
 }
 
 - (void)locationManager:(CLLocationManager *)manager

@@ -18,6 +18,9 @@
 @property(nonatomic, retain) CLLocationManager *locationManager;
 @property(nonatomic, retain) SimpleViewController *mSimpleViewController;
 @property(nonatomic, retain) MapViewController *mMapViewController;
+/** this Locations' array is based on WGS84, used to save gpx file.
+*   and post it to MapView to show.*/
+@property (nonatomic, copy, readonly) NSMutableArray *currentLocationArray;
 
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender;
 

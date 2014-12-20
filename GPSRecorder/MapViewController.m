@@ -34,7 +34,7 @@
 
     _currentTrackPoints = [NSMutableArray array];
 
-    if (_gpxData != nil) {
+    if (!_isRealTimeMode && _gpxData != nil) {
         if (_xmlParseMode == 1) {
             NSLog(@"startParserButtonPressed use NSXML.");
             _nsGpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
@@ -135,6 +135,26 @@
     for (TrackPoint *trackPoint in trackPoints) {
         CLLocation *location = trackPoint.location;
         CLLocationCoordinate2D coord = location.coordinate;
+
+        // convert WGS to GCJ
+        CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];
+        points[i] = coordGCJ;
+        i++;
+    }
+
+    MKPolyline *route = [MKPolyline polylineWithCoordinates:points count:count];
+    [_mTrackMapView removeOverlays:_mTrackMapView.overlays];
+    [_mTrackMapView addOverlay:route];
+}
+
+- (void)showPolylineFromLocation:(NSArray *)locationArray {
+    int count = locationArray.count;
+    // create a c array of points.
+    CLLocationCoordinate2D points[count];
+
+    int i = 0;
+    for (CLLocation *locationPoint in locationArray) {
+        CLLocationCoordinate2D coord = locationPoint.coordinate;
 
         // convert WGS to GCJ
         CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];

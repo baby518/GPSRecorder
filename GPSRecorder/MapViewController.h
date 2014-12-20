@@ -32,4 +32,5 @@
 - (void)showCenterFromTrackPoints:(double)maxLatitude :(double)minLatitude :(double)maxLongitude :(double)minLongitude;
 - (void)showCenterFromTrackPoints:(NSArray *)trackPoints;
 - (void)showPolylineFromTrack:(NSArray *)trackPoints;
+- (void)showPolylineFromLocation:(NSArray *)locationArray;
 @end
