@@ -22,7 +22,6 @@
 /** show gpx file's track OR show user's track in real time.
 *   default is true. */
 @property (nonatomic, assign) bool isRealTimeMode;
-@property (nonatomic, assign, readonly) int countOfPoints;
 @property (nonatomic, copy, readonly) NSMutableArray *currentTrackPoints;
 
 @property (nonatomic, assign, readonly) CGRect boundsRect;
@@ -32,5 +31,5 @@
 - (void)displayRegionInMapView:(NSArray *)trackPoints fixCenter:(bool)fixCenter;
 - (void)showCenterFromTrackPoints:(double)maxLatitude :(double)minLatitude :(double)maxLongitude :(double)minLongitude;
 - (void)showCenterFromTrackPoints:(NSArray *)trackPoints;
-- (void)showPolylineFromTrack;
+- (void)showPolylineFromTrack:(NSArray *)trackPoints;
 @end

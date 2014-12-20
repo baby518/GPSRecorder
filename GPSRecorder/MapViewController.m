@@ -32,7 +32,6 @@
     [_mTrackMapView setMapType:MKMapTypeStandard];
     [_mTrackMapView setZoomEnabled:YES];
 
-    _countOfPoints = 0;
     _currentTrackPoints = [NSMutableArray array];
 
     if (_gpxData != nil) {
@@ -77,7 +76,7 @@
         if (fixCenter) {
             [self showCenterFromTrackPoints:trackPoints];
         }
-        [self showPolylineFromTrack];
+        [self showPolylineFromTrack:trackPoints];
     }
 }
 
@@ -127,21 +126,23 @@
     [self showCenterFromTrackPoints:maxLatitude :minLatitude :maxLongitude :minLongitude];
 }
 
-- (void)showPolylineFromTrack {
+- (void)showPolylineFromTrack:(NSArray *)trackPoints {
+    int count = trackPoints.count;
     // create a c array of points.
-    CLLocationCoordinate2D points[_countOfPoints];
+    CLLocationCoordinate2D points[count];
 
-    for (int i = 0; i < _countOfPoints; i++) {
-        TrackPoint *trackPoint = [_currentTrackPoints objectAtIndex:i];
+    int i = 0;
+    for (TrackPoint *trackPoint in trackPoints) {
         CLLocation *location = trackPoint.location;
         CLLocationCoordinate2D coord = location.coordinate;
 
         // convert WGS to GCJ
         CLLocationCoordinate2D coordGCJ = [GPSLocationHelper transformFromWGSToGCJ:coord];
         points[i] = coordGCJ;
+        i++;
     }
 
-    MKPolyline *route = [MKPolyline polylineWithCoordinates:points count:_countOfPoints];
+    MKPolyline *route = [MKPolyline polylineWithCoordinates:points count:count];
     [_mTrackMapView removeOverlays:_mTrackMapView.overlays];
     [_mTrackMapView addOverlay:route];
 }
@@ -194,9 +195,7 @@
 
 - (void)allTracksDidParser:(NSArray *)tracks {
     // get All points in the tracks.
-    _countOfPoints = 0;
     for (Track *track in tracks) {
-        _countOfPoints += track.countOfPoints;
         for (TrackSegment *segment in [track trackSegments]) {
             for (TrackPoint *point in [segment trackPoints]) {
                 [_currentTrackPoints addObject:point];
