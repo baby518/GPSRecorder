@@ -76,7 +76,7 @@
         if (fixCenter) {
             [self showCenterFromTrackPoints:trackPoints];
         }
-        [self showPolylineFromTrack:trackPoints];
+        [self showPolylineFromTrackPoints:trackPoints];
     }
 }
 
@@ -126,7 +126,7 @@
     [self showCenterFromTrackPoints:maxLatitude :minLatitude :maxLongitude :minLongitude];
 }
 
-- (void)showPolylineFromTrack:(NSArray *)trackPoints {
+- (void)showPolylineFromTrackPoints:(NSArray *)trackPoints {
     int count = trackPoints.count;
     // create a c array of points.
     CLLocationCoordinate2D points[count];

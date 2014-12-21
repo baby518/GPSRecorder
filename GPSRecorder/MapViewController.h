@@ -31,6 +31,6 @@
 - (void)displayRegionInMapView:(NSArray *)trackPoints fixCenter:(bool)fixCenter;
 - (void)showCenterFromTrackPoints:(double)maxLatitude :(double)minLatitude :(double)maxLongitude :(double)minLongitude;
 - (void)showCenterFromTrackPoints:(NSArray *)trackPoints;
-- (void)showPolylineFromTrack:(NSArray *)trackPoints;
+- (void)showPolylineFromTrackPoints:(NSArray *)trackPoints;
 - (void)showPolylineFromLocation:(NSArray *)locationArray;
 @end
