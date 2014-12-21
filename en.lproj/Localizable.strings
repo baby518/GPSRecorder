@@ -9,3 +9,5 @@
 
 "NavigationItem.DeleteAll" = "Delete All";
 "NavigationItem.Delete" = "Delete (%d)";
+"LocationManager.Start" = "Start";
+"LocationManager.Stop" = "Stop";

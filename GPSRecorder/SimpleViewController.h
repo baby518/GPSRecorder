@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *mLongitudeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mAltitudeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mSpeedTextField;
+@property (weak, nonatomic) IBOutlet UIButton *mLocationManagerButton;
 
 - (void)didUpdateToLocation:(CLLocation *)newLocation
                fromLocation:(CLLocation *)oldLocation;

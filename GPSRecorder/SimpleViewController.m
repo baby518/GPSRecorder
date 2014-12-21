@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_mLocationManagerButton setTitle:NSLocalizedString(@"LocationManager.Start", @"Start") forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
