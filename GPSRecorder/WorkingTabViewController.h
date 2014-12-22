@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "SimpleViewController.h"
 #import "MapViewController.h"
+#import "GPXCreator.h"
 
 @interface WorkingTabViewController : UIViewController <CLLocationManagerDelegate> {
 }

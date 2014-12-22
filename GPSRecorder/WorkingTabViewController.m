@@ -41,6 +41,8 @@
     [_locationManager requestAlwaysAuthorization];
     [_locationManager requestWhenInUseAuthorization];
     [_locationManager startUpdatingLocation];
+
+    GPXCreator *gpxCreator = [[GPXCreator alloc] initWithName:@"ZhangChao"];
 }
 
 - (void)didReceiveMemoryWarning {

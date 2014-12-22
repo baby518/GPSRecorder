@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8E2B5E5C40F49D26AF333BB /* GPXCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E2B48D3D1FAEDCACD44F45 /* GPXCreator.m */; };
 		A8E2BB234B7ABB2592EEDBDA /* GPSLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E2B552D11ED541D4A1FA54 /* GPSLocationHelper.m */; };
 		D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */; };
 		D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4CB206E1A164A4A00A93E9D /* Localizable.strings */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A8E2B0964E71E2F3258368A5 /* GPXCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXCreator.h; sourceTree = "<group>"; };
+		A8E2B48D3D1FAEDCACD44F45 /* GPXCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXCreator.m; sourceTree = "<group>"; };
 		A8E2B552D11ED541D4A1FA54 /* GPSLocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSLocationHelper.m; sourceTree = "<group>"; };
 		A8E2B883F624B20AB1883068 /* GPSLocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSLocationHelper.h; sourceTree = "<group>"; };
 		D47183FD1A093A7B00E5CDED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 				D4D3E1E91A3B3B2100531DDF /* GDataXMLNode.m */,
 				D4D3E1EA1A3B3B2100531DDF /* GPXParser.h */,
 				D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */,
+				A8E2B48D3D1FAEDCACD44F45 /* GPXCreator.m */,
+				A8E2B0964E71E2F3258368A5 /* GPXCreator.h */,
 			);
 			path = GDataXML;
 			sourceTree = "<group>";
@@ -402,6 +407,7 @@
 				D4CB48F91A1E57630000B4BE /* FileHelper.m in Sources */,
 				D4CFB4791A07D140002AC497 /* main.m in Sources */,
 				A8E2BB234B7ABB2592EEDBDA /* GPSLocationHelper.m in Sources */,
+				A8E2B5E5C40F49D26AF333BB /* GPXCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
