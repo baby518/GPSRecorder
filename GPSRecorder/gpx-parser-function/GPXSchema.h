@@ -6,6 +6,13 @@
 #import <Foundation/Foundation.h>
 #import "GPXLog.h"
 
+extern NSString * const XML_NAMESPACE;
+extern NSString * const XML_NAMESPACE_STRING;
+extern NSString * const XML_NAMESPACE_XSI;
+extern NSString * const XML_NAMESPACE_XSI_STRING;
+extern NSString * const XML_NAMESPACE_SCHEMA;
+extern NSString * const XML_NAMESPACE_SCHEMA_STRING;
+
 extern NSString * const ROOT_NAME;
 extern NSString * const ATTRIBUTE_ROOT_CREATOR;
 extern NSString * const ATTRIBUTE_ROOT_VERSION;
