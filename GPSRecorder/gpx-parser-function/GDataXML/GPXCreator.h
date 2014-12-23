@@ -13,11 +13,11 @@
 
 @property(nonatomic, retain) GDataXMLDocument *xmlDocument;
 @property(nonatomic, retain) GDataXMLElement *rootElement;
+@property(nonatomic, retain) NSMutableArray *locations;
 
 - (id)initWithName:(NSString *)creator;
 - (id)initWithName:(NSString *)creator version:(NSString *)version;
 - (void)addLocation:(CLLocation *)location;
-- (void)addElement:(GDataXMLNode *)element;
 - (void)stop;
 - (void)saveFile:(NSString *)filePath;
 
