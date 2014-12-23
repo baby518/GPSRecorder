@@ -38,6 +38,8 @@ extern NSString * const ATTRIBUTE_TRACK_POINT_LONGITUDE;
 extern NSString * const ELEMENT_TRACK_POINT_TIME;
 extern NSString * const ELEMENT_TRACK_POINT_ELEVATION;
 
+extern int const MAX_ELEMENT_COUNTS_OF_TRACK;
+
 /** @author zhangchao
 *  @since 2014-10-26
 *  @data 2014-10-26

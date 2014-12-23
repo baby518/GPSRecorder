@@ -28,8 +28,10 @@
 
         CLLocation *test1 = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(1.1, 1.2) altitude:1.3 horizontalAccuracy:0 verticalAccuracy:0 timestamp:0];
         CLLocation *test2 = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(2.1, 2.2) altitude:2.3 horizontalAccuracy:0 verticalAccuracy:0 timestamp:0];
-        [self addLocation:test1];
-        [self addLocation:test2];
+        for (int i = 0; i < 123; i++) {
+            [self addLocation:test1];
+            [self addLocation:test2];
+        }
         [self stop];
 
         NSString *documentsDir = [FileHelper getDocumentsDirectory];
@@ -51,7 +53,22 @@
     GDataXMLElement *lastTrksegElement;
     lastTrksegElement = [GDataXMLNode elementWithName:ELEMENT_TRACK_SEGMENT];
 
+    int count = 0;
     for (CLLocation *location in _locations) {
+        // if count > MAX, alloc a new track segment to store.
+//        if (count == MAX_ELEMENT_COUNTS_OF_TRACK) {
+//            [lastTrkElement addChild:lastTrksegElement];
+//            lastTrksegElement = [GDataXMLNode elementWithName:ELEMENT_TRACK_SEGMENT];
+//            count = 0;
+//        }
+        // if count > MAX, alloc a new track to store.
+        if (count == MAX_ELEMENT_COUNTS_OF_TRACK) {
+            [lastTrkElement addChild:lastTrksegElement];
+            [_rootElement addChild:lastTrkElement];
+            lastTrkElement = [GDataXMLNode elementWithName:ELEMENT_TRACK];
+            lastTrksegElement = [GDataXMLNode elementWithName:ELEMENT_TRACK_SEGMENT];
+            count = 0;
+        }
         GDataXMLElement *trkptElement = [GDataXMLNode elementWithName:ELEMENT_TRACK_POINT];
         NSString *latString = [NSString stringWithFormat:@"%f",location.coordinate.latitude];
         NSString *lonString = [NSString stringWithFormat:@"%f",location.coordinate.longitude];
@@ -72,6 +89,7 @@
         }
 
         [lastTrksegElement addChild:trkptElement];
+        count++;
     }
 
     [lastTrkElement addChild:lastTrksegElement];

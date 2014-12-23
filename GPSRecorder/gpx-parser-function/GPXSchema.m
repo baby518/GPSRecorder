@@ -37,6 +37,8 @@ NSString * const ATTRIBUTE_TRACK_POINT_LONGITUDE    = @"lon";
 NSString * const ELEMENT_TRACK_POINT_TIME           = @"time";
 NSString * const ELEMENT_TRACK_POINT_ELEVATION      = @"ele";
 
+int const MAX_ELEMENT_COUNTS_OF_TRACK               = 100;
+
 @implementation GPXSchema
 + (NSDate *)convertString2Time:(NSString *)string {
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
