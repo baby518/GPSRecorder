@@ -26,6 +26,7 @@
     _mSimpleViewController = [story instantiateViewControllerWithIdentifier:@"simpleViewController"];
     _mMapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewController"];
     _mMapViewController.isRealTimeMode = true;
+    _mSimpleViewController.delegate = self;
 
     [self.view addSubview:_mSimpleViewController.view];
     [self.view addSubview:_mMapViewController.view];
@@ -36,13 +37,7 @@
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.distanceFilter = 5;//the minimum update distance in meters.
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    _locationManager.delegate = self;
-    // requestAlwaysAuthorization or requestWhenInUseAuthorization in IOS 8;
-    [_locationManager requestAlwaysAuthorization];
-    [_locationManager requestWhenInUseAuthorization];
-    [_locationManager startUpdatingLocation];
-
-    GPXCreator *gpxCreator = [[GPXCreator alloc] initWithName:@"ZhangChao"];
+    _isLocationManagerRunning = false;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +62,22 @@
     }
 }
 
+- (void)startLocationManager {
+    [_currentLocationArray removeAllObjects];
+
+    _locationManager.delegate = self;
+    // requestAlwaysAuthorization or requestWhenInUseAuthorization in IOS 8;
+    [_locationManager requestAlwaysAuthorization];
+    [_locationManager requestWhenInUseAuthorization];
+    [_locationManager startUpdatingLocation];
+    _isLocationManagerRunning = true;
+}
+
+- (void)stopLocationManager {
+    _locationManager.delegate = nil;
+    [_locationManager stopUpdatingLocation];
+    _isLocationManagerRunning = false;
+}
 #pragma mark - CLLocationManagerDelegate
 
 /** this Location is based on WGS84, different from MKMapView.
@@ -82,10 +93,34 @@
 
     [_currentLocationArray addObject:newLocation];
     [_mMapViewController showPolylineFromLocation:_currentLocationArray];
+
 }
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error{
     NSLog(@"didFailWithError");
+}
+
+#pragma mark - SimpleViewControllerDelegate
+- (bool)locationManagerRunning {
+    return _isLocationManagerRunning;
+}
+
+- (bool)startLocation {
+    [self startLocationManager];
+    // if start failed, return false.
+    _gpxCreator = [[GPXCreator alloc] initWithName:@"ZhangChao"];
+    _filePathForGPXFile = [FileHelper generateFilesPathFromDate];
+    return true;
+}
+
+- (bool)stopLocation {
+    [self stopLocationManager];
+    // if stop failed, return false.
+    [_gpxCreator addLocations:_currentLocationArray];
+    [_gpxCreator stop];
+
+    [_gpxCreator saveFile:_filePathForGPXFile];
+    return true;
 }
 @end

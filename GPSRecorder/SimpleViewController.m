@@ -46,4 +46,20 @@
     [_mAltitudeTextField setText:[NSString stringWithFormat:@"%.6f m", alt]];
     [_mSpeedTextField setText:[NSString stringWithFormat:@"%.3f m/s", speed]];
 }
+
+- (IBAction)onLocationButtonClick:(UIButton *)sender {
+    if (_delegate != nil) {
+        NSLog(@"isLocationManagerRunning : %d", [_delegate locationManagerRunning]);
+        bool isLocationManagerRunning = [_delegate locationManagerRunning];
+        if (isLocationManagerRunning) {
+            if ([_delegate stopLocation]) {
+                [_mLocationManagerButton setTitle:NSLocalizedString(@"LocationManager.Start", @"Start") forState:UIControlStateNormal];
+            }
+        } else {
+            if ([_delegate startLocation]) {
+                [_mLocationManagerButton setTitle:NSLocalizedString(@"LocationManager.Stop", @"Stop") forState:UIControlStateNormal];
+            }
+        }
+    }
+}
 @end

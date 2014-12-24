@@ -13,4 +13,5 @@
 + (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix;
 + (void) removeFile:(NSString *)fileName;
 + (NSString *) getFilesName:(NSString *)path;
++ (NSString *) generateFilesPathFromDate;
 @end

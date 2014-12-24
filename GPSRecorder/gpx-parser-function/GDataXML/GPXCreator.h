@@ -18,6 +18,7 @@
 - (id)initWithName:(NSString *)creator;
 - (id)initWithName:(NSString *)creator version:(NSString *)version;
 - (void)addLocation:(CLLocation *)location;
+- (void)addLocations:(NSArray *)locations;
 - (void)stop;
 - (void)saveFile:(NSString *)filePath;
 

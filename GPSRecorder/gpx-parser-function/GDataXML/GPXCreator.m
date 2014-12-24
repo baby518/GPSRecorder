@@ -25,25 +25,16 @@
         [_rootElement addAttribute:[GDataXMLNode attributeWithName:ATTRIBUTE_ROOT_CREATOR stringValue:creator]];
         // version
         [_rootElement addAttribute:[GDataXMLNode attributeWithName:ATTRIBUTE_ROOT_VERSION stringValue:version]];
-
-        CLLocation *test1 = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(1.1, 1.2) altitude:1.3 horizontalAccuracy:0 verticalAccuracy:0 timestamp:0];
-        CLLocation *test2 = [[CLLocation alloc] initWithCoordinate:CLLocationCoordinate2DMake(2.1, 2.2) altitude:2.3 horizontalAccuracy:0 verticalAccuracy:0 timestamp:0];
-        for (int i = 0; i < 123; i++) {
-            [self addLocation:test1];
-            [self addLocation:test2];
-        }
-        [self stop];
-
-        NSString *documentsDir = [FileHelper getDocumentsDirectory];
-        NSString *filePath = [NSString stringWithFormat:@"%@/%@", documentsDir, @"test.gpx"];
-
-        [self saveFile:filePath];
     }
     return self;
 }
 
 - (void)addLocation:(CLLocation *)location {
     [_locations addObject:location];
+}
+
+- (void)addLocations:(NSArray *)locations {
+    [_locations addObjectsFromArray:locations];
 }
 
 - (void)stop {

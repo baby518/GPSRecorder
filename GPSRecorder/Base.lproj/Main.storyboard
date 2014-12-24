@@ -106,6 +106,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="onLocationButtonClick:" destination="62o-sC-aYT" eventType="touchUpInside" id="Cjc-o1-YW2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5eb-q8-qxP">
                                 <rect key="frame" x="59" y="305" width="60" height="60"/>
@@ -150,7 +153,7 @@
                     <connections>
                         <outlet property="mAltitudeTextField" destination="u9a-jJ-Dxq" id="eVq-pu-cQi"/>
                         <outlet property="mLatitudeTextField" destination="0pw-LD-8Uh" id="TdC-GW-Ld0"/>
-                        <outlet property="mLocationManagerButton" destination="nGW-df-Cu7" id="GcL-8h-h9p"/>
+                        <outlet property="mLocationManagerButton" destination="nGW-df-Cu7" id="sdY-QP-Caq"/>
                         <outlet property="mLongitudeTextField" destination="51U-aN-QWt" id="dhO-AX-Dic"/>
                         <outlet property="mSpeedTextField" destination="Tpc-Vu-4FT" id="H3e-yL-hfy"/>
                     </connections>

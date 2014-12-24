@@ -53,4 +53,17 @@
     [fileName removeLastObject];
     return [fileName componentsJoinedByString:@"."];
 }
+
++ (NSString *) generateFilesPathFromDate {
+    NSDate *senddate = [NSDate date];
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:@"YYYYMMddHHmmss"];
+    NSString *locationString = [dateformatter stringFromDate:senddate];
+
+    NSLog(@"locationString:%@", locationString);
+
+    NSString *documentsDir = [self getDocumentsDirectory];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@.%@", documentsDir, locationString, @"gpx"];
+    return filePath;
+}
 @end
