@@ -12,7 +12,7 @@
 #import "MapViewController.h"
 #import "GPXCreator.h"
 
-@interface WorkingTabViewController : UIViewController <CLLocationManagerDelegate, SimpleViewControllerDelegate> {
+@interface WorkingTabViewController : UIViewController <CLLocationManagerDelegate, LocationButtonDelegate> {
 }
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mSegmentedControl;

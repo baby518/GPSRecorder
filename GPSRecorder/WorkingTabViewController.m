@@ -93,7 +93,6 @@
 
     [_currentLocationArray addObject:newLocation];
     [_mMapViewController showPolylineFromLocation:_currentLocationArray];
-
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -101,7 +100,7 @@
     NSLog(@"didFailWithError");
 }
 
-#pragma mark - SimpleViewControllerDelegate
+#pragma mark - SimpleViewController's LocationButtonDelegate
 - (bool)locationManagerRunning {
     return _isLocationManagerRunning;
 }

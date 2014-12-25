@@ -31,7 +31,10 @@
     self.navigationItem.rightBarButtonItem = _mRefreshButton;
     [self updateDeleteButtonTitle];
     self.editButtonItem.enabled = NO;
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self refreshFilesList];
 }
 

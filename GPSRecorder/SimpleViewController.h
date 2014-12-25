@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@protocol SimpleViewControllerDelegate <NSObject>
+@protocol LocationButtonDelegate <NSObject>
 - (bool)locationManagerRunning;
 - (bool)startLocation;
 - (bool)stopLocation;
@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *mAltitudeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mSpeedTextField;
 @property (weak, nonatomic) IBOutlet UIButton *mLocationManagerButton;
-@property (nonatomic, assign) id <SimpleViewControllerDelegate> delegate;
+@property (nonatomic, assign) id <LocationButtonDelegate> delegate;
 
 - (void)didUpdateToLocation:(CLLocation *)newLocation
                fromLocation:(CLLocation *)oldLocation;
