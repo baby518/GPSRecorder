@@ -71,6 +71,17 @@
 }
 */
 
+- (IBAction)onRelocateButtonClick:(UIButton *)sender {
+    [self reLocateUserPoint];
+}
+
+- (void)reLocateUserPoint {
+    if (_currentLocation == nil) return;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocation.coordinate, 1200, 1200);
+    [_mTrackMapView setCenterCoordinate:_currentLocation.location.coordinate animated:YES];
+    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:YES];
+}
+
 - (void)displayRegionInMapView :(NSArray *) trackPoints fixCenter:(bool) fixCenter {
     if (trackPoints) {
         if (fixCenter) {
@@ -171,9 +182,8 @@
 
 /** this Location is based on GCJ-02 if the map is chinese GaoDeMap. */
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 1000, 1000);
-//    [_mTrackMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
-//    [_mTrackMapView setRegion:[_mTrackMapView regionThatFits:region] animated:YES];
+    _currentLocation = userLocation;
+//    [self reLocateUserPoint];
     NSLog(@"didUpdateUserLocation from theMapView : %.6f, %.6f",
             userLocation.coordinate.longitude, userLocation.coordinate.latitude);
 }

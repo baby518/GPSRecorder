@@ -25,8 +25,11 @@
 @property (nonatomic, copy, readonly) NSMutableArray *currentTrackPoints;
 
 @property (nonatomic, assign, readonly) CGRect boundsRect;
-@property (strong, nonatomic) MKPolyline *routeLine;
-@property (strong, nonatomic) MKPolylineView * routeLineView;
+
+@property (nonatomic, assign, readonly) MKUserLocation *currentLocation;
+
+- (IBAction)onRelocateButtonClick:(UIButton *)sender;
+- (void)reLocateUserPoint;
 
 - (void)displayRegionInMapView:(NSArray *)trackPoints fixCenter:(bool)fixCenter;
 - (void)showCenterFromTrackPoints:(double)maxLatitude :(double)minLatitude :(double)maxLongitude :(double)minLongitude;
