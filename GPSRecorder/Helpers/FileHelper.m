@@ -54,16 +54,61 @@
     return [fileName componentsJoinedByString:@"."];
 }
 
-+ (NSString *) generateFilesPathFromDate {
++ (NSString *)generateFilePathFromDate {
+    return [self generateFilePathFromDateWithString:@""];
+}
+
++ (NSString *)generateFilePathFromDateWithString:(NSString *)string {
     NSDate *senddate = [NSDate date];
     NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-    [dateformatter setDateFormat:@"YYYYMMddHHmmss"];
+    [dateformatter setDateFormat:@"YYYYMMddHHmm"];
     NSString *locationString = [dateformatter stringFromDate:senddate];
 
-    NSLog(@"locationString:%@", locationString);
+    NSLog(@"locationString:%@, %@", locationString, string);
 
     NSString *documentsDir = [self getDocumentsDirectory];
-    NSString *filePath = [NSString stringWithFormat:@"%@/%@.%@", documentsDir, locationString, @"gpx"];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@%@.%@", documentsDir, locationString, string, @"gpx"];
+
+    filePath = [self generateNewFilePathIfExist:filePath :0];
+
     return filePath;
+}
+
++ (NSString *)generateNewFilePathIfExist:(NSString *)path:(int) index {
+    NSString *directory = [self getDocumentsDirectory];
+    NSArray *fileList = [self getFilesListInDirectory:directory];
+    NSURL *fileUrl = [NSURL fileURLWithPath:path];
+    if ([fileList containsObject:fileUrl]) {
+        NSMutableArray *fileNames = [NSMutableArray arrayWithArray:[[fileUrl lastPathComponent] componentsSeparatedByString:@"."]];
+        int count = [fileNames count];
+        if (count == 2) {
+            [fileNames removeLastObject];
+        } else if (count >= 3) {
+            [fileNames removeLastObject];
+            [fileNames removeLastObject];
+        }
+        NSString *fileName = fileNames[0];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%@.%d.%@", directory, fileName, index + 1, @"gpx"];
+        NSLog(@"file exist, need create another one. %@", filePath);
+        return [self generateNewFilePathIfExist:filePath :index + 1];
+    }
+    return path;
+}
+
++ (NSURL *)generateFileUrlFromDate {
+    return [self generateFileUrlFromDateWithString:@""];
+}
+
++ (NSURL *)generateFileUrlFromDateWithString:(NSString *)string {
+    NSString *filePath = [self generateFilePathFromDateWithString:string];
+    NSURL *fileUrl = [self generateNewFileUrlIfExist:[NSURL fileURLWithPath:filePath] :0];
+
+    return fileUrl;
+}
+
++ (NSURL *)generateNewFileUrlIfExist:(NSURL *)url:(int) index {
+    NSString *filePath = [self generateNewFilePathIfExist:[url relativePath] :index + 1];
+    NSURL *newUrl = [NSURL fileURLWithPath:filePath];
+    return newUrl;
 }
 @end

@@ -20,6 +20,7 @@
 - (void)addLocation:(CLLocation *)location;
 - (void)addLocations:(NSArray *)locations;
 - (void)stop;
-- (void)saveFile:(NSString *)filePath;
+- (void)saveFilePath:(NSString *)filePath;
+- (void)saveFileUrl:(NSURL *)fileUrl;
 
 @end

@@ -90,10 +90,17 @@
     [_xmlDocument setCharacterEncoding:@"UTF-8"];
 }
 
-- (void)saveFile:(NSString *)filePath {
+- (void)saveFilePath:(NSString *)filePath {
     NSData *xmlData = _xmlDocument.XMLData;
 
     NSLog(@"GPXCreator filePath : %@", filePath);
     [xmlData writeToFile:filePath atomically:YES];
+}
+
+- (void)saveFileUrl:(NSURL *)fileUrl {
+    NSData *xmlData = _xmlDocument.XMLData;
+
+    NSLog(@"GPXCreator fileUrl : %@", fileUrl);
+    [xmlData writeToURL:fileUrl atomically:YES];
 }
 @end
