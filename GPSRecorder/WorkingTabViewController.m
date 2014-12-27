@@ -41,6 +41,7 @@
 
     _geocoder = [[CLGeocoder alloc] init];
     _needGeocode = true;
+    _needStoreFirstGeocode = true;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,7 +75,7 @@
     [_locationManager requestWhenInUseAuthorization];
     [_locationManager startUpdatingLocation];
     _isLocationManagerRunning = true;
-    _needGeocode = true;
+    _needStoreFirstGeocode = true;
 }
 
 - (void)stopLocationManager {
@@ -87,7 +88,12 @@
     [_geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error == nil && [placemarks count] > 0) {
             CLPlacemark *result = placemarks[0];
-            _placemarkForStore = result;
+            [_mSimpleViewController didUpdatePlacemark:result];
+            if (_needStoreFirstGeocode) {
+                //Store first location;
+                _placemarkForStore = result;
+                _needStoreFirstGeocode = false;
+            }
         } else if (error == nil && [placemarks count] == 0) {
             NSLog(@"No results were returned.");
         } else if (error != nil) {
@@ -117,7 +123,6 @@
                                                      verticalAccuracy:newLocation.verticalAccuracy
                                                             timestamp:newLocation.timestamp];
         [self geocodeLocation:location];
-        _needGeocode = false;
     }
 }
 
@@ -145,8 +150,8 @@
     [_gpxCreator addLocations:_currentLocationArray];
     [_gpxCreator stop];
 
-    NSString *state = _placemarkForStore.addressDictionary[@"State"];
-    NSString *thoroughfare = _placemarkForStore.addressDictionary[@"Thoroughfare"];
+    NSString *state = _placemarkForStore.administrativeArea;
+    NSString *thoroughfare = _placemarkForStore.thoroughfare;
     if (state == nil || [state isEqualToString:@""]) {
         _filePathForGPXFile = [FileHelper generateFilePathFromDate];
 //        _fileUrlForGPXFile = [FileHelper generateFileUrlFromDate];

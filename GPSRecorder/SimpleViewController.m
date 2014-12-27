@@ -62,4 +62,8 @@
         }
     }
 }
+
+- (void)didUpdatePlacemark:(CLPlacemark *)newPlacemark {
+    [_mPlacemarkLabel setText:newPlacemark.name];
+}
 @end

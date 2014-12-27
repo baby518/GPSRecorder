@@ -28,7 +28,10 @@
 *   and post it to MapView to show.*/
 @property (nonatomic, copy, readonly) NSMutableArray *currentLocationArray;
 @property (nonatomic, assign, readonly) bool isLocationManagerRunning;
+/** Geocode location */
 @property (nonatomic, assign, readonly) bool needGeocode;
+/** store first geocode to generate filename */
+@property (nonatomic, assign, readonly) bool needStoreFirstGeocode;
 
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender;
 

@@ -21,9 +21,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *mAltitudeTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mSpeedTextField;
 @property (weak, nonatomic) IBOutlet UIButton *mLocationManagerButton;
+@property (weak, nonatomic) IBOutlet UILabel *mPlacemarkLabel;
 @property (nonatomic, assign) id <LocationButtonDelegate> delegate;
 
 - (void)didUpdateToLocation:(CLLocation *)newLocation
                fromLocation:(CLLocation *)oldLocation;
 - (IBAction)onLocationButtonClick:(UIButton *)sender;
+- (void)didUpdatePlacemark:(CLPlacemark *)newPlacemark;
 @end
