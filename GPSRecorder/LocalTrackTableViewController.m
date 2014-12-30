@@ -125,7 +125,8 @@
     cell.textLabel.text = [FileHelper getFilesName:filePath];
 //    cell.textLabel.text = [fileURL lastPathComponent];
 
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
+    NSString * fileSize = [FileHelper getFilesSize:filePath];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", fileSize];
     return cell;
 }
 
