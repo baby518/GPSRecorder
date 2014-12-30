@@ -64,6 +64,9 @@
 }
 
 - (void)didUpdatePlacemark:(CLPlacemark *)newPlacemark {
-    [_mPlacemarkLabel setText:newPlacemark.name];
+    NSString *name = newPlacemark.name;
+    NSString *address = newPlacemark.addressDictionary[@"FormattedAddressLines"][0];
+
+    [_mPlacemarkLabel setText:address];
 }
 @end
