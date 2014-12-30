@@ -101,6 +101,52 @@
     }
 }
 
+- (void)confirmDeleteAction {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]
+            initWithTitle:NSLocalizedString(@"NavigationItem.DeleteAllInfo", @"Are you sure?")
+                 delegate:self
+        cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel")
+   destructiveButtonTitle:NSLocalizedString(@"DeleteConfirm", @"Confirm")
+        otherButtonTitles:nil];
+
+    actionSheet.actionSheetStyle = UIActionSheetStyleAutomatic;
+    [actionSheet showInView:self.view];
+}
+
+- (void)deleteAllFiles {
+    NSUInteger count = _trackFiles.count;
+    for (int row = 0; row < count; row++) {
+        // Delete the row from the data source
+        NSLog(@"this file will be deleted : %d", row);
+        [FileHelper removeFile:_trackFiles[row]];
+    }
+    [_trackFiles removeAllObjects];
+    [self refreshFilesList];
+}
+
+- (void)deleteFiles:(NSArray *)filesIndex {
+    if (filesIndex == nil || ![filesIndex[0] isKindOfClass:[NSIndexPath class]]) return;
+    NSMutableIndexSet *indicesOfItemsToDelete = [NSMutableIndexSet new];
+    // Delete what the user selected.
+    for (NSIndexPath *indexPath in filesIndex) {
+        // Delete the row from the data source
+        NSInteger row = [indexPath row];
+        NSLog(@"this file will be deleted : %d", row);
+        [indicesOfItemsToDelete addIndex:row];
+
+        [FileHelper removeFile:_trackFiles[row]];
+    }
+    [_trackFiles removeObjectsAtIndexes:indicesOfItemsToDelete];
+    [_mLocalTrackTableView deleteRowsAtIndexPaths:filesIndex withRowAnimation:UITableViewRowAnimationFade];
+}
+
+#pragma UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != [actionSheet cancelButtonIndex]) {
+        [self deleteAllFiles];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -172,11 +218,7 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        NSInteger row = [indexPath row];
-        [FileHelper removeFile:_trackFiles[row]];
-        [_trackFiles removeObjectAtIndex:row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self deleteFiles:@[indexPath]];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
@@ -221,27 +263,9 @@
     bool noItemsAreSelected = (selectedRows.count == 0);
 
     if (allItemsAreSelected || noItemsAreSelected) {
-        NSUInteger count = _trackFiles.count;
-        for (int row = 0; row < count; row++) {
-            // Delete the row from the data source
-            NSLog(@"this file will be deleted : %d", row);
-            [FileHelper removeFile:_trackFiles[row]];
-        }
-        [_trackFiles removeAllObjects];
-        [self refreshFilesList];
+        [self confirmDeleteAction];
     } else {
-        NSMutableIndexSet *indicesOfItemsToDelete = [NSMutableIndexSet new];
-        // Delete what the user selected.
-        for (NSIndexPath *indexPath in selectedRows) {
-            // Delete the row from the data source
-            NSInteger row = [indexPath row];
-            NSLog(@"this file will be deleted : %d", row);
-            [indicesOfItemsToDelete addIndex:row];
-
-            [FileHelper removeFile:_trackFiles[row]];
-        }
-        [_trackFiles removeObjectsAtIndexes:indicesOfItemsToDelete];
-        [_mLocalTrackTableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationFade];
+        [self deleteFiles:selectedRows];
     }
 
     [self updateDeleteButtonTitle];

@@ -9,5 +9,8 @@
 
 "NavigationItem.DeleteAll" = "删除所有";
 "NavigationItem.Delete" = "删除%d项";
+"NavigationItem.DeleteAllInfo" = "删除所有记录，是否继续？";
 "LocationManager.Start" = "开始";
 "LocationManager.Stop" = "停止";
+"DeleteConfirm" = "删除吧";
+"Cancel" = "取消";

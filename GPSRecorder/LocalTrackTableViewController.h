@@ -10,7 +10,7 @@
 #import "FileHelper.h"
 #import "MapViewController.h"
 
-@interface LocalTrackTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface LocalTrackTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *mLocalTrackTableView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *mDeleteButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mRefreshButton;
@@ -24,4 +24,8 @@
 - (NSData *)loadDataFromPath:(NSString *)filePath;
 - (void)updateDeleteButtonTitle;
 - (void)updateEditButtonTitle;
+/** show confirm action sheet when delete All Items. */
+- (void)confirmDeleteAction;
+- (void)deleteAllFiles;
+- (void)deleteFiles:(NSArray *)filesIndex;
 @end

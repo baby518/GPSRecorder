@@ -9,5 +9,8 @@
 
 "NavigationItem.DeleteAll" = "Delete All";
 "NavigationItem.Delete" = "Delete (%d)";
+"NavigationItem.DeleteAllInfo" = "I will delete all files, Are you sure ?";
 "LocationManager.Start" = "Start";
 "LocationManager.Stop" = "Stop";
+"DeleteConfirm" = "I'm sure.";
+"Cancel" = "Cancel";
