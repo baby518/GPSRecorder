@@ -19,6 +19,7 @@
     return [self getFilesListInDirectory:directory filterSuffix:@".*"];
 }
 
+/** @return a NSURL array */
 + (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix {
     NSMutableArray *result = [NSMutableArray array];
     NSArray *filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:nil];
@@ -52,6 +53,21 @@
     NSMutableArray *fileName = [NSMutableArray arrayWithArray:[[path lastPathComponent] componentsSeparatedByString:@"."]];
     [fileName removeLastObject];
     return [fileName componentsJoinedByString:@"."];
+}
+
++ (unsigned int)getFilesLength:(NSString *)path {
+    NSData *data = [NSData dataWithContentsOfFile:path options:NSUncachedRead error:nil];
+    return data.length;
+}
+
++ (NSString *) getFilesSize:(NSString *)path {
+    double length = [self getFilesLength:path] * 1.0;
+    NSArray *units = @[@" B", @" KB", @" MB", @" GB", @" TB"];
+    unsigned int i = 0;
+    for (i = 0; length >= 1024 && i < 4; i++ ) {
+        length = length / 1024;
+    }
+    return [NSString stringWithFormat:@"%.2f %@", length, units[i]];
 }
 
 + (NSString *)generateFilePathFromDate {

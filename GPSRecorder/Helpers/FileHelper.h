@@ -13,6 +13,8 @@
 + (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix;
 + (void) removeFile:(NSString *)fileName;
 + (NSString *) getFilesName:(NSString *)path;
++ (unsigned int)getFilesLength:(NSString *)path;
++ (NSString *) getFilesSize:(NSString *)path;
 + (NSString *)generateFilePathFromDate;
 + (NSString *)generateFilePathFromDateWithString:(NSString *)string;
 + (NSURL *)generateFileUrlFromDate;
