@@ -9,10 +9,10 @@
 
 }
 
-- (id)initWithName:(NSString *)creator {
+- (instancetype)initWithName:(NSString *)creator {
     return [self initWithName:creator version:@"0.1"];
 }
-- (id)initWithName:(NSString *)creator version:(NSString *)version {
+- (instancetype)initWithName:(NSString *)creator version:(NSString *)version {
     self = [super self];
     if (self) {
         _locations = [NSMutableArray array];

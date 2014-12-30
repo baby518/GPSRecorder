@@ -9,11 +9,11 @@
 
 }
 
-- (id)init {
+- (instancetype)init {
     return [self initWithName:@""];
 }
 
-- (id)initWithName:(NSString *)name {
+- (instancetype)initWithName:(NSString *)name {
     self = [super init];
     if (self) {
         _trackSegments = [NSMutableArray array];

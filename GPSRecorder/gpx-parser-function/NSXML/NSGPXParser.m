@@ -10,7 +10,7 @@
 
 @implementation NSGPXParser
 
-- (id)initWithData:(NSData *)data {
+- (instancetype)initWithData:(NSData *)data {
     self = [super self];
     if (self) {
         _isNeedCancel = false;

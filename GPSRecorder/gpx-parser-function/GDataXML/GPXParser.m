@@ -24,7 +24,7 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
 @implementation GPXParser {
 }
 
-- (id)initWithData:(NSData *)data {
+- (instancetype)initWithData:(NSData *)data {
     self = [super self];
     if (self) {
         _isNeedCancel = false;
@@ -48,11 +48,11 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
 }
 
 - (void)parserMetadataElements:(GDataXMLElement *)rootElement {
-    GDataXMLElement *meta = [[rootElement elementsForName:ELEMENT_METADATA] objectAtIndex:0];
-    NSString *name = [[[meta elementsForName:ELEMENT_NAME] objectAtIndex:0] stringValue];
+    GDataXMLElement *meta = [rootElement elementsForName:ELEMENT_METADATA][0];
+    NSString *name = [[meta elementsForName:ELEMENT_NAME][0] stringValue];
     LOGD(@"Metadata name : %@", name);
     //获取 bounds 节点
-    GDataXMLElement *bounds = [[meta elementsForName:ELEMENT_METADATA_BOUNDS] objectAtIndex:0];
+    GDataXMLElement *bounds = [meta elementsForName:ELEMENT_METADATA_BOUNDS][0];
     if (bounds != nil) {
         _hasBoundsElement = true;
         //获取 bounds 节点下的 maxLat, maxLng, minLat, minLng 属性
@@ -75,7 +75,7 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
     for (GDataXMLElement *rte in routes) {
         routesIndex++;
         //获取 number 节点的值
-        NSString *number = [[[rte elementsForName:ELEMENT_ROUTE_NUM] objectAtIndex:0] stringValue];
+        NSString *number = [[rte elementsForName:ELEMENT_ROUTE_NUM][0] stringValue];
         LOGD(@"route number :%@", number);
 
         //获取 rtept 节点
@@ -101,7 +101,7 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
     for (GDataXMLElement *track in tracks) {
         tracksIndex++;
         //获取 name 节点的值
-        NSString *name = [[[track elementsForName:ELEMENT_NAME] objectAtIndex:0] stringValue];
+        NSString *name = [[track elementsForName:ELEMENT_NAME][0] stringValue];
         LOGD(@"track name is:%@", name);
 
         Track *trackForPost = [[Track alloc] initWithName:name];
@@ -125,8 +125,8 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
                 //获取 trkpt 节点下的 lat 和 lon 属性, time 和 ele 节点
                 double latValue = [[[point attributeForName:ATTRIBUTE_TRACK_POINT_LATITUDE] stringValue] doubleValue];
                 double lonValue = [[[point attributeForName:ATTRIBUTE_TRACK_POINT_LONGITUDE] stringValue] doubleValue];
-                NSDate *timeValue = [GPXSchema convertString2Time:[[[point elementsForName:ELEMENT_TRACK_POINT_TIME] objectAtIndex:0] stringValue]];
-                double eleValue = [[[[point elementsForName:ELEMENT_TRACK_POINT_ELEVATION] objectAtIndex:0] stringValue] doubleValue];
+                NSDate *timeValue = [GPXSchema convertString2Time:[[point elementsForName:ELEMENT_TRACK_POINT_TIME][0] stringValue]];
+                double eleValue = [[[point elementsForName:ELEMENT_TRACK_POINT_ELEVATION][0] stringValue] doubleValue];
                 LOGD(@"track Point double : (%f, %f, %f), %@", latValue, lonValue, eleValue, timeValue);
                 //当前TrackPoint
                 TrackPoint *trackPointForPost = [[TrackPoint alloc] initWithTrack:latValue :lonValue :eleValue :timeValue];

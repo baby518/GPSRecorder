@@ -28,7 +28,7 @@
 // The total time cost , in second(s)
 @property (nonatomic, assign, readonly) double totalTime;
 
-- (id)initWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)name NS_DESIGNATED_INITIALIZER;
 - (void)addTrackSegment:(TrackSegment *)trkseg;
 
 @end

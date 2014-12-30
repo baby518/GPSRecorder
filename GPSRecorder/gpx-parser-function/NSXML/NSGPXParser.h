@@ -41,7 +41,7 @@
 @property(nonatomic, strong, readonly) NSMutableArray *mAllTracks;
 @property (nonatomic, assign, readonly) bool isNeedCancel;
 
-- (id)initWithData:(NSData *)data;
+- (instancetype)initWithData:(NSData *)data;
 
 - (void)satrtParser;
 - (void)stopParser;

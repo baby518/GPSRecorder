@@ -15,8 +15,8 @@
 @property(nonatomic, retain) GDataXMLElement *rootElement;
 @property(nonatomic, retain) NSMutableArray *locations;
 
-- (id)initWithName:(NSString *)creator;
-- (id)initWithName:(NSString *)creator version:(NSString *)version;
+- (instancetype)initWithName:(NSString *)creator;
+- (instancetype)initWithName:(NSString *)creator version:(NSString *)version;
 - (void)addLocation:(CLLocation *)location;
 - (void)addLocations:(NSArray *)locations;
 - (void)stop;

@@ -61,7 +61,7 @@ extern int const PARSER_CALLBACK_MODE_JUST_RESULT;
 @property (nonatomic, assign, readonly) bool isNeedCancel;
 @property (nonatomic, assign, readonly) bool hasBoundsElement;
 
-- (id)initWithData:(NSData *)data;
+- (instancetype)initWithData:(NSData *)data;
 - (void)parserAllElements;
 - (void)parserRouteElements:(GDataXMLElement *)rootElement;
 - (void)parserMetadataElements:(GDataXMLElement *)rootElement;
