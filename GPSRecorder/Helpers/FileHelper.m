@@ -85,12 +85,12 @@
     NSString *documentsDir = [self getDocumentsDirectory];
     NSString *filePath = [NSString stringWithFormat:@"%@/%@%@.%@", documentsDir, locationString, string, @"gpx"];
 
-    filePath = [self generateNewFilePathIfExist:filePath :0];
+    filePath = [self generateNewFilePathIfExist:filePath index:0];
 
     return filePath;
 }
 
-+ (NSString *)generateNewFilePathIfExist:(NSString *)path:(int) index {
++ (NSString *)generateNewFilePathIfExist:(NSString *)path index:(int) index {
     NSString *directory = [self getDocumentsDirectory];
     NSArray *fileList = [self getFilesListInDirectory:directory];
     NSURL *fileUrl = [NSURL fileURLWithPath:path];
@@ -106,7 +106,7 @@
         NSString *fileName = fileNames[0];
         NSString *filePath = [NSString stringWithFormat:@"%@/%@.%d.%@", directory, fileName, index + 1, @"gpx"];
         NSLog(@"file exist, need create another one. %@", filePath);
-        return [self generateNewFilePathIfExist:filePath :index + 1];
+        return [self generateNewFilePathIfExist:filePath index:index + 1];
     }
     return path;
 }
@@ -117,13 +117,13 @@
 
 + (NSURL *)generateFileUrlFromDateWithString:(NSString *)string {
     NSString *filePath = [self generateFilePathFromDateWithString:string];
-    NSURL *fileUrl = [self generateNewFileUrlIfExist:[NSURL fileURLWithPath:filePath] :0];
+    NSURL *fileUrl = [self generateNewFileUrlIfExist:[NSURL fileURLWithPath:filePath] index:0];
 
     return fileUrl;
 }
 
-+ (NSURL *)generateNewFileUrlIfExist:(NSURL *)url:(int) index {
-    NSString *filePath = [self generateNewFilePathIfExist:[url relativePath] :index + 1];
++ (NSURL *)generateNewFileUrlIfExist:(NSURL *)url index:(int) index {
+    NSString *filePath = [self generateNewFilePathIfExist:[url relativePath] index:index + 1];
     NSURL *newUrl = [NSURL fileURLWithPath:filePath];
     return newUrl;
 }
