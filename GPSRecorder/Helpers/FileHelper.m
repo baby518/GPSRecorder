@@ -77,7 +77,7 @@
 + (NSString *)generateFilePathFromDateWithString:(NSString *)string {
     NSDate *senddate = [NSDate date];
     NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-    [dateformatter setDateFormat:@"YYYYMMddHHmm"];
+    [dateformatter setDateFormat:@"yyyyMMddHHmm"];
     NSString *locationString = [dateformatter stringFromDate:senddate];
 
     NSLog(@"locationString:%@, %@", locationString, string);
