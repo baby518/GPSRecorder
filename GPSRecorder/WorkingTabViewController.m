@@ -31,8 +31,7 @@
     [self.view addSubview:_mSimpleViewController.view];
     [self.view addSubview:_mMapViewController.view];
 
-    _mSimpleViewController.view.hidden = NO;
-    _mMapViewController.view.hidden = YES;
+    [self showSimpleView];
 
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.distanceFilter = 5;//the minimum update distance in meters.
@@ -49,21 +48,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showSimpleView {
+    _mSimpleViewController.view.hidden = NO;
+    _mMapViewController.view.hidden = YES;
+    self.navigationItem.leftBarButtonItem = nil;
+}
+
+- (void)showMapView {
+    _mSimpleViewController.view.hidden = YES;
+    _mMapViewController.view.hidden = NO;
+    self.navigationItem.leftBarButtonItem = _mRefreshButton;
+}
+
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender {
     long index = [sender selectedSegmentIndex];
 
     switch (index) {
         case 0:
-            _mSimpleViewController.view.hidden = NO;
-            _mMapViewController.view.hidden = YES;
+            [self showSimpleView];
             break;
         case 1:
-            _mSimpleViewController.view.hidden = YES;
-            _mMapViewController.view.hidden = NO;
+            [self showMapView];
             break;
         default:
             break;
     }
+}
+
+- (IBAction)onRefreshClick:(UIBarButtonItem *)sender {
+    [_mMapViewController reLocateUserPoint];
 }
 
 - (void)startLocationManager {

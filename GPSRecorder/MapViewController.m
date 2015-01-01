@@ -71,10 +71,6 @@
 }
 */
 
-- (IBAction)onRelocateButtonClick:(UIButton *)sender {
-    [self reLocateUserPoint];
-}
-
 - (void)reLocateUserPoint {
     if (_currentLocation == nil) return;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_currentLocation.coordinate, 1200, 1200);

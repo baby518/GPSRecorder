@@ -28,7 +28,6 @@
 
 @property (nonatomic, assign, readonly) MKUserLocation *currentLocation;
 
-- (IBAction)onRelocateButtonClick:(UIButton *)sender;
 - (void)reLocateUserPoint;
 
 - (void)displayRegionInMapView:(NSArray *)trackPoints fixCenter:(bool)fixCenter;

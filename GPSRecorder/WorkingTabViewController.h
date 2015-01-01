@@ -32,9 +32,13 @@
 @property (nonatomic, assign, readonly) bool needGeocode;
 /** store first geocode to generate filename */
 @property (nonatomic, assign, readonly) bool needStoreFirstGeocode;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *mRefreshButton;
 
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender;
+- (IBAction)onRefreshClick:(UIBarButtonItem *)sender;
 
+- (void)showSimpleView;
+- (void)showMapView;
 - (void)startLocationManager;
 - (void)stopLocationManager;
 - (void)geocodeLocation:(CLLocation *)location;
