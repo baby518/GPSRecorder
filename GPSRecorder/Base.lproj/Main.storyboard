@@ -328,9 +328,7 @@
                             <outlet property="delegate" destination="Lni-hC-Vhb" id="1n3-Ox-kYX"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="hkH-jm-auf"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Track List" id="Bh9-5o-jqN"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

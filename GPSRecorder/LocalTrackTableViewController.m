@@ -26,8 +26,6 @@
     _mLocalTrackTableView.dataSource = self;
     _trackFiles = [NSMutableArray array];
 
-    self.editButtonItem.target = self;
-    self.editButtonItem.action = @selector(checkMultiEditing);
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     self.navigationItem.rightBarButtonItem = _mRefreshButton;
@@ -252,15 +250,9 @@
 
 #pragma mark - NavigationItem
 
-- (void)checkMultiEditing {
-    bool editing = self.tableView.isEditing;//_mLocalTrackTableView.isEditing;
-    [self setEditing:!editing animated:true];
-    self.navigationItem.rightBarButtonItem = !editing ? _mDeleteButton : _mRefreshButton;
-}
-
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [self updateDeleteButtonTitle];
     [super setEditing:editing animated:animated];
+    self.navigationItem.rightBarButtonItem = editing ? _mDeleteButton : _mRefreshButton;
 }
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender {
