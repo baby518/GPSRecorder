@@ -41,6 +41,7 @@
     _geocoder = [[CLGeocoder alloc] init];
     _needGeocode = true;
     _needStoreFirstGeocode = true;
+    _metadataBounds = [[GPXBounds alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,6 +138,20 @@
                                                             timestamp:newLocation.timestamp];
         [self geocodeLocation:location];
     }
+
+    // compare every location, calc the GPX metadata's bounds element.
+    if (newLocation.coordinate.latitude > _metadataBounds.maxLatitude) {
+        _metadataBounds.maxLatitude = newLocation.coordinate.latitude;
+    }
+    if (newLocation.coordinate.latitude < _metadataBounds.minLatitude) {
+        _metadataBounds.minLatitude = newLocation.coordinate.latitude;
+    }
+    if (newLocation.coordinate.longitude > _metadataBounds.maxLongitude) {
+        _metadataBounds.maxLongitude = newLocation.coordinate.longitude;
+    }
+    if (newLocation.coordinate.longitude < _metadataBounds.minLongitude) {
+        _metadataBounds.minLongitude = newLocation.coordinate.longitude;
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -160,6 +175,9 @@
 - (bool)stopLocation {
     [self stopLocationManager];
     // if stop failed, return false.
+    // add metadata here
+    [_gpxCreator addMetadataBounds:_metadataBounds];
+    // add all locations
     [_gpxCreator addLocations:_currentLocationArray];
     [_gpxCreator stop];
 

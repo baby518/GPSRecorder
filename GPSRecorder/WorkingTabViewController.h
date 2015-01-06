@@ -24,15 +24,17 @@
 @property(nonatomic, retain, readonly) NSString *filePathForGPXFile;
 @property(nonatomic, retain, readonly) NSURL *fileUrlForGPXFile;
 @property(nonatomic, retain, readonly) CLPlacemark *placemarkForStore;
+/** bounds for metadata to save file. */
+@property(nonatomic, retain, readonly) GPXBounds *metadataBounds;
 /** this Locations' array is based on WGS84, used to save gpx file.
 *   and post it to MapView to show.*/
-@property (nonatomic, copy, readonly) NSMutableArray *currentLocationArray;
-@property (nonatomic, assign, readonly) bool isLocationManagerRunning;
+@property(nonatomic, copy, readonly) NSMutableArray *currentLocationArray;
+@property(nonatomic, assign, readonly) bool isLocationManagerRunning;
 /** Geocode location */
-@property (nonatomic, assign, readonly) bool needGeocode;
+@property(nonatomic, assign, readonly) bool needGeocode;
 /** store first geocode to generate filename */
-@property (nonatomic, assign, readonly) bool needStoreFirstGeocode;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *mRefreshButton;
+@property(nonatomic, assign, readonly) bool needStoreFirstGeocode;
+@property(weak, nonatomic) IBOutlet UIBarButtonItem *mRefreshButton;
 
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender;
 - (IBAction)onRefreshClick:(UIBarButtonItem *)sender;

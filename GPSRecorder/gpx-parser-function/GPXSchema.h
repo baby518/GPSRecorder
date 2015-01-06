@@ -50,3 +50,14 @@ extern int const MAX_ELEMENT_COUNTS_OF_TRACK;
 + (NSDate *) convertString2Time:(NSString *)string;
 + (NSString *) convertTime2String:(NSDate *)time;
 @end
+
+@interface GPXBounds : NSObject {
+}
+- (id)initWith:(double)maxLatitude :(double)minLatitude :(double)maxLongitude :(double)minLongitude;
+@property (nonatomic, assign) double maxLatitude;
+@property (nonatomic, assign) double maxLongitude;
+@property (nonatomic, assign) double minLatitude;
+@property (nonatomic, assign) double minLongitude;
+@property (nonatomic, assign, readonly) double size;
+
+@end

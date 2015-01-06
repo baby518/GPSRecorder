@@ -61,7 +61,7 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
         double minLat = [[[bounds attributeForName:ATTRIBUTE_METADATA_BOUNDS_MINLAT] stringValue] doubleValue];
         double minLng = [[[bounds attributeForName:ATTRIBUTE_METADATA_BOUNDS_MINLNG] stringValue] doubleValue];
         LOGD(@"Metadata bounds is: (%f, %f) (%f, %f)", maxLat, maxLng, minLat, minLng);
-        CGRect result = CGRectMake(minLat, minLng, maxLat - minLat, maxLng - minLng);
+        GPXBounds *result = [[GPXBounds alloc] initWith:maxLat :minLat :maxLng :minLng];
         [self postTheBoundsOfAllTracks:result needFixIt:false];
     } else {
         _hasBoundsElement = false;
@@ -209,7 +209,7 @@ int const PARSER_CALLBACK_MODE_DEFAULT              = PARSER_CALLBACK_MODE_JUST_
     });
 }
 
-- (void)postTheBoundsOfAllTracks:(CGRect)rect needFixIt:(bool)needFix {
+- (void)postTheBoundsOfAllTracks:(GPXBounds *)rect needFixIt:(bool)needFix {
     dispatch_async(dispatch_get_main_queue(), ^{
         [_delegate tracksBoundsDidParser:rect needFixIt:needFix];
     });

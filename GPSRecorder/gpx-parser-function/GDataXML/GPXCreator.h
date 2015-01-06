@@ -13,10 +13,12 @@
 
 @property(nonatomic, retain) GDataXMLDocument *xmlDocument;
 @property(nonatomic, retain) GDataXMLElement *rootElement;
+@property(nonatomic, retain) GDataXMLElement *metadataElement;
 @property(nonatomic, retain) NSMutableArray *locations;
 
 - (instancetype)initWithName:(NSString *)creator;
 - (instancetype)initWithName:(NSString *)creator version:(NSString *)version;
+- (void)addMetadataBounds:(GPXBounds *)bounds;
 - (void)addLocation:(CLLocation *)location;
 - (void)addLocations:(NSArray *)locations;
 - (void)stop;

@@ -109,7 +109,7 @@
         double minLat = [attributeDict[ATTRIBUTE_METADATA_BOUNDS_MINLAT] doubleValue];
         double minLng = [attributeDict[ATTRIBUTE_METADATA_BOUNDS_MINLNG] doubleValue];
         LOGD(@"metadata bound is: (%f, %f) - (%f, %f)", maxLat, maxLng, minLat, minLng);
-        CGRect result = CGRectMake(minLat, minLng, maxLat - minLat, maxLng - minLng);
+        GPXBounds *result = [[GPXBounds alloc] initWith:maxLat :minLat :maxLng :minLng];
         dispatch_async(dispatch_get_main_queue(), ^{
             [_delegate tracksBoundsDidParser:result needFixIt:false];
         });

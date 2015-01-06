@@ -29,6 +29,24 @@
     return self;
 }
 
+- (void)addMetadataBounds:(GPXBounds *)bounds {
+    if (_metadataElement == nil) {
+        _metadataElement = [GDataXMLNode elementWithName:ELEMENT_METADATA];
+    }
+    GDataXMLElement *boundsElement = [GDataXMLNode elementWithName:ELEMENT_METADATA_BOUNDS];
+    NSString *maxLatitude = [NSString stringWithFormat:@"%.6f", bounds.maxLatitude];
+    NSString *minLatitude = [NSString stringWithFormat:@"%.6f", bounds.minLatitude];
+    NSString *maxLongitude = [NSString stringWithFormat:@"%.6f", bounds.maxLongitude];
+    NSString *minLongitude = [NSString stringWithFormat:@"%.6f", bounds.minLongitude];
+    [boundsElement addAttribute:[GDataXMLNode attributeWithName:ATTRIBUTE_METADATA_BOUNDS_MAXLAT stringValue:maxLatitude]];
+    [boundsElement addAttribute:[GDataXMLNode attributeWithName:ATTRIBUTE_METADATA_BOUNDS_MINLAT stringValue:minLatitude]];
+    [boundsElement addAttribute:[GDataXMLNode attributeWithName:ATTRIBUTE_METADATA_BOUNDS_MAXLNG stringValue:maxLongitude]];
+    [boundsElement addAttribute:[GDataXMLNode attributeWithName:ATTRIBUTE_METADATA_BOUNDS_MINLNG stringValue:minLongitude]];
+
+    [_metadataElement addChild:boundsElement];
+    [_rootElement addChild:_metadataElement];
+}
+
 - (void)addLocation:(CLLocation *)location {
     [_locations addObject:location];
 }
@@ -46,6 +64,8 @@
 
     int count = 0;
     for (CLLocation *location in _locations) {
+        //TODO if no bounds, generate here.
+
         // if count > MAX, alloc a new track segment to store.
 //        if (count == MAX_ELEMENT_COUNTS_OF_TRACK) {
 //            [lastTrkElement addChild:lastTrksegElement];

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
 #import "GDataXMLNode.h"
 #import "GPXSchema.h"
 #import "GPXLog.h"
@@ -41,7 +40,7 @@ extern int const PARSER_CALLBACK_MODE_JUST_RESULT;
 - (void)trackSegmentDidParser:(TrackSegment *)segment;
 - (void)trackDidParser:(Track *)track;
 - (void)allTracksDidParser:(NSArray *)tracks;
-- (void)tracksBoundsDidParser:(CGRect)rect needFixIt:(bool)needFix;
+- (void)tracksBoundsDidParser:(GPXBounds *)rect needFixIt:(bool)needFix;
 @end
 
 /** @author zhangchao
@@ -71,7 +70,7 @@ extern int const PARSER_CALLBACK_MODE_JUST_RESULT;
 - (void)postTrackSegmentOfParser:(TrackSegment *)segment;
 - (void)postTrackOfParser:(Track *)track;
 - (void)postAllTracksOfParser:(NSArray *)tracks;
-- (void)postTheBoundsOfAllTracks:(CGRect)rect needFixIt:(bool)needFix;
+- (void)postTheBoundsOfAllTracks:(GPXBounds *)rect needFixIt:(bool)needFix;
 
 - (void)stopParser;
 @end

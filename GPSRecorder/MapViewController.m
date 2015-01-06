@@ -230,21 +230,16 @@
     }
 
     // if has no bounds, calc the center of Track.
-    if (_boundsRect.size.width == 0 && _boundsRect.size.height == 0) {
+    if (_bounds.size == 0) {
         [self displayRegionInMapView:_currentTrackPoints fixCenter:true];
     } else {
         [self displayRegionInMapView:_currentTrackPoints fixCenter:false];
     }
 }
 
-- (void)tracksBoundsDidParser:(CGRect)rect needFixIt:(bool)needFix {
-    _boundsRect = rect;
+- (void)tracksBoundsDidParser:(GPXBounds *)rect needFixIt:(bool)needFix {
+    _bounds = rect;
 
-    double maxLatitude = _boundsRect.origin.x + _boundsRect.size.width;
-    double minLatitude = _boundsRect.origin.x;
-    double maxLongitude = _boundsRect.origin.y + _boundsRect.size.height;
-    double minLongitude = _boundsRect.origin.y;
-
-    [self showCenterFromTrackPoints:maxLatitude :minLatitude :maxLongitude :minLongitude];
+    [self showCenterFromTrackPoints:_bounds.maxLatitude :_bounds.minLatitude :_bounds.maxLongitude :_bounds.minLongitude];
 }
 @end

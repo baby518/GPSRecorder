@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
 #import "TrackPoint.h"
 #import "TrackSegment.h"
 #import "Track.h"
@@ -24,7 +23,7 @@
 - (void)rootCreatorDidParser:(NSString *)creator;
 - (void)rootVersionDidParser:(NSString *)version;
 - (void)allTracksDidParser:(NSArray *)tracks;
-- (void)tracksBoundsDidParser:(CGRect)rect needFixIt:(bool)needFix;
+- (void)tracksBoundsDidParser:(GPXBounds *)rect needFixIt:(bool)needFix;
 @end
 
 @interface NSGPXParser : NSObject <NSXMLParserDelegate>

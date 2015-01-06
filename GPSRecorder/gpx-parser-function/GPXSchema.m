@@ -65,3 +65,34 @@ int const MAX_ELEMENT_COUNTS_OF_TRACK               = 100;
     return dateString;
 }
 @end
+
+@implementation GPXBounds
+- (id)init {
+    self = [super self];
+    if (self) {
+        _maxLatitude = -MAXFLOAT;
+        _minLatitude = MAXFLOAT;
+        _maxLongitude = -MAXFLOAT;
+        _minLongitude = MAXFLOAT;
+        _size = 0;
+    }
+    return self;
+}
+
+- (id)initWith:(double)maxLatitude :(double)minLatitude :(double)maxLongitude :(double)minLongitude {
+    self = [super self];
+    if (self) {
+        _maxLatitude = maxLatitude;
+        _minLatitude = minLatitude;
+        _maxLongitude = maxLongitude;
+        _minLongitude = minLongitude;
+        _size = (_maxLatitude - _minLatitude) * (_maxLongitude * _minLongitude);
+    }
+    return self;
+}
+
+- (double)getSize {
+    return (_maxLatitude - _minLatitude) * (_maxLongitude * _minLongitude);
+}
+
+@end
