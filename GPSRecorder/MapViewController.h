@@ -24,7 +24,7 @@
 @property (nonatomic, assign) bool isRealTimeMode;
 @property (nonatomic, copy, readonly) NSMutableArray *currentTrackPoints;
 
-@property (nonatomic, assign, readonly) GPXBounds *bounds;
+@property (strong, nonatomic, readonly) GPXBounds *bounds;
 
 @property (nonatomic, assign, readonly) MKUserLocation *currentLocation;
 
