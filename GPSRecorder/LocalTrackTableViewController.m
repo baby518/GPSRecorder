@@ -54,7 +54,7 @@
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Documents directory
         NSString *documentsDir = [FileHelper getDocumentsDirectory];
-        NSArray *filesArray = [FileHelper getFilesListInDirectory:documentsDir filterSuffix:@".gpx"];
+        NSArray *filesArray = [FileHelper getFilesListInDirectory:documentsDir filterSuffix:@".gpx" sortByASC:false];
 
         [_trackFiles removeAllObjects];
         [_trackFiles addObjectsFromArray:filesArray];

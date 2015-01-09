@@ -10,7 +10,7 @@
 
 + (NSString *) getDocumentsDirectory;
 + (NSArray *) getFilesListInDirectory:(NSString *)directory;
-+ (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix;
++ (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix sortByASC:(bool) ascSort;
 + (void) removeFile:(NSString *)fileName;
 + (NSString *) getFilesName:(NSString *)path;
 + (unsigned int)getFilesLength:(NSString *)path;

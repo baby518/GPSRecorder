@@ -16,31 +16,55 @@
 }
 
 + (NSArray *) getFilesListInDirectory:(NSString *)directory {
-    return [self getFilesListInDirectory:directory filterSuffix:@".*"];
+    return [self getFilesListInDirectory:directory filterSuffix:@".*" sortByASC:false];
 }
 
 /** @return a NSURL array */
-+ (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix {
-    NSMutableArray *result = [NSMutableArray array];
-    NSArray *filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:nil];
++ (NSArray *) getFilesListInDirectory:(NSString *)directory filterSuffix:(NSString *)suffix sortByASC:(bool) ascSort{
+    NSMutableArray *resultURL = [NSMutableArray array];
+    NSError* error = nil;
+    NSArray *filePaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:directory error:&error];
+
+    if (error != nil) return [NSArray arrayWithArray:nil];
+
+    // filter unneeded files.
+    // and get ModificationDate in a NSDictionary
+    NSMutableDictionary *filesAndProperties = [NSMutableDictionary dictionaryWithCapacity:[filePaths count]];
     for (NSString *path in filePaths) {
         if ([path hasSuffix:suffix] || [suffix isEqualToString:@".*"]) {
             NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", directory, path]];
-            [result addObject:url];
+            [resultURL addObject:url];
+
+            NSDictionary *properties = [[NSFileManager defaultManager]
+                    attributesOfItemAtPath:url.path
+                                     error:&error];
+            NSDate *modDate = properties[NSFileModificationDate];
+
+            if (error == nil) {
+                [filesAndProperties setValue:modDate forKey:url.path];
+            }
         }
     }
-    // sort elements, default is ASC.
-    [result sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        NSComparisonResult result = [[(NSURL*)obj1 absoluteString] compare:[(NSURL*)obj2 absoluteString]];
-        if (result == NSOrderedAscending) {
-            return NSOrderedAscending;
-        } else if (result == NSOrderedDescending) {
-            return NSOrderedDescending;
+
+    [resultURL sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSComparisonResult compareResult;
+
+        if (false) {
+            // sort elements with absoluteString.
+            compareResult = [[(NSURL *) obj1 path] compare:[(NSURL *) obj2 path]];
+        } else {
+            // sort elements with ModificationDate.
+            compareResult = [filesAndProperties[[(NSURL *) obj1 path]] compare:filesAndProperties[[(NSURL *) obj2 path]]];
+        }
+        if (compareResult == NSOrderedAscending) {
+            return ascSort ? NSOrderedAscending : NSOrderedDescending;
+        } else if (compareResult == NSOrderedDescending) {
+            return ascSort ? NSOrderedDescending : NSOrderedAscending;
         } else {
             return NSOrderedSame;
         }
     }];
-    return result;
+    return resultURL;
 }
 
 + (void) removeFile:(NSString *)fileName {
