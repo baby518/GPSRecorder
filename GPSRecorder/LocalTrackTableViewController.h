@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *mDeleteButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mRefreshButton;
 @property (strong, nonatomic) NSMutableArray *trackFiles;
+/** true if click edit button to Edit, false if slide to edit item.*/
+@property (nonatomic, assign) bool isMultiEditing;
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender;
 - (IBAction)onRefreshClick:(UIBarButtonItem *)sender;

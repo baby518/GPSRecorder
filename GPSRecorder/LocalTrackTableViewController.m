@@ -40,6 +40,11 @@
     [self refreshFilesList];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self setEditing:false animated:false];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -254,6 +259,7 @@
 
 - (void)checkMultiEditing {
     bool editing = self.tableView.isEditing;//_mLocalTrackTableView.isEditing;
+    _isMultiEditing = !editing;
     [self setEditing:!editing animated:true];
     self.navigationItem.rightBarButtonItem = !editing ? _mDeleteButton : _mRefreshButton;
 }
@@ -261,6 +267,11 @@
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [self updateDeleteButtonTitle];
     [super setEditing:editing animated:animated];
+    if (_isMultiEditing) {
+        // just change to _mDeleteButton when MultiEditing, if slide to edit, don't change it.
+        self.navigationItem.rightBarButtonItem = editing ? _mDeleteButton : _mRefreshButton;
+    }
+    if (!editing) _isMultiEditing = false;
 }
 
 - (IBAction)onDeleteClick:(UIBarButtonItem *)sender {
