@@ -38,7 +38,8 @@
             NSDictionary *properties = [[NSFileManager defaultManager]
                     attributesOfItemAtPath:url.path
                                      error:&error];
-            NSDate *modDate = properties[NSFileModificationDate];
+//            NSDate *modDate = properties[NSFileModificationDate];
+            NSDate *modDate = properties[NSFileCreationDate];
 
             if (error == nil) {
                 [filesAndProperties setValue:modDate forKey:url.path];
