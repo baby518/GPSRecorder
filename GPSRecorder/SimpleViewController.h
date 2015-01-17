@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "TimeLabel.h"
 
 @protocol LocationButtonDelegate <NSObject>
 - (bool)locationManagerRunning;
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *mSpeedTextField;
 @property (weak, nonatomic) IBOutlet UIButton *mLocationManagerButton;
 @property (weak, nonatomic) IBOutlet UILabel *mPlacemarkLabel;
+@property (weak, nonatomic) IBOutlet TimeLabel *mTimeLabel;
 @property (nonatomic, assign) id <LocationButtonDelegate> delegate;
 
 - (void)didUpdateToLocation:(CLLocation *)newLocation
