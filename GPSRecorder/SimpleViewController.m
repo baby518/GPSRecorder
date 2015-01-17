@@ -52,7 +52,7 @@
         NSLog(@"isLocationManagerRunning : %d", [_delegate locationManagerRunning]);
         bool isLocationManagerRunning = [_delegate locationManagerRunning];
         if (isLocationManagerRunning) {
-            [_mTimeLabel pauseTimer];
+            [_mTimeLabel resetTimer];
             if ([_delegate stopLocation]) {
                 [_mLocationManagerButton setTitle:NSLocalizedString(@"LocationManager.Start", @"Start") forState:UIControlStateNormal];
             }

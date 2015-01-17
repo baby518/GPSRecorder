@@ -9,24 +9,9 @@
 
 }
 
-- (instancetype)init {
-    self = [super self];
-    if (self) {
-        [self initTimer];
-    }
-    return self;
-}
-
-- (bool) isInitialized {
-    if (_mTimer) {
-        return true;
-    }
-    return false;
-}
 - (void)updateLabel {
-    NSTimeInterval interval = [_mStartedDate timeIntervalSinceNow];
-    _curTimeInterval = floor(fabs(interval) + 0.5);
-    self.text = [NSString stringWithFormat:@"%d", (int)(_lastTimeInterval + _curTimeInterval)];
+    _curTimeInterval = floor(fabs([_mStartedDate timeIntervalSinceNow]) + 0.5);
+    self.text = [self formatTimerString:(int) (_lastTimeInterval + _curTimeInterval)];
 }
 
 - (void)initTimer {
@@ -56,10 +41,18 @@
 - (void)resetTimer {
     [_mTimer invalidate];
     _mTimer = nil;
-    self.text = @"0";
+    self.text = [self formatTimerString : 0];
     _isTimerRunning = false;
     _lastTimeInterval = 0;
     _curTimeInterval = 0;
 }
 
+/** MAX is 99:59:59 */
+- (NSString *)formatTimerString:(int)timeInterval {
+    int hour = timeInterval / 3600 % 100;
+    int minute = timeInterval / 60 % 60;
+    int second = timeInterval % 60;
+    NSString *result = [NSString stringWithFormat:@"%02d:%02d:%02d", hour, minute, second];
+    return result;
+}
 @end
