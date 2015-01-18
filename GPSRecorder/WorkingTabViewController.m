@@ -32,9 +32,9 @@
     [self.view addSubview:_mMapViewController.view];
 
     [self showSimpleView];
-
+    _distanceFilter = 5;
     _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.distanceFilter = 5;//the minimum update distance in meters.
+    _locationManager.distanceFilter = _distanceFilter;//the minimum update distance in meters.
     _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     _isLocationManagerRunning = false;
 
@@ -125,9 +125,17 @@
            fromLocation:(CLLocation *)oldLocation {
     //refresh SimpleView
     [_mSimpleViewController didUpdateToLocation:newLocation fromLocation:oldLocation];
+    NSLog(@"didUpdateUserLocation newLocation from locationManager : %.6f, %.6f",
+            newLocation.coordinate.longitude, newLocation.coordinate.latitude);
+    CLLocation *lastLocation = _currentLocationArray.lastObject;
+    if (lastLocation == nil || [newLocation distanceFromLocation:lastLocation] > _distanceFilter) {
+        [_currentLocationArray addObject:newLocation];
+        [_mMapViewController showPolylineFromLocation:_currentLocationArray];
+    } else {
+        NSLog(@"didUpdateUserLocation distance from lastLocation : %.3f, distanceFilter : %d",
+                [newLocation distanceFromLocation:lastLocation], _distanceFilter);
+    }
 
-    [_currentLocationArray addObject:newLocation];
-    [_mMapViewController showPolylineFromLocation:_currentLocationArray];
     if (_needGeocode) {
         //Geocode first location;
         CLLocationCoordinate2D coordinate = [GPSLocationHelper transformFromWGSToGCJ:newLocation.coordinate];

@@ -180,7 +180,7 @@
 - (void)mapView:(MKMapView *)theMapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     _currentLocation = userLocation;
 //    [self reLocateUserPoint];
-    NSLog(@"didUpdateUserLocation from theMapView : %.6f, %.6f",
+    LOGD(@"didUpdateUserLocation from theMapView : %.6f, %.6f",
             userLocation.coordinate.longitude, userLocation.coordinate.latitude);
 }
 

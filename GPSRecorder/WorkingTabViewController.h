@@ -17,6 +17,7 @@
 
 @property(weak, nonatomic) IBOutlet UISegmentedControl *mSegmentedControl;
 @property(nonatomic, retain) CLLocationManager *locationManager;
+@property(nonatomic, assign, readonly) int distanceFilter;
 @property(nonatomic, retain) CLGeocoder *geocoder;
 @property(nonatomic, retain) SimpleViewController *mSimpleViewController;
 @property(nonatomic, retain) MapViewController *mMapViewController;
