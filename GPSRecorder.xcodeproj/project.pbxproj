@@ -140,7 +140,6 @@
 		D4CB20711A164A6500A93E9D /* Res */ = {
 			isa = PBXGroup;
 			children = (
-				D4CB20731A164A9100A93E9D /* drawable */,
 				D4CB20721A164A8300A93E9D /* value */,
 			);
 			name = Res;
@@ -152,13 +151,6 @@
 				D4CB206E1A164A4A00A93E9D /* Localizable.strings */,
 			);
 			name = value;
-			sourceTree = "<group>";
-		};
-		D4CB20731A164A9100A93E9D /* drawable */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = drawable;
 			sourceTree = "<group>";
 		};
 		D4CB48E01A1E553A0000B4BE /* gpx-parser-function */ = {

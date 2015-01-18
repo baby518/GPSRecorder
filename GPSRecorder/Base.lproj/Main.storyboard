@@ -212,7 +212,7 @@
         <scene sceneID="GB4-ep-IsB">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0wA-7t-DbI" userLabel="Main" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Main" image="locationWorking" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MH5-q3-kQb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -250,7 +250,7 @@
         <scene sceneID="lvZ-qa-9un">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xSN-wj-H4w" userLabel="Track List" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Track List" image="second" id="SLT-fO-SHe" userLabel="Record List"/>
+                    <tabBarItem key="tabBarItem" title="Track List" image="trackList" id="SLT-fO-SHe" userLabel="Record List"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SLd-g5-UH4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -325,8 +325,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="locationWorking" width="32" height="32"/>
         <image name="second" width="30" height="30"/>
+        <image name="trackList" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
