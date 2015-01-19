@@ -1,0 +1,48 @@
+
+/* Class = "IBUINavigationItem"; title = "working"; ObjectID = "vIe-vP-ATR"; */
+"vIe-vP-ATR.title" = "首页";
+
+/* Class = "IBUINavigationItem"; title = "List"; ObjectID = "Bh9-5o-jqN"; */
+"Bh9-5o-jqN.title" = "纪录";
+
+/* Class = "IBUINavigationItem"; title = "Setting"; ObjectID = "15c-73-9n1"; */
+"15c-73-9n1.title" = "设置";
+
+/* Class = "IBUILabel"; text = "First View"; ObjectID = "KQZ-1w-vlD"; */
+"KQZ-1w-vlD.text" = "第一个视图";
+
+/* Class = "IBUILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "第二个视图";
+
+/* Class = "IBUILabel"; text = "Loaded by FirstViewController"; ObjectID = "A5M-7J-77L"; */
+"A5M-7J-77L.text" = "首页 视图";
+
+/* Class = "IBUILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
+"NDk-cv-Gan.text" = "纪录 视图";
+
+/* Class = "IBUITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "首页";
+
+/* Class = "IBUITabBarItem"; title = "Item"; ObjectID = "SLT-fO-SHe"; */
+"SLT-fO-SHe.title" = "纪录";
+
+/* Class = "IBUITabBarItem"; title = "Second"; ObjectID = "tIV-F8-5Am"; */
+"tIV-F8-5Am.title" = "设置";
+
+/* Class = "IBUISegmentedControl"; q4G-J3-Ske.segmentTitles[0] = "Simple"; ObjectID = "q4G-J3-Ske"; */
+"q4G-J3-Ske.segmentTitles[0]" = "简洁模式";
+
+/* Class = "IBUISegmentedControl"; q4G-J3-Ske.segmentTitles[1] = "Map"; ObjectID = "q4G-J3-Ske"; */
+"q4G-J3-Ske.segmentTitles[1]" = "地图模式";
+
+/* Class = "IBUILabel"; text = "Altitude"; ObjectID = "agf-dQ-3KS"; */
+"agf-dQ-3KS.text" = "海拔";
+
+/* Class = "IBUILabel"; text = "Latitude"; ObjectID = "gUN-Ye-N2k"; */
+"gUN-Ye-N2k.text" = "纬度";
+
+/* Class = "IBUILabel"; text = "Longitude"; ObjectID = "hVs-sc-seD"; */
+"hVs-sc-seD.text" = "经度";
+
+/* Class = "IBUILabel"; text = "Speed"; ObjectID = "Agt-8R-9on"; */
+"Agt-8R-9on.text" = "速度";

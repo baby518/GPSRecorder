@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A8E2B5E5C40F49D26AF333BB /* GPXCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E2B48D3D1FAEDCACD44F45 /* GPXCreator.m */; };
+		A8E2B85B947EC8C9B163B354 /* TimeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E2B9941F24888F3A663E58 /* TimeLabel.m */; };
+		A8E2BB234B7ABB2592EEDBDA /* GPSLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E2B552D11ED541D4A1FA54 /* GPSLocationHelper.m */; };
+		D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */; };
+		D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4CB206E1A164A4A00A93E9D /* Localizable.strings */; };
+		D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB20751A165BD000A93E9D /* MapViewController.m */; };
+		D4CB48F01A1E553A0000B4BE /* GPXSchema.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48E71A1E553A0000B4BE /* GPXSchema.m */; };
+		D4CB48F11A1E553A0000B4BE /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48E91A1E553A0000B4BE /* Track.m */; };
+		D4CB48F21A1E553A0000B4BE /* TrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48EB1A1E553A0000B4BE /* TrackPoint.m */; };
+		D4CB48F31A1E553A0000B4BE /* TrackSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48ED1A1E553A0000B4BE /* TrackSegment.m */; };
+		D4CB48F51A1E55D40000B4BE /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CB48F41A1E55D40000B4BE /* libxml2.dylib */; };
+		D4CB48F91A1E57630000B4BE /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CB48F81A1E57630000B4BE /* FileHelper.m */; };
+		D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */; };
+		D4CFB4791A07D140002AC497 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB4781A07D140002AC497 /* main.m */; };
+		D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB47B1A07D140002AC497 /* AppDelegate.m */; };
+		D4CFB47F1A07D140002AC497 /* WorkingTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB47E1A07D140002AC497 /* WorkingTabViewController.m */; };
+		D4CFB4821A07D140002AC497 /* SettingTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB4811A07D140002AC497 /* SettingTabViewController.m */; };
+		D4CFB4851A07D140002AC497 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CFB4831A07D140002AC497 /* Main.storyboard */; };
+		D4CFB4871A07D140002AC497 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4CFB4861A07D140002AC497 /* Images.xcassets */; };
+		D4CFB48A1A07D140002AC497 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CFB4881A07D140002AC497 /* LaunchScreen.xib */; };
+		D4CFB4961A07D140002AC497 /* GPSRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CFB4951A07D140002AC497 /* GPSRecorderTests.m */; };
+		D4D21D761A1516180053B3EF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D21D751A1516180053B3EF /* MapKit.framework */; };
+		D4D3E1EC1A3B3B2100531DDF /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D3E1E91A3B3B2100531DDF /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D4D3E1ED1A3B3B2100531DDF /* GPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */; };
+		D4D52C791A408CEB00F503A9 /* NSGPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D52C781A408CEB00F503A9 /* NSGPXParser.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4CFB4901A07D140002AC497 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4CFB46B1A07D140002AC497 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4CFB4721A07D140002AC497;
+			remoteInfo = GPSRecorder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A8E2B0964E71E2F3258368A5 /* GPXCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXCreator.h; sourceTree = "<group>"; };
+		A8E2B48D3D1FAEDCACD44F45 /* GPXCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXCreator.m; sourceTree = "<group>"; };
+		A8E2B552D11ED541D4A1FA54 /* GPSLocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSLocationHelper.m; sourceTree = "<group>"; };
+		A8E2B7749D5B966FD56DEFF5 /* TimeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLabel.h; sourceTree = "<group>"; };
+		A8E2B883F624B20AB1883068 /* GPSLocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSLocationHelper.h; sourceTree = "<group>"; };
+		A8E2B9941F24888F3A663E58 /* TimeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLabel.m; sourceTree = "<group>"; };
+		D47183FD1A093A7B00E5CDED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		D48266781A1BAAA9002BFC2E /* LocalTrackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalTrackTableViewController.h; sourceTree = "<group>"; };
+		D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalTrackTableViewController.m; sourceTree = "<group>"; };
+		D4CB206D1A164A4A00A93E9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D4CB206F1A164A4D00A93E9D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D4CB20701A164A4E00A93E9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D4CB20741A165BD000A93E9D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		D4CB20751A165BD000A93E9D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		D4CB48E31A1E553A0000B4BE /* GPXLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXLog.h; sourceTree = "<group>"; };
+		D4CB48E61A1E553A0000B4BE /* GPXSchema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXSchema.h; sourceTree = "<group>"; };
+		D4CB48E71A1E553A0000B4BE /* GPXSchema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXSchema.m; sourceTree = "<group>"; };
+		D4CB48E81A1E553A0000B4BE /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		D4CB48E91A1E553A0000B4BE /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		D4CB48EA1A1E553A0000B4BE /* TrackPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackPoint.h; sourceTree = "<group>"; };
+		D4CB48EB1A1E553A0000B4BE /* TrackPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackPoint.m; sourceTree = "<group>"; };
+		D4CB48EC1A1E553A0000B4BE /* TrackSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackSegment.h; sourceTree = "<group>"; };
+		D4CB48ED1A1E553A0000B4BE /* TrackSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackSegment.m; sourceTree = "<group>"; };
+		D4CB48F41A1E55D40000B4BE /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		D4CB48F71A1E57630000B4BE /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		D4CB48F81A1E57630000B4BE /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
+		D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleViewController.h; sourceTree = "<group>"; };
+		D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleViewController.m; sourceTree = "<group>"; };
+		D4CFB4731A07D140002AC497 /* GPSRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4CFB4771A07D140002AC497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4CFB4781A07D140002AC497 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4CFB47A1A07D140002AC497 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D4CFB47B1A07D140002AC497 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D4CFB47D1A07D140002AC497 /* WorkingTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkingTabViewController.h; sourceTree = "<group>"; };
+		D4CFB47E1A07D140002AC497 /* WorkingTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkingTabViewController.m; sourceTree = "<group>"; };
+		D4CFB4801A07D140002AC497 /* SettingTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTabViewController.h; sourceTree = "<group>"; };
+		D4CFB4811A07D140002AC497 /* SettingTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTabViewController.m; sourceTree = "<group>"; };
+		D4CFB4841A07D140002AC497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D4CFB4861A07D140002AC497 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D4CFB4891A07D140002AC497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D4CFB48F1A07D140002AC497 /* GPSRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4CFB4941A07D140002AC497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4CFB4951A07D140002AC497 /* GPSRecorderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPSRecorderTests.m; sourceTree = "<group>"; };
+		D4CFB4B21A07E4DA002AC497 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		D4CFB4B31A07E4DB002AC497 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D4CFB4B71A07E4F6002AC497 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D4D21D751A1516180053B3EF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D4D3E1E81A3B3B2100531DDF /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		D4D3E1E91A3B3B2100531DDF /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		D4D3E1EA1A3B3B2100531DDF /* GPXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPXParser.h; sourceTree = "<group>"; };
+		D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXParser.m; sourceTree = "<group>"; };
+		D4D52C771A408CEB00F503A9 /* NSGPXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSGPXParser.h; sourceTree = "<group>"; };
+		D4D52C781A408CEB00F503A9 /* NSGPXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSGPXParser.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4CFB4701A07D140002AC497 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4CB48F51A1E55D40000B4BE /* libxml2.dylib in Frameworks */,
+				D4D21D761A1516180053B3EF /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4CFB48C1A07D140002AC497 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D47C75BB1A1FA771009D01EE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFB47D1A07D140002AC497 /* WorkingTabViewController.h */,
+				D4CFB47E1A07D140002AC497 /* WorkingTabViewController.m */,
+				D4CFB4801A07D140002AC497 /* SettingTabViewController.h */,
+				D4CFB4811A07D140002AC497 /* SettingTabViewController.m */,
+				D48266781A1BAAA9002BFC2E /* LocalTrackTableViewController.h */,
+				D48266791A1BAAA9002BFC2E /* LocalTrackTableViewController.m */,
+				D4CB20741A165BD000A93E9D /* MapViewController.h */,
+				D4CB20751A165BD000A93E9D /* MapViewController.m */,
+				D4CE4C311A1A3FC300427E11 /* SimpleViewController.h */,
+				D4CE4C321A1A3FC300427E11 /* SimpleViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		D4CB20711A164A6500A93E9D /* Res */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB20721A164A8300A93E9D /* value */,
+			);
+			name = Res;
+			sourceTree = "<group>";
+		};
+		D4CB20721A164A8300A93E9D /* value */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB206E1A164A4A00A93E9D /* Localizable.strings */,
+			);
+			name = value;
+			sourceTree = "<group>";
+		};
+		D4CB48E01A1E553A0000B4BE /* gpx-parser-function */ = {
+			isa = PBXGroup;
+			children = (
+				D4D52C761A408CEB00F503A9 /* NSXML */,
+				D4D3E1E71A3B3B2100531DDF /* GDataXML */,
+				D4CB48E31A1E553A0000B4BE /* GPXLog.h */,
+				D4CB48E61A1E553A0000B4BE /* GPXSchema.h */,
+				D4CB48E71A1E553A0000B4BE /* GPXSchema.m */,
+				D4CB48E81A1E553A0000B4BE /* Track.h */,
+				D4CB48E91A1E553A0000B4BE /* Track.m */,
+				D4CB48EA1A1E553A0000B4BE /* TrackPoint.h */,
+				D4CB48EB1A1E553A0000B4BE /* TrackPoint.m */,
+				D4CB48EC1A1E553A0000B4BE /* TrackSegment.h */,
+				D4CB48ED1A1E553A0000B4BE /* TrackSegment.m */,
+			);
+			path = "gpx-parser-function";
+			sourceTree = "<group>";
+		};
+		D4CB48F61A1E57630000B4BE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D4CB48F71A1E57630000B4BE /* FileHelper.h */,
+				D4CB48F81A1E57630000B4BE /* FileHelper.m */,
+				A8E2B552D11ED541D4A1FA54 /* GPSLocationHelper.m */,
+				A8E2B883F624B20AB1883068 /* GPSLocationHelper.h */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D4CE18F81A6A3D7300BEE35C /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				A8E2B9941F24888F3A663E58 /* TimeLabel.m */,
+				A8E2B7749D5B966FD56DEFF5 /* TimeLabel.h */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		D4CFB46A1A07D140002AC497 = {
+			isa = PBXGroup;
+			children = (
+				D4CB48F41A1E55D40000B4BE /* libxml2.dylib */,
+				D4D21D751A1516180053B3EF /* MapKit.framework */,
+				D4CFB4751A07D140002AC497 /* GPSRecorder */,
+				D4CFB4921A07D140002AC497 /* GPSRecorderTests */,
+				D4CFB4741A07D140002AC497 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4CFB4741A07D140002AC497 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFB4731A07D140002AC497 /* GPSRecorder.app */,
+				D4CFB48F1A07D140002AC497 /* GPSRecorderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4CFB4751A07D140002AC497 /* GPSRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				D4CE18F81A6A3D7300BEE35C /* ui */,
+				D4CB48F61A1E57630000B4BE /* Helpers */,
+				D4CB48E01A1E553A0000B4BE /* gpx-parser-function */,
+				D4CB20711A164A6500A93E9D /* Res */,
+				D47C75BB1A1FA771009D01EE /* ViewController */,
+				D4CFB47A1A07D140002AC497 /* AppDelegate.h */,
+				D4CFB47B1A07D140002AC497 /* AppDelegate.m */,
+				D4CFB4831A07D140002AC497 /* Main.storyboard */,
+				D4CFB4861A07D140002AC497 /* Images.xcassets */,
+				D4CFB4881A07D140002AC497 /* LaunchScreen.xib */,
+				D4CFB4761A07D140002AC497 /* Supporting Files */,
+			);
+			path = GPSRecorder;
+			sourceTree = "<group>";
+		};
+		D4CFB4761A07D140002AC497 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFB4771A07D140002AC497 /* Info.plist */,
+				D4CFB4781A07D140002AC497 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4CFB4921A07D140002AC497 /* GPSRecorderTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFB4951A07D140002AC497 /* GPSRecorderTests.m */,
+				D4CFB4931A07D140002AC497 /* Supporting Files */,
+			);
+			path = GPSRecorderTests;
+			sourceTree = "<group>";
+		};
+		D4CFB4931A07D140002AC497 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4CFB4941A07D140002AC497 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4D3E1E71A3B3B2100531DDF /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
+				D4D3E1E81A3B3B2100531DDF /* GDataXMLNode.h */,
+				D4D3E1E91A3B3B2100531DDF /* GDataXMLNode.m */,
+				D4D3E1EA1A3B3B2100531DDF /* GPXParser.h */,
+				D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */,
+				A8E2B48D3D1FAEDCACD44F45 /* GPXCreator.m */,
+				A8E2B0964E71E2F3258368A5 /* GPXCreator.h */,
+			);
+			path = GDataXML;
+			sourceTree = "<group>";
+		};
+		D4D52C761A408CEB00F503A9 /* NSXML */ = {
+			isa = PBXGroup;
+			children = (
+				D4D52C771A408CEB00F503A9 /* NSGPXParser.h */,
+				D4D52C781A408CEB00F503A9 /* NSGPXParser.m */,
+			);
+			path = NSXML;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4CFB4721A07D140002AC497 /* GPSRecorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4CFB4991A07D140002AC497 /* Build configuration list for PBXNativeTarget "GPSRecorder" */;
+			buildPhases = (
+				D4CFB46F1A07D140002AC497 /* Sources */,
+				D4CFB4701A07D140002AC497 /* Frameworks */,
+				D4CFB4711A07D140002AC497 /* Resources */,
+				D4CFB49F1A07D36C002AC497 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GPSRecorder;
+			productName = GPSRecorder;
+			productReference = D4CFB4731A07D140002AC497 /* GPSRecorder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4CFB48E1A07D140002AC497 /* GPSRecorderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4CFB49C1A07D140002AC497 /* Build configuration list for PBXNativeTarget "GPSRecorderTests" */;
+			buildPhases = (
+				D4CFB48B1A07D140002AC497 /* Sources */,
+				D4CFB48C1A07D140002AC497 /* Frameworks */,
+				D4CFB48D1A07D140002AC497 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4CFB4911A07D140002AC497 /* PBXTargetDependency */,
+			);
+			name = GPSRecorderTests;
+			productName = GPSRecorderTests;
+			productReference = D4CFB48F1A07D140002AC497 /* GPSRecorderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4CFB46B1A07D140002AC497 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = zhangchao;
+				TargetAttributes = {
+					D4CFB4721A07D140002AC497 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					D4CFB48E1A07D140002AC497 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = D4CFB4721A07D140002AC497;
+					};
+				};
+			};
+			buildConfigurationList = D4CFB46E1A07D140002AC497 /* Build configuration list for PBXProject "GPSRecorder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = D4CFB46A1A07D140002AC497;
+			productRefGroup = D4CFB4741A07D140002AC497 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4CFB4721A07D140002AC497 /* GPSRecorder */,
+				D4CFB48E1A07D140002AC497 /* GPSRecorderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4CFB4711A07D140002AC497 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4CFB4851A07D140002AC497 /* Main.storyboard in Resources */,
+				D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */,
+				D4CFB48A1A07D140002AC497 /* LaunchScreen.xib in Resources */,
+				D4CFB4871A07D140002AC497 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4CFB48D1A07D140002AC497 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D4CFB49F1A07D36C002AC497 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\n\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then\n\n/Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\n\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\n\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4CFB46F1A07D140002AC497 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4CB48F01A1E553A0000B4BE /* GPXSchema.m in Sources */,
+				D4D3E1EC1A3B3B2100531DDF /* GDataXMLNode.m in Sources */,
+				D4CFB4821A07D140002AC497 /* SettingTabViewController.m in Sources */,
+				D4CB48F11A1E553A0000B4BE /* Track.m in Sources */,
+				D4CB48F31A1E553A0000B4BE /* TrackSegment.m in Sources */,
+				D4D52C791A408CEB00F503A9 /* NSGPXParser.m in Sources */,
+				D4CFB47C1A07D140002AC497 /* AppDelegate.m in Sources */,
+				D482667A1A1BAAA9002BFC2E /* LocalTrackTableViewController.m in Sources */,
+				D4CB48F21A1E553A0000B4BE /* TrackPoint.m in Sources */,
+				D4CB20761A165BD000A93E9D /* MapViewController.m in Sources */,
+				D4CFB47F1A07D140002AC497 /* WorkingTabViewController.m in Sources */,
+				D4D3E1ED1A3B3B2100531DDF /* GPXParser.m in Sources */,
+				D4CE4C331A1A3FC300427E11 /* SimpleViewController.m in Sources */,
+				D4CB48F91A1E57630000B4BE /* FileHelper.m in Sources */,
+				D4CFB4791A07D140002AC497 /* main.m in Sources */,
+				A8E2BB234B7ABB2592EEDBDA /* GPSLocationHelper.m in Sources */,
+				A8E2B5E5C40F49D26AF333BB /* GPXCreator.m in Sources */,
+				A8E2B85B947EC8C9B163B354 /* TimeLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4CFB48B1A07D140002AC497 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4CFB4961A07D140002AC497 /* GPSRecorderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4CFB4911A07D140002AC497 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4CFB4721A07D140002AC497 /* GPSRecorder */;
+			targetProxy = D4CFB4901A07D140002AC497 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4CB206E1A164A4A00A93E9D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4CB206D1A164A4A00A93E9D /* en */,
+				D4CB206F1A164A4D00A93E9D /* zh-Hans */,
+				D4CB20701A164A4E00A93E9D /* Base */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D4CFB4831A07D140002AC497 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4CFB4841A07D140002AC497 /* Base */,
+				D4CFB4B21A07E4DA002AC497 /* zh-Hans */,
+				D47183FD1A093A7B00E5CDED /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D4CFB4881A07D140002AC497 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4CFB4891A07D140002AC497 /* Base */,
+				D4CFB4B31A07E4DB002AC497 /* zh-Hans */,
+				D4CFB4B71A07E4F6002AC497 /* en */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4CFB4971A07D140002AC497 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D4CFB4981A07D140002AC497 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lxml2";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D4CFB49A1A07D140002AC497 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GPSRecorder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D4CFB49B1A07D140002AC497 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GPSRecorder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D4CFB49D1A07D140002AC497 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GPSRecorderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSRecorder.app/GPSRecorder";
+			};
+			name = Debug;
+		};
+		D4CFB49E1A07D140002AC497 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GPSRecorderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GPSRecorder.app/GPSRecorder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4CFB46E1A07D140002AC497 /* Build configuration list for PBXProject "GPSRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4CFB4971A07D140002AC497 /* Debug */,
+				D4CFB4981A07D140002AC497 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4CFB4991A07D140002AC497 /* Build configuration list for PBXNativeTarget "GPSRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4CFB49A1A07D140002AC497 /* Debug */,
+				D4CFB49B1A07D140002AC497 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4CFB49C1A07D140002AC497 /* Build configuration list for PBXNativeTarget "GPSRecorderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4CFB49D1A07D140002AC497 /* Debug */,
+				D4CFB49E1A07D140002AC497 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4CFB46B1A07D140002AC497 /* Project object */;
+}

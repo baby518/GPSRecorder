@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  GPSRecorder
+
+  Created by zhangchao on 14/11/14.
+  Copyright (c) 2014年 zhangchao. All rights reserved.
+*/
+//my custom
+
+"NavigationItem.DeleteAll" = "Delete All";
+"NavigationItem.Delete" = "Delete (%d)";
+"NavigationItem.DeleteAllInfo" = "I will delete all files, Are you sure ?";
+"LocationManager.Start" = "Start";
+"LocationManager.Stop" = "Stop";
+"DeleteConfirm" = "I'm sure.";
+"Cancel" = "Cancel";

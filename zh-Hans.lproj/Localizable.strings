@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  GPSRecorder
+
+  Created by zhangchao on 14/11/14.
+  Copyright (c) 2014年 zhangchao. All rights reserved.
+*/
+//my custom
+
+"NavigationItem.DeleteAll" = "删除所有";
+"NavigationItem.Delete" = "删除%d项";
+"NavigationItem.DeleteAllInfo" = "删除所有记录，是否继续？";
+"LocationManager.Start" = "开始";
+"LocationManager.Stop" = "停止";
+"DeleteConfirm" = "删除吧";
+"Cancel" = "取消";

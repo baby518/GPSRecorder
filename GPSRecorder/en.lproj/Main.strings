@@ -1,0 +1,48 @@
+
+/* Class = "IBUINavigationItem"; title = "working"; ObjectID = "vIe-vP-ATR"; */
+"vIe-vP-ATR.title" = "Main";
+
+/* Class = "IBUINavigationItem"; title = "List"; ObjectID = "Bh9-5o-jqN"; */
+"Bh9-5o-jqN.title" = "Track List";
+
+/* Class = "IBUINavigationItem"; title = "Setting"; ObjectID = "15c-73-9n1"; */
+"15c-73-9n1.title" = "Setting";
+
+/* Class = "IBUILabel"; text = "Loaded by FirstViewController"; ObjectID = "A5M-7J-77L"; */
+"A5M-7J-77L.text" = "Loaded by WorkingTabViewController";
+
+/* Class = "IBUILabel"; text = "Loaded by SecondViewController"; ObjectID = "NDk-cv-Gan"; */
+"NDk-cv-Gan.text" = "Loaded by SettingTabViewController";
+
+/* Class = "IBUILabel"; text = "First View"; ObjectID = "KQZ-1w-vlD"; */
+"KQZ-1w-vlD.text" = "First View";
+
+/* Class = "IBUILabel"; text = "Second View"; ObjectID = "zEq-FU-wV5"; */
+"zEq-FU-wV5.text" = "Second View";
+
+/* Class = "IBUITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Main";
+
+/* Class = "IBUITabBarItem"; title = "Item"; ObjectID = "SLT-fO-SHe"; */
+"SLT-fO-SHe.title" = "Track List";
+
+/* Class = "IBUITabBarItem"; title = "Second"; ObjectID = "tIV-F8-5Am"; */
+"tIV-F8-5Am.title" = "Setting";
+
+/* Class = "IBUISegmentedControl"; q4G-J3-Ske.segmentTitles[0] = "Simple"; ObjectID = "q4G-J3-Ske"; */
+"q4G-J3-Ske.segmentTitles[0]" = "Simple";
+
+/* Class = "IBUISegmentedControl"; q4G-J3-Ske.segmentTitles[1] = "Map"; ObjectID = "q4G-J3-Ske"; */
+"q4G-J3-Ske.segmentTitles[1]" = "Map";
+
+/* Class = "IBUILabel"; text = "Altitude"; ObjectID = "agf-dQ-3KS"; */
+"agf-dQ-3KS.text" = "Altitude";
+
+/* Class = "IBUILabel"; text = "Latitude"; ObjectID = "gUN-Ye-N2k"; */
+"gUN-Ye-N2k.text" = "Latitude";
+
+/* Class = "IBUILabel"; text = "Longitude"; ObjectID = "hVs-sc-seD"; */
+"hVs-sc-seD.text" = "Longitude";
+
+/* Class = "IBUILabel"; text = "Speed"; ObjectID = "Agt-8R-9on"; */
+"Agt-8R-9on.text" = "Speed";
