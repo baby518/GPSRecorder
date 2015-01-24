@@ -10,11 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "TimeLabel.h"
 
-@protocol LocationButtonDelegate <NSObject>
-- (bool)locationManagerRunning;
-- (bool)startLocation;
-- (bool)stopLocation;
-@end
+@protocol MyLocationManagerDelegate;
 
 @interface SimpleViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *mLatitudeTextField;
@@ -24,10 +20,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *mLocationManagerButton;
 @property (weak, nonatomic) IBOutlet UILabel *mPlacemarkLabel;
 @property (weak, nonatomic) IBOutlet TimeLabel *mTimeLabel;
-@property (nonatomic, assign) id <LocationButtonDelegate> delegate;
+@property (nonatomic, assign) id <MyLocationManagerDelegate> delegate;
+@property (nonatomic, retain) NSError *locationManagerError;
 
 - (void)didUpdateToLocation:(CLLocation *)newLocation
                fromLocation:(CLLocation *)oldLocation;
 - (IBAction)onLocationButtonClick:(UIButton *)sender;
+- (void)startLocationUI;
+- (void)stopLocationUI;
 - (void)didUpdatePlacemark:(CLPlacemark *)newPlacemark;
 @end

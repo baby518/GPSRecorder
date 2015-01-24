@@ -12,7 +12,13 @@
 #import "MapViewController.h"
 #import "GPXCreator.h"
 
-@interface WorkingTabViewController : UIViewController <CLLocationManagerDelegate, LocationButtonDelegate> {
+@protocol MyLocationManagerDelegate <NSObject>
+- (bool)locationManagerRunning;
+- (bool)startLocation;
+- (bool)stopLocation;
+@end
+
+@interface WorkingTabViewController : UIViewController <CLLocationManagerDelegate, MyLocationManagerDelegate> {
 }
 
 @property(weak, nonatomic) IBOutlet UISegmentedControl *mSegmentedControl;
@@ -47,4 +53,3 @@
 - (void)geocodeLocation:(CLLocation *)location;
 
 @end
-

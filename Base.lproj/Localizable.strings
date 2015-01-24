@@ -12,5 +12,6 @@
 "NavigationItem.DeleteAllInfo" = "I will delete all files, Are you sure ?";
 "LocationManager.Start" = "Start";
 "LocationManager.Stop" = "Stop";
+"LocationManager.DeniedErrorInfo" = "Please allow Location Access in system Setting";
 "DeleteConfirm" = "I'm sure.";
 "Cancel" = "Cancel";

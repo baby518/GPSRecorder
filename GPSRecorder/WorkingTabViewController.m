@@ -88,7 +88,6 @@
     [_locationManager requestAlwaysAuthorization];
     [_locationManager requestWhenInUseAuthorization];
     [_locationManager startUpdatingLocation];
-    _isLocationManagerRunning = true;
     _needStoreFirstGeocode = true;
 }
 
@@ -123,6 +122,8 @@
 *   so just save it to GPX, use TrackMapView to show track. */
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
+    _isLocationManagerRunning = true;
+    _mSimpleViewController.locationManagerError = nil;
     //refresh SimpleView
     [_mSimpleViewController didUpdateToLocation:newLocation fromLocation:oldLocation];
     NSLog(@"didUpdateUserLocation newLocation from locationManager : %.6f, %.6f, %.2f, %.2f",
@@ -169,10 +170,13 @@
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error{
-    NSLog(@"didFailWithError");
+    NSLog(@"didFailWithError : %@", error);
+    _isLocationManagerRunning = false;
+    _mSimpleViewController.locationManagerError = error;
+    [self stopLocationManager];
 }
 
-#pragma mark - SimpleViewController's LocationButtonDelegate
+#pragma mark - MyLocationManagerDelegate
 - (bool)locationManagerRunning {
     return _isLocationManagerRunning;
 }
