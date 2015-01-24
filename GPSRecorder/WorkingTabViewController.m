@@ -125,8 +125,13 @@
            fromLocation:(CLLocation *)oldLocation {
     //refresh SimpleView
     [_mSimpleViewController didUpdateToLocation:newLocation fromLocation:oldLocation];
-    NSLog(@"didUpdateUserLocation newLocation from locationManager : %.6f, %.6f",
-            newLocation.coordinate.longitude, newLocation.coordinate.latitude);
+    NSLog(@"didUpdateUserLocation newLocation from locationManager : %.6f, %.6f, %.2f, %.2f",
+            newLocation.coordinate.longitude, newLocation.coordinate.latitude,
+            newLocation.horizontalAccuracy, newLocation.verticalAccuracy);
+    if (newLocation.horizontalAccuracy > 100 || newLocation.verticalAccuracy > 50) {
+        return;
+    }
+
     CLLocation *lastLocation = _currentLocationArray.lastObject;
     if (lastLocation == nil || [newLocation distanceFromLocation:lastLocation] > _distanceFilter) {
         [_currentLocationArray addObject:newLocation];
