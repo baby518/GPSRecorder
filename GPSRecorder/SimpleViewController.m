@@ -31,12 +31,12 @@
     if (error != nil) {
         [self stopLocationUI];
         if (error.code == kCLErrorDenied) {
-            _mPlacemarkLabel.text = NSLocalizedString(@"LocationManager.DeniedErrorInfo", @"DeniedError");
+            _mErrorLabel.text = NSLocalizedString(@"LocationManager.DeniedErrorInfo", @"DeniedError");
         } else {
-            _mPlacemarkLabel.text = error.localizedDescription;
+            _mErrorLabel.text = error.localizedDescription;
         }
     } else {
-        _mPlacemarkLabel.text = @"";
+        _mErrorLabel.text = @"";
     }
 }
 

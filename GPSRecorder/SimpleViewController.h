@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *mLocationManagerButton;
 @property (weak, nonatomic) IBOutlet UILabel *mPlacemarkLabel;
 @property (weak, nonatomic) IBOutlet TimeLabel *mTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mErrorLabel;
 @property (nonatomic, assign) id <MyLocationManagerDelegate> delegate;
 @property (nonatomic, retain) NSError *locationManagerError;
 
