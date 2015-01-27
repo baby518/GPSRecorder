@@ -21,9 +21,11 @@
     }
     _mTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateLabel) userInfo:nil repeats:YES];
     [_mTimer setFireDate:[NSDate distantFuture]]; // pause
+    _isInitialized = true;
 }
 
 - (void)startTimer {
+    if (_isTimerRunning) return;
     if (![self isInitialized]) {
         [self initTimer];
     }
@@ -43,6 +45,7 @@
     _mTimer = nil;
     self.text = [self formatTimerString : 0];
     _isTimerRunning = false;
+    _isInitialized = false;
     _lastTimeInterval = 0;
     _curTimeInterval = 0;
 }
