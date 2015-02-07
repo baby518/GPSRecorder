@@ -172,13 +172,12 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-//    NSURL *fileURL = _trackFiles[indexPath.row];
-    NSString *filePath = _trackFiles[indexPath.row];
+    NSURL *fileURL = _trackFiles[indexPath.row];
     // just use file name, not include suffix.
-    cell.textLabel.text = [FileHelper getFilesName:filePath];
+    cell.textLabel.text = [FileHelper getFilesName:fileURL];
 //    cell.textLabel.text = [fileURL lastPathComponent];
 
-    NSString * fileSize = [FileHelper getFilesSize:filePath];
+    NSString * fileSize = [FileHelper getURLSize:fileURL];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", fileSize];
     return cell;
 }

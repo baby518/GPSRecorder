@@ -74,25 +74,39 @@
     [fm removeItemAtPath:fileName error:nil];
 }
 
-+ (NSString *) getFilesName:(NSString *)path {
++ (NSString *) getFilesName:(NSURL *)path {
     NSMutableArray *fileName = [NSMutableArray arrayWithArray:[[path lastPathComponent] componentsSeparatedByString:@"."]];
     [fileName removeLastObject];
     return [fileName componentsJoinedByString:@"."];
 }
 
-+ (unsigned int)getFilesLength:(NSString *)path {
-    NSData *data = [NSData dataWithContentsOfFile:path options:NSUncachedRead error:nil];
++ (unsigned int)getURLLength:(NSURL *)path {
+    NSData *data = [NSData dataWithContentsOfFile:path.relativePath options:NSUncachedRead error:nil];
     return data.length;
 }
 
-+ (NSString *) getFilesSize:(NSString *)path {
-    double length = [self getFilesLength:path] * 1.0;
++ (NSString *)getURLSize:(NSURL *)path {
+    double length = [self getFileLength:path.relativePath] * 1.0;
     NSArray *units = @[@" B", @" KB", @" MB", @" GB", @" TB"];
+    int arrayCount = units.count;
     unsigned int i = 0;
-    for (i = 0; length >= 1024 && i < 4; i++ ) {
+    for (i = 0; length >= 1024 && i < arrayCount - 1; i++) {
         length = length / 1024;
     }
     return [NSString stringWithFormat:@"%.2f %@", length, units[i]];
+}
+
++ (long long)getFileLength:(NSString *)filePath {
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]) {
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    return 0;
+}
+
++ (NSString *)getFileSize:(NSString *)filePath {
+    long long size = [self getFileLength:filePath];
+    return [NSByteCountFormatter stringFromByteCount:size countStyle:NSByteCountFormatterCountStyleFile];
 }
 
 + (NSString *)generateFilePathFromDate {
