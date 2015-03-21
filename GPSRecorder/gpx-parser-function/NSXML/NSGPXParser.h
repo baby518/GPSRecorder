@@ -42,6 +42,6 @@
 
 - (instancetype)initWithData:(NSData *)data;
 
-- (void)satrtParser;
+- (void)startParser;
 - (void)stopParser;
 @end

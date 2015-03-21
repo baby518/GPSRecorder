@@ -39,7 +39,7 @@
             NSLog(@"startParserButtonPressed use NSXML.");
             _nsGpxParser = [[NSGPXParser alloc] initWithData:_gpxData];
             _nsGpxParser.delegate = self;
-            [_nsGpxParser satrtParser];
+            [_nsGpxParser startParser];
         } else if (_xmlParseMode == 2) {
             NSLog(@"startParserButtonPressed use GDataXML.");
             _gpxParser = [[GPXParser alloc] initWithData:_gpxData];
