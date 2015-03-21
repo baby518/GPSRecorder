@@ -48,7 +48,9 @@
 
 - (void)showSimpleView;
 - (void)showMapView;
-- (void)startLocationManager;
+/*
+* return false if location is not authorized.*/
+- (bool)startLocationManager;
 - (void)stopLocationManager;
 - (void)geocodeLocation:(CLLocation *)location;
 

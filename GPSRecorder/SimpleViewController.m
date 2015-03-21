@@ -67,13 +67,9 @@
         NSLog(@"isLocationManagerRunning : %d", [_delegate locationManagerRunning]);
         bool isLocationManagerRunning = [_delegate locationManagerRunning];
         if (isLocationManagerRunning) {
-            if ([_delegate stopLocation]) {
-                [self stopLocationUI];
-            }
+            [_delegate stopLocation];
         } else {
-            if ([_delegate startLocation]) {
-                [self startLocationUI];
-            }
+            [_delegate startLocation];
         }
     }
 }

@@ -80,15 +80,25 @@
     [_mMapViewController reLocateUserPoint];
 }
 
-- (void)startLocationManager {
+- (bool)startLocationManager {
     [_currentLocationArray removeAllObjects];
 
     _locationManager.delegate = self;
-    // requestAlwaysAuthorization or requestWhenInUseAuthorization in IOS 8;
-    [_locationManager requestAlwaysAuthorization];
-    [_locationManager requestWhenInUseAuthorization];
-    [_locationManager startUpdatingLocation];
-    _needStoreFirstGeocode = true;
+
+    if (CLLocationManager.authorizationStatus != kCLAuthorizationStatusAuthorized
+            && CLLocationManager.authorizationStatus != kCLAuthorizationStatusAuthorizedAlways
+            && CLLocationManager.authorizationStatus != kCLAuthorizationStatusAuthorizedWhenInUse) {
+        // requestAlwaysAuthorization or requestWhenInUseAuthorization in IOS 8;
+        if ([_locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+            [_locationManager requestAlwaysAuthorization];
+//            [_locationManager requestWhenInUseAuthorization];
+        }
+        return false;
+    } else {
+        [_locationManager startUpdatingLocation];
+        _needStoreFirstGeocode = true;
+        return true;
+    }
 }
 
 - (void)stopLocationManager {
@@ -176,20 +186,37 @@
     [self stopLocationManager];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (CLLocationManager.authorizationStatus != kCLAuthorizationStatusAuthorized
+            && CLLocationManager.authorizationStatus != kCLAuthorizationStatusAuthorizedAlways
+            && CLLocationManager.authorizationStatus != kCLAuthorizationStatusAuthorizedWhenInUse) {
+        _mSimpleViewController.locationManagerError = [NSError errorWithDomain:@"" code:kCLErrorDenied userInfo:nil];
+        if (_isLocationManagerRunning) {
+            [self stopLocation];
+        }
+    } else {
+        _mSimpleViewController.locationManagerError = nil;
+    }
+}
+
 #pragma mark - MyLocationManagerDelegate
 - (bool)locationManagerRunning {
     return _isLocationManagerRunning;
 }
 
 - (bool)startLocation {
-    [self startLocationManager];
-    // if start failed, return false.
-    _gpxCreator = [[GPXCreator alloc] initWithName:@"ZhangChao"];
-
-    return true;
+    if ([self startLocationManager]) {
+        _gpxCreator = [[GPXCreator alloc] initWithName:@"ZhangChao"];
+        [_mSimpleViewController startLocationUI];
+        return true;
+    } else {
+        return false;
+    }
 }
 
 - (bool)stopLocation {
+    [_mSimpleViewController stopLocationUI];
+
     [self stopLocationManager];
     // if stop failed, return false.
     // add metadata here
