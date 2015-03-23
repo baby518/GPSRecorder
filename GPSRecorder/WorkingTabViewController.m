@@ -93,6 +93,11 @@
             [_locationManager requestAlwaysAuthorization];
 //            [_locationManager requestWhenInUseAuthorization];
         }
+        if (CLLocationManager.authorizationStatus == kCLAuthorizationStatusNotDetermined) {
+            _needStartUpdatingLocationWhenUserAllow = true;
+        } else {
+            _mSimpleViewController.locationManagerError = [NSError errorWithDomain:@"" code:kCLErrorDenied userInfo:nil];
+        }
         return false;
     } else {
         [_locationManager startUpdatingLocation];
@@ -196,7 +201,11 @@
         }
     } else {
         _mSimpleViewController.locationManagerError = nil;
+        if (_needStartUpdatingLocationWhenUserAllow) {
+            [self startLocation];
+        }
     }
+    _needStartUpdatingLocationWhenUserAllow = false;
 }
 
 #pragma mark - MyLocationManagerDelegate

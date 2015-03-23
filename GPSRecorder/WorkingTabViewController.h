@@ -41,6 +41,8 @@
 @property(nonatomic, assign, readonly) bool needGeocode;
 /** store first geocode to generate filename */
 @property(nonatomic, assign, readonly) bool needStoreFirstGeocode;
+/** first click start, will popup a dialog to user select, after user select, start updatingLocation.*/
+@property(nonatomic, assign, readonly) bool needStartUpdatingLocationWhenUserAllow;
 @property(weak, nonatomic) IBOutlet UIBarButtonItem *mRefreshButton;
 
 - (IBAction)segmentChangedValue:(UISegmentedControl *)sender;
