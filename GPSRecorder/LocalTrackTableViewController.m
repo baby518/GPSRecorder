@@ -265,6 +265,7 @@
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [self updateDeleteButtonTitle];
+    [self updateEditButtonTitle];
     [super setEditing:editing animated:animated];
     if (_isMultiEditing) {
         // just change to _mDeleteButton when MultiEditing, if slide to edit, don't change it.
@@ -286,8 +287,6 @@
         [self deleteFiles:selectedRows];
     }
 
-    [self updateDeleteButtonTitle];
-    [self updateEditButtonTitle];
     [self setEditing:NO animated:YES];
 }
 
