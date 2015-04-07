@@ -32,6 +32,7 @@
 		D4D3E1EC1A3B3B2100531DDF /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D3E1E91A3B3B2100531DDF /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4D3E1ED1A3B3B2100531DDF /* GPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */; };
 		D4D52C791A408CEB00F503A9 /* NSGPXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D52C781A408CEB00F503A9 /* NSGPXParser.m */; };
+		D4E2007B1AD4311500509B2B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4E2007D1AD4311500509B2B /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,9 @@
 		D4D3E1EB1A3B3B2100531DDF /* GPXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPXParser.m; sourceTree = "<group>"; };
 		D4D52C771A408CEB00F503A9 /* NSGPXParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSGPXParser.h; sourceTree = "<group>"; };
 		D4D52C781A408CEB00F503A9 /* NSGPXParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSGPXParser.m; sourceTree = "<group>"; };
+		D4E2007C1AD4311500509B2B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4E2007E1AD4311600509B2B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D4E2007F1AD4311700509B2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,7 @@
 			children = (
 				D4CFB4771A07D140002AC497 /* Info.plist */,
 				D4CFB4781A07D140002AC497 /* main.m */,
+				D4E2007D1AD4311500509B2B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				D4CB206C1A164A4A00A93E9D /* Localizable.strings in Resources */,
 				D4CFB48A1A07D140002AC497 /* LaunchScreen.xib in Resources */,
 				D4CFB4871A07D140002AC497 /* Images.xcassets in Resources */,
+				D4E2007B1AD4311500509B2B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +471,16 @@
 				D4CFB4B71A07E4F6002AC497 /* en */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		D4E2007D1AD4311500509B2B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4E2007C1AD4311500509B2B /* en */,
+				D4E2007E1AD4311600509B2B /* zh-Hans */,
+				D4E2007F1AD4311700509B2B /* Base */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
