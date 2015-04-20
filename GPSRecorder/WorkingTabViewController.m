@@ -20,11 +20,9 @@
 
     _currentLocationArray = [NSMutableArray array];
 
-    // load "Main" storyboard from NSBundle
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     // load viewController from storyboard.
-    _mSimpleViewController = [story instantiateViewControllerWithIdentifier:@"simpleViewController"];
-    _mMapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewController"];
+    _mSimpleViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"simpleViewController"];
+    _mMapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mapViewController"];
     _mMapViewController.isRealTimeMode = true;
     _mSimpleViewController.delegate = self;
 

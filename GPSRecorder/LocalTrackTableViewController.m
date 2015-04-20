@@ -190,8 +190,7 @@
         [self updateDeleteButtonTitle];
     } else {
         // open selected file
-        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-        MapViewController *mapViewController = [story instantiateViewControllerWithIdentifier:@"mapViewController"];
+        MapViewController *mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"mapViewController"];
 
 //    NSURL *fileURL = _trackFiles[indexPath.row];
         NSString *filePath = _trackFiles[indexPath.row];
