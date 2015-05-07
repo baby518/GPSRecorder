@@ -33,6 +33,15 @@
     self.navigationItem.rightBarButtonItem = _mRefreshButton;
     [self updateDeleteButtonTitle];
     self.editButtonItem.enabled = NO;
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self action:@selector(pullToRefresh) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+}
+
+- (void)pullToRefresh {
+    [self refreshFilesList];
+    [self.refreshControl endRefreshing];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
